@@ -1,0 +1,21 @@
+{
+  "name": "things-manager",
+  "version": "0.1.0",
+  "main": "main/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "start-vue-devtools": "./node_modules/.bin/vue-devtools",
+    "start-dev": "electron . --profile=dev"
+  },
+  "dependencies": {
+    "vue": "2.5.17",
+    "moment": "2.22.2",
+    "bootstrap": "3.3.7",
+    "minimist": "1.2.0",
+    "electron": "2.0.9",
+    "less": "3.8.1"
+  },
+  "devDependencies": {
+    "@vue/devtools": "4.1.5"
+  }
+}

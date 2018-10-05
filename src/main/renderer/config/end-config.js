@@ -1,0 +1,1 @@
+projectListener.fire('app-changed');

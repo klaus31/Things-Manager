@@ -1,0 +1,176 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+  height: 100%;
+  background: #eee;
+  > div.container {
+    padding-right: 0;
+  }
+}
+
+#app-input {
+  height: 100%;
+}
+
+div.projectarea {
+  height: 100%;
+  background: white;
+  .main-area {
+    border: 0 solid #eee;
+    border-left-width: 1px;
+    height: 100%;
+    overflow-y: scroll;
+
+    h1 {
+      height: 5%;
+    }
+
+    /** FIXME div full height — as shitty as 1997. Solution in Javascript. Really?! ... */
+    #card-edit-things {
+      overflow-y: scroll;
+      height: 93%;
+    }
+  }
+
+  .card {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    vertical-align: top;
+    border: 1px solid darkslategray;
+
+    td, th {
+      border: 1px solid darkslategray;
+      padding: 5px;
+    }
+    .editable-text {
+      display: inline-block;
+    }
+    p.buttons {
+      float: right;
+    }
+    thead {
+      font-size: 1.5em;
+    }
+  }
+}
+
+.editable-text p {
+  margin: 0;
+  .buttonlink {
+    float: right;
+    margin-left: 0.5em;
+  }
+
+  p.content {
+    display: inline-block;
+  }
+}
+
+.v-select {
+  display: inline-block;
+  /* XXX :searchable="false" not working */
+  button.clear {
+    display: none !important;
+  }
+  * {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
+
+button.btn-default {
+  &.btn-inset {
+    border-style: inset;
+    background-color: antiquewhite;
+  }
+
+  &.btn-outset {
+    border-style: outset;
+    /*background-color: beige;*/
+  }
+}
+
+.sidebar {
+  h2 {
+    font-size: 1.5em;
+  }
+  h3 {
+    font-size: 1.3em;
+  }
+  .block {
+    margin-bottom: 1em;
+  }
+  li {
+    list-style-type: none;
+  }
+  ul {
+    -webkit-padding-start: 0;
+  }
+}
+
+input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  cursor: pointer;
+  font-size: 14px;
+  visibility: hidden;
+
+  &:after {
+    content: " ";
+    background-color: white;
+    display: inline-block;
+    margin: 2px 0 0 0;
+    padding-bottom: 5px;
+    color: darkslategray;
+    width: 18px;
+    height: 20px;
+    visibility: visible;
+    border: 1px solid darkslategray;
+    padding-left: 3px;
+    border-radius: 5px;
+  }
+
+  &:checked:after {
+    content: "\2714";
+    padding: -5px;
+    font-weight: bold;
+  }
+}
+
+input[type=radio] {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  cursor: pointer;
+  font-size: 20px;
+  visibility: hidden;
+
+  &:after {
+    content: " ";
+    background-color: white;
+    display: inline-block;
+    margin: 6px 0 0 3px;
+    padding-bottom: 5px;
+    color: darkslategray;
+    width: 16px;
+    height: 16px;
+    visibility: visible;
+    border: 1px solid darkslategray;
+    padding-left: 0px;
+    line-height: 12px;
+    border-radius: 15px;
+  }
+
+  &:checked:after {
+    content: "\2714";
+    padding: -5px;
+    font-weight: bold;
+  }
+}

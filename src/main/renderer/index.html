@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet/less" type="text/css" href="styles.less"/>
+  <link rel="stylesheet/less" type="text/css" href="add-first-thing/styles.less"/>
+  <link rel="stylesheet/less" type="text/css" href="manage-things/add-new-thing/styles.less"/>
+  <link rel="stylesheet/less" type="text/css" href="manage-things/styles.less"/>
+  <link rel="stylesheet/less" type="text/css" href="manage-categories/styles.less"/>
+  <!-- Run npm run config-vue-devtools and uncomment -->
+  <!--<script src="http://localhost:8098"></script>-->
+</head>
+<body :class="project.currentProjectAreaKey">
+
+<div class="projectarea container"
+     id="app-add-new-thing"
+     v-if="area.key === 'add-new-thing'">
+  <tm-sidebar>
+    <h2>Add New {{viewModel.category.singular}}</h2>
+    <div class="block">
+      <h3 v-if="viewModel.categories.length > 1">Choose category of new thing to add</h3>
+      <ul v-if="viewModel.categories.length > 1">
+        <li v-for="category in viewModel.categories" v-colors="viewModel.colors(category)" @click="viewModel.category = category">
+          <label>
+            <input type="radio" :value="category" v-model="viewModel.category"> {{category.singular}}
+          </label>
+        </li>
+      </ul>
+      <div class="block">
+        <tm-button icon="chevron-left" buttonstyle="primary" @click="area.key = 'manage-things'">Cancel</tm-button>
+      </div>
+    </div>
+  </tm-sidebar>
+  <tm-main-area>
+    <h1>
+      <tm-editable type="text"
+                   :content="viewModel.projectName"
+                   :callback="val => viewModel.projectName = val"></tm-editable>
+    </h1>
+    <card-new-thing v-model="viewModel"></card-new-thing>
+    <div class="block">
+      <tm-button icon="ok" size="xl" buttonstyle="success" @click="viewModel.finalize()">Finish</tm-button>
+    </div>
+  </tm-main-area>
+</div>
+
+<div class="projectarea container"
+     id="app-add-first-thing"
+     v-if="area.key === 'add-first-thing'">
+  <tm-sidebar>
+    <h2>Welcome to the Things Manager</h2>
+    <div class="block">
+      <p>
+        Before you are able to start managing things, you have to define some basics and your very
+        first thing.
+      </p>
+    </div>
+  </tm-sidebar>
+  <tm-main-area>
+    <h1>{{viewModel.h1}}</h1>
+    <card-first-thing v-model="viewModel" :start="start"></card-first-thing>
+  </tm-main-area>
+</div>
+
+<div class="projectarea container"
+     id="app-manage-categories"
+     v-if="area.key === 'manage-categories'">
+  <tm-sidebar>
+    <h2>Manage Categories</h2>
+    <div class="block">
+      <div class="block">
+        <tm-button icon="plus" buttonstyle="primary" @click="viewModel.addNewCategory()">Add category</tm-button>
+      </div>
+    </div>
+  </tm-sidebar>
+  <tm-main-area>
+    <h1>
+      <tm-editable type="text"
+                   :content="viewModel.projectName"
+                   :callback="val => viewModel.projectName = val"></tm-editable>
+    </h1>
+    <div id="category-cards">
+      <card-manage-category-readonly v-if="category.locked"
+                                     v-for="category in viewModel.shownCategories"
+                                     :key="category.uuid"
+                                     :category="category"
+                                     :project="viewModel">
+      </card-manage-category-readonly>
+      <card-manage-category-editable v-if="!category.locked"
+                                     v-for="category in viewModel.shownCategories"
+                                     :key="category.uuid"
+                                     :category="category"
+                                     :project="viewModel">
+      </card-manage-category-editable>
+    </div>
+  </tm-main-area>
+</div>
+
+<div class="projectarea container"
+     id="app-manage-things"
+     v-if="area.key === 'manage-things'">
+  <tm-sidebar>
+    <h2>Manage Things</h2>
+    <div class="block">
+      <input type="search"
+             title="Search"
+             class="form-control"
+             v-model="viewModel.search"
+             :placeholder="viewModel.searchPlaceholder">
+    </div>
+    <div class="block">
+      <tm-button v-if="!viewModel.showdetails" icon="th" buttonstyle="primary" @click="viewModel.showdetails = true">Show details</tm-button>
+      <tm-button v-if="viewModel.showdetails" icon="th-large" buttonstyle="primary" @click="viewModel.showdetails = false">Hide details</tm-button>
+    </div>
+    <div class="block addnew">
+      <h3>Add Thing</h3>
+      <ul>
+        <li v-for="category in viewModel.categories" v-colors="category.colors" @click="gotoNewThingAreaOf(category)">
+          <span class="glyphicon glyphicon-plus"></span> Add {{category.labelSingular}}
+        </li>
+      </ul>
+    </div>
+    <div class="block doshow">
+      <h3>Do Show</h3>
+      <ul>
+        <li v-for="category in viewModel.categories" v-colors="category.colors">
+          <label><input type="checkbox" checked v-model="category.active"> {{category.labelPlural}}</label>
+        </li>
+      </ul>
+    </div>
+  </tm-sidebar>
+  <tm-main-area>
+    <h1>
+      <tm-editable type="text"
+                   :content="viewModel.projectName"
+                   :callback="val => viewModel.projectName = val"></tm-editable>
+    </h1>
+    <div id="thing-cards">
+      <card-manage-thing v-for="thing in viewModel.shownThings"
+                         :key="thing.uuid"
+                         :thing="thing"
+                         :project="viewModel">
+      </card-manage-thing>
+    </div>
+  </tm-main-area>
+</div>
+
+<!-- XXX this is a pseudo element needed to store every changes in the project on the fly -->
+<div id="watch-app"></div>
+
+<!-- 3rd parties -->
+<script src="../../node_modules/vue/dist/vue.js"></script>
+<script src="../../node_modules/moment/min/moment-with-locales.min.js"></script>
+<script src="../../node_modules/less/dist/less.js"></script>
+
+<!-- data -->
+<script src="shared/data/model/App.js"></script>
+<script src="shared/data/model/CurrentArea.js"></script>
+<script src="shared/data/model/Project.js"></script>
+<script src="shared/data/model/Category.js"></script>
+<script src="shared/data/model/PropertyKey.js"></script>
+<script src="shared/data/model/Property.js"></script>
+<script src="shared/data/model/Thing.js"></script>
+<script src="shared/data/AppStorage.js"></script>
+<script src="shared/data/DataType.js"></script>
+<script src="shared/data/DataTypeProvider.js"></script>
+<script src="shared/data/DataTypeValueUtil.js"></script>
+<script src="shared/ProjectListener.js"></script>
+<script src="shared/UuidFactory.js"></script>
+
+<!-- shared vue elements -->
+<script src="shared/html/v-colors.js"></script>
+<script src="shared/html/v-autofocus.js"></script>
+<script src="shared/html/v-autoselect.js"></script>
+<script src="shared/html/tm-editable.js"></script>
+<script src="shared/html/tm-main-area.js"></script>
+<script src="shared/html/tm-sidebar.js"></script>
+<script src="shared/html/tm-button.js"></script>
+
+<!-- config app -->
+<script src="shared/data/BackwardCompatibilityService.js"></script>
+<script src="config/Starter.js"></script>
+<script src="config/begin-config.js"></script>
+<script src="config/title.js"></script>
+
+<!-- specific vue elements -->
+<script src="manage-things/add-new-thing/card-new-thing.js"></script>
+<script src="manage-things/add-new-thing/NewThingViewModel.js"></script>
+<script src="manage-things/add-new-thing/add-new-thing.js"></script>
+<script src="add-first-thing/card-first-thing.js"></script>
+<script src="add-first-thing/FirstThingViewModel.js"></script>
+<script src="add-first-thing/add-first-thing.js"></script>
+<script src="manage-things/ProjectViewModel.js"></script>
+<script src="manage-things/PropertyViewModel.js"></script>
+<script src="manage-things/ThingCardViewModel.js"></script>
+<script src="manage-things/CategoryViewModel.js"></script>
+<script src="manage-things/card-manage-thing.js"></script>
+<script src="manage-things/manage-things.js"></script>
+<script src="manage-categories/CategoryViewModel.js"></script>
+<script src="manage-categories/ProjectViewModel.js"></script>
+<script src="manage-categories/card-manage-category-editable.js"></script>
+<script src="manage-categories/card-manage-category-readonly.js"></script>
+<script src="manage-categories/manage-categories.js"></script>
+
+<!-- finish config -->
+<script src="config/end-config.js"></script>
+
+</body>
+</html>

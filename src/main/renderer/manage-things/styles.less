@@ -1,0 +1,107 @@
+#app-manage-things {
+  .doshow {
+    li {
+      border-top: 1px solid darkslategray;
+    }
+    li:last-child {
+      border-bottom: 1px solid darkslategray;
+    }
+    input[type=checkbox] {
+      margin: 5px 0 0 5px;
+    }
+  }
+  .addnew {
+    li {
+      border-top: 1px solid darkslategray;
+      cursor: pointer;
+      padding: 5px;
+      &:last-child {
+        border-bottom: 1px solid darkslategray;
+      }
+    }
+  }
+
+  table.card {
+
+    &.editable {
+      tr, th {
+        td.input {
+          padding: 0;
+          margin: 0;
+          select, input {
+            width: 100%;
+            margin: 0;
+            border: 0;
+            &[type=date], &[type=time], &[type=datetime-local], &[type=week], &[type=month] {
+              padding: 2px;
+            }
+            &[type=checkbox] {
+              margin: 0 0 0 5px;
+              height: 20px;
+            }
+            &[type=number], &[type=url], &[type=text] {
+              padding: 5px;
+            }
+          }
+        }
+        td:nth-child(1), td:nth-child(1) {
+          width: 34%;
+        }
+        td:nth-child(2), td:nth-child(2) {
+          width: 34%;
+        }
+        td:nth-child(3), td:nth-child(3) {
+          width: 15%;
+        }
+        td:nth-child(4), td:nth-child(4) {
+          width: 7%;
+        }
+      }
+    }
+
+    &:not(.editable) {
+
+      .buttons {
+        visibility: hidden;
+      }
+      &:hover .buttons {
+        visibility: visible;
+      }
+
+      tr td:nth-child(1), tr th:nth-child(1) {
+        width: 40%;
+      }
+      tr td:nth-child(2), tr th:nth-child(2) {
+        width: 60%;
+      }
+      td.input {
+        padding: 5px;
+        &.activeInput {
+          padding: 0;
+        }
+        .editable-text, .editable-text p {
+          width: 100%;
+          padding: 0;
+          margin: 0;
+          display: inline-block;
+        }
+        input:not([type=checkbox]), select {
+          width: 100%;
+          padding: 5px 100px 5px 5px;
+          margin-left: -5px;
+          margin-top: -5px;
+          margin-bottom: -2px;
+          border: 0;
+          &[type=color] {
+            padding: 0;
+            margin: 0;
+            border: 0;
+            height: 20px;
+            width: 50px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

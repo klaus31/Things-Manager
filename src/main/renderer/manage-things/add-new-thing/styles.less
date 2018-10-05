@@ -1,0 +1,44 @@
+#app-add-new-thing {
+  .sidebar {
+    li {
+      border-top: 1px solid darkslategray;
+      width: 100%;
+      cursor: pointer;
+    }
+    li:last-child {
+      border-bottom: 1px solid darkslategray;
+    }
+    input[type=radio] {
+      margin: 5px 0 0 5px;
+    }
+  }
+  .card {
+    tr td:nth-child(1), tr th:nth-child(1) {
+      width: 30%;
+    }
+    tr td[colspan="3"]:nth-child(2) {
+      width: 70%;
+    }
+    tr td:nth-child(2), tr th:nth-child(2) {
+      width: 40%;
+    }
+    tr td:nth-child(3), tr th:nth-child(3) {
+      width: 20%;
+    }
+    tr td:nth-child(4), tr th:nth-child(4) {
+      width: 10%;
+    }
+    td.input {
+      padding: 0;
+    }
+    input, select {
+      width: 100%;
+      padding: 5px;
+      border: 0;
+      margin: 0;
+      &[type=color] {
+        padding: 0;
+      }
+    }
+  }
+}
