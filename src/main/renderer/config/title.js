@@ -4,13 +4,15 @@ const vueTitle_computeTitle = function () {
   if (APP.project && APP.project.name) {
     result.push(APP.project.name);
   }
+
+  result.push('Thing Manager');
+
   if (APP.currentFile) {
     result.push(APP.currentFile);
   }
+  result.push(moment(new Date()).format('DD.MM.YYYY HH:mm:ss'));
 
-  result.push('Last Modification: ' + moment(new Date()).format('DD.MM.YYYY HH:mm:ss'));
-  result.push('Thing Manager');
-  return result.join(' // ');
+  return result.join(' ||| ');
 };
 
 const vueTitle = new Vue({

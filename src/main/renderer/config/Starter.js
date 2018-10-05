@@ -15,8 +15,8 @@ class Starter {
         watchedApp: {
           handler: function () {
             appStorage.storeApp(app);
-            ipcRenderer.send('app-changed', JSON.stringify(app.toJSON()));
             projectListener.fire('app-changed');
+            ipcRenderer.send('app-changed', JSON.stringify(app.toJSON()));
           },
           deep: true
         }
