@@ -50,6 +50,10 @@ class Category {
     return this._propertyKey;
   }
 
+  deleteThing(thing) {
+    this._things.splice(this._things.indexOf(thing), 1);
+  }
+
   set propertyKey(propertyKey) {
     if (propertyKey && !(propertyKey instanceof PropertyKey)) throw 'propertyKey invalid';
     this._propertyKey = propertyKey;

@@ -21,15 +21,17 @@ class Project {
     this._categories = categories;
   }
 
-  getCategory(singular) {
+  getCategoryFromUuid(uuid) {
     let i = this._categories.length;
     while (i--) {
-      if (this._categories[i].singular === singular) {
+      if (this._categories[i].uuid === uuid) {
         return this._categories[i];
       }
     }
-    throw 'no category with singular name "' + singular + '"';
+    throw 'no category with uuid "' + uuid + '" found';
   }
+
+
 
   toJSON() {
     let categories = [];

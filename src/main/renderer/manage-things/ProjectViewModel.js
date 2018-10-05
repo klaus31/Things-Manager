@@ -43,12 +43,35 @@ class ManagedThings_ProjectViewModel {
     }
   }
 
+  get categoryOptions() {
+    const result = [];
+    this._app.project.categories.forEach(cat => result.push({label: cat.singular, value: cat.uuid}));
+    return result;
+  }
+
   addMissingPropertiesFromOtherThings(managedThing) {
-    const category = this._app.project.getCategory(managedThing.category);
+    const category = this._app.project.getCategoryFromUuid(managedThing.categoryUuid);
     const propertyKeys = category.findPropertyKeysOfAllThings();
     propertyKeys.forEach(propertyKey => {
       if (!managedThing.containsPropertyKey(propertyKey)) {
         managedThing.addNewPropertyWithDefaultValue(propertyKey.clone());
+      }
+    });
+  }
+
+  changeCategory(managedThing, changeCategoryUuid) {
+    const newCategory = this._app.project.getCategoryFromUuid(changeCategoryUuid);
+    const shownThings = this._shownThings;
+    managedThing.withDataCategory(function (oldCategory) {
+      if (newCategory.uuid !== oldCategory.uuid) {
+        managedThing.withDataThing(dataThing => newCategory.things.push(dataThing));
+        managedThing.withDataThing(dataThing => {
+          const newManagedThing = new ThingCardViewModel(newCategory, dataThing);
+          newManagedThing.toggleLock();
+          shownThings.push(newManagedThing);
+        });
+        shownThings.splice(shownThings.indexOf(managedThing), 1);
+        managedThing.delete();
       }
     });
   }

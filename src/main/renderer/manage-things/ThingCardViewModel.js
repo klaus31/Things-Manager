@@ -5,6 +5,7 @@ class ThingCardViewModel {
 
     this._dataCategory = category;
     this._dataThing = thing;
+    this._changeCategory = category.uuid;
 
     function properties() {
       let i = thing.properties.length;
@@ -39,6 +40,18 @@ class ThingCardViewModel {
     return this._properties;
   }
 
+  get changeCategory() {
+    return this._changeCategory;
+  }
+
+  set changeCategory(changeCategory) {
+    this._changeCategory = changeCategory;
+  }
+
+  get categoryUuid() {
+    return this._dataCategory.uuid;
+  }
+
   canBeDeleted() {
     return this._dataCategory.things.length > 1;
   }
@@ -63,9 +76,17 @@ class ThingCardViewModel {
     clonedPropertyViewModel.withDataProperty(dataProp => this._dataThing.properties.push(dataProp));
   }
 
+  withDataCategory(callback) {
+    callback(this._dataCategory);
+  }
+
   deleteProperty(propertyViewModel) {
     propertyViewModel.withDataProperty(dataProp => this._dataThing.properties.splice(this._dataThing.properties.indexOf(dataProp), 1));
     this._properties.splice(this._properties.indexOf(propertyViewModel), 1);
+  }
+
+  withDataThing(callback) {
+    callback(this._dataThing);
   }
 
   toggleLock() {
