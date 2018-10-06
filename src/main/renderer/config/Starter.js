@@ -16,7 +16,7 @@ class Starter {
           handler: function () {
             appStorage.storeApp(app);
             projectListener.fire('app-changed');
-            ipcRenderer.send('app-changed', JSON.stringify(app.toJSON()));
+            ipcRenderer.send('app-changed', app);
           },
           deep: true
         }
@@ -25,12 +25,14 @@ class Starter {
 
     ipcRenderer.on('app-closed', appStorage.storeApp);
 
-    ipcRenderer.on('app-area-changed', (event, area) => APP.setCurrentAreaKey(area));
+    ipcRenderer.on('app-area-changed', (event, area) => app.setCurrentAreaKey(area));
 
     ipcRenderer.on('data-loaded', (event, data) => appStorage.loadFileData(data));
 
     ipcRenderer.on('data-persisted', (event, persistedApp) => {
-      APP.currentFile = persistedApp.currentFile;
+      app.currentFile = persistedApp.currentFile;
+      appStorage.storeApp(app);
+      projectListener.fire('app-changed');
     });
 
     return app;

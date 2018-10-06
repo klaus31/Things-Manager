@@ -1,8 +1,15 @@
 const fs = require('fs');
 const {webContents, ipcMain} = require('electron');
-let appData = null;
+
+const APP = {rendererData: null};
 
 class DaoThingFile {
+
+  constructor() {
+    ipcMain.on('app-changed', (event, newAppData) => {
+      APP.rendererData = newAppData;
+    });
+  }
 
   load(filename, callback) {
     if (filename) {
@@ -11,36 +18,31 @@ class DaoThingFile {
         if (callback) {
           callback(data);
         }
-        let app = JSON.parse(data);
-        app.currentFile = filename;
-        webContents.getAllWebContents().forEach(wc => wc.send('data-loaded', app));
+        APP.rendererData = JSON.parse(data);
+        APP.rendererData.currentFile = filename;
+        webContents.getAllWebContents().forEach(wc => wc.send('data-loaded', APP.rendererData));
       });
     }
   }
 
   persist(filename) {
+    if (!APP.rendererData) throw 'ensure appData is set before persist';
     if (filename) {
-      fs.writeFile(filename, appData, function (err) {
+      fs.writeFile(filename, APP.rendererData, function (err) {
         if (err) throw err;
-        let app = JSON.parse(appData);
-        app.currentFile = filename;
-        webContents.getAllWebContents().forEach(wc => wc.send('data-persisted', app));
+        APP.rendererData.currentFile = filename;
+        webContents.getAllWebContents().forEach(wc => wc.send('data-persisted', APP.rendererData));
       });
     }
   }
 
   get currentFile() {
-    if (!appData) {
+    if (!APP.rendererData) {
       return null;
     } else {
-      return JSON.parse(appData).currentFile;
+      return APP.rendererData.currentFile;
     }
   }
-
 }
-
-ipcMain.on('app-changed', (event, newAppData) => {
-  appData = newAppData;
-});
 
 module.exports = new DaoThingFile();

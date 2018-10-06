@@ -30,7 +30,8 @@ class App {
     return {
       project: this._project.toJSON(),
       currentArea: this._currentArea.toJSON(),
-      dataModellVersion: this.dataModellVersion
+      dataModellVersion: this.dataModellVersion,
+      currentFile: this.currentFile
     }
   }
 

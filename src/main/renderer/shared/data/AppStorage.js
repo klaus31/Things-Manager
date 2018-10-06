@@ -8,7 +8,9 @@ class AppStorage {
     if (localStorage.getItem('app')) {
       const storedAppJson = JSON.parse(localStorage.getItem('app'));
       const backwardCompatibilityService = new BackwardCompatibilityService(storedAppJson);
-      return App.fromJSON(backwardCompatibilityService.upgradeToCurrentVersion());
+      const upgradedJSON = App.fromJSON(backwardCompatibilityService.upgradeToCurrentVersion());
+      ipcRenderer.send('app-changed', upgradedJSON);
+      return upgradedJSON;
     } else {
       return null;
     }
