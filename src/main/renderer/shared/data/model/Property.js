@@ -50,7 +50,7 @@ class Property {
 
   toJSON() {
     return {
-      key: this._key,
+      key: this._key.toJSON(),
       value: this._value
     }
   }

@@ -81,7 +81,7 @@ class Category {
     this._things.forEach(thing => things.push(thing.toJSON()));
     return {
       propertyKey: this._propertyKey ? this._propertyKey.toJSON() : null,
-      things: this._things,
+      things: things,
       singular: this._singular,
       plural: this._plural,
       colorBackground: this._colorBackground,

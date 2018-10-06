@@ -16,7 +16,7 @@ class Starter {
           handler: function () {
             appStorage.storeApp(app);
             projectListener.fire('app-changed');
-            ipcRenderer.send('app-changed', app);
+            ipcRenderer.send('app-changed', app.toJSON());
           },
           deep: true
         }

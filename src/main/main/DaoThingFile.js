@@ -13,7 +13,7 @@ class DaoThingFile {
 
   load(filename, callback) {
     if (filename) {
-      fs.readFile(filename, function (err, data) {
+      fs.readFile(filename, 'utf8', function (err, data) {
         if (err) throw err;
         if (callback) {
           callback(data);
@@ -28,9 +28,9 @@ class DaoThingFile {
   persist(filename) {
     if (!APP.rendererData) throw 'ensure appData is set before persist';
     if (filename) {
-      fs.writeFile(filename, APP.rendererData, function (err) {
+      APP.rendererData.currentFile = filename;
+      fs.writeFile(filename, JSON.stringify(APP.rendererData), 'utf8', function (err) {
         if (err) throw err;
-        APP.rendererData.currentFile = filename;
         webContents.getAllWebContents().forEach(wc => wc.send('data-persisted', APP.rendererData));
       });
     }
