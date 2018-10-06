@@ -2,7 +2,8 @@ const vueAppAddFirstThing = new Vue({
   el: '#app-add-first-thing',
   data: {
     area: APP.currentArea,
-    viewModel: new FirstThingViewModel()
+    viewModel: new FirstThingViewModel(),
+    ml: ml
   },
   methods: {
     start: function() {

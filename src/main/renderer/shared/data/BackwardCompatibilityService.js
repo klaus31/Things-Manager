@@ -5,6 +5,7 @@ class BackwardCompatibilityService {
   }
 
   upgradeToCurrentVersion() {
+    this._json.languageCode = this._json.languageCode || 'en';
     switch (this._json.dataModellVersion) {
       case 1:
         return this._json;

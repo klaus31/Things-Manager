@@ -32,6 +32,8 @@ class Starter {
 
     ipcRenderer.on('data-persisted', (event, persistedApp) => app.currentFile = persistedApp.currentFile);
 
+    ipcRenderer.on('change-language', (event, code) => app.languageCode = code);
+
     return app;
   }
 }

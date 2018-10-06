@@ -57,6 +57,23 @@ module.exports = function () {
       ]
     },
     {
+      label: 'Language',
+      submenu: [
+        {
+          label: 'English',
+          click() {
+            webContents.getAllWebContents().forEach(wc => wc.send('change-language', 'en'));
+          }
+        },
+        {
+          label: 'Deutsch',
+          click() {
+            webContents.getAllWebContents().forEach(wc => wc.send('change-language', 'de'));
+          }
+        }
+      ]
+    },
+    {
       label: 'Help',
       submenu: [
         {

@@ -50,17 +50,14 @@
      id="app-add-first-thing"
      v-if="area.key === 'add-first-thing'">
   <tm-sidebar>
-    <h2>Welcome to the Things Manager</h2>
+    <h2>{{ml.get('K2obBudGwnCRDvIp')}}</h2>
     <div class="block">
-      <p>
-        Before you are able to start managing things, you have to define some basics and your very
-        first thing.
-      </p>
+      <p>{{ml.get('iSrgYfncQe6SQwEV')}}</p>
     </div>
   </tm-sidebar>
   <tm-main-area>
     <h1>{{viewModel.h1}}</h1>
-    <card-first-thing v-model="viewModel" :start="start"></card-first-thing>
+    <card-first-thing v-model="viewModel" :start="start" :ml="ml"></card-first-thing>
   </tm-main-area>
 </div>
 
@@ -181,6 +178,8 @@
 
 <!-- config app -->
 <script src="shared/data/BackwardCompatibilityService.js"></script>
+<script src="config/texts.js"></script>
+<script src="config/MultiLanguage.js"></script>
 <script src="config/Starter.js"></script>
 <script src="config/begin-config.js"></script>
 <script src="config/title.js"></script>
