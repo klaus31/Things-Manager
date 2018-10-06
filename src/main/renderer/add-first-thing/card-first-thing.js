@@ -104,7 +104,7 @@ Vue.component('card-first-thing', {
     '<tfoot v-if="value.isReadyToStart()">' +
     '<tr>' +
     '<td colspan="2">' +
-    '<tm-button @click="config()" icon="triangle-right" title="Start Manage" buttonstyle="primary">Start!</tm-button>' +
+    '<tm-button @click="start()" icon="triangle-right" title="Start Manage" buttonstyle="primary">Start!</tm-button>' +
     '</td>' +
     '</tr>' +
     '</tfoot>' +
