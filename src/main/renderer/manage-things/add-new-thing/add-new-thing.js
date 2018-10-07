@@ -6,5 +6,13 @@ const vueAppAddNewThing = new Vue({
     ml: ml
   },
   methods: {
+    finalize() {
+      this.viewModel.finalize();
+      this.viewModel = new NewThingViewModel(APP);
+    },
+    cancel() {
+      this.area.key = 'manage-things';
+      this.viewModel = new NewThingViewModel(APP);
+    }
   }
 });

@@ -29,7 +29,7 @@
         </li>
       </ul>
       <div class="block">
-        <tm-button icon="chevron-left" buttonstyle="primary" @click="area.key = 'manage-things'">Cancel</tm-button>
+        <tm-button icon="chevron-left" buttonstyle="primary" @click="cancel()">Cancel</tm-button>
       </div>
     </div>
   </tm-sidebar>
@@ -41,7 +41,7 @@
     </h1>
     <card-new-thing v-model="viewModel" :ml="ml"></card-new-thing>
     <div class="block" v-if="viewModel.thing.keyvalue">
-      <tm-button icon="ok" size="xl" buttonstyle="success" @click="viewModel.finalize()">{{ml.get('iI5mxfYtwu5yJ3zU', viewModel.thing.keyvalue)}}</tm-button>
+      <tm-button icon="ok" size="xl" buttonstyle="success" @click="finalize()">{{ml.get('iI5mxfYtwu5yJ3zU', viewModel.thing.keyvalue)}}</tm-button>
     </div>
   </tm-main-area>
 </div>
