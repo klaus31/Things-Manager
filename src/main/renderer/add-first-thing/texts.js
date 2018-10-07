@@ -20,38 +20,6 @@ const TEXTS_ADD_FIRST_THING = {
     en: 'What kind of thing is your first?',
     de: 'Welche Art von Sache möchtest Du verwalten?'
   },
-  'aKaexK0ACUBUqi5o': {
-    en: 'Singular Term',
-    de: 'Einzahl'
-  },
-  'DlYP16VWFMcl5Oo6': {
-    en: 'e.g. Book',
-    de: 'Z.B. Buch'
-  },
-  'dSWlfcUauVIvYO3B': {
-    en: 'e.g. Books',
-    de: 'Z.B. Bücher'
-  },
-  'UmfQ8szYOce8l3jR': {
-    en: 'Plural Term',
-    de: 'Mehrzahl'
-  },
-  'iaKt20y27Q1DDaQu': {
-    en: 'What is the most important attribute of your {1}?',
-    de: 'Was ist die wichtigste Eigenschaft Deiner {1}?'
-  },
-  'v4wZlj52pVH+sqqT': {
-    en: 'things',
-    de: 'Sachen'
-  },
-  '2BsZT2KP5Jr4Y7LS': {
-    en: 'attribute',
-    de: 'Eigenschaft'
-  },
-  '5ukUrFBsPqun4Dtc': {
-    en: 'thing',
-    de: 'Sache'
-  },
   'SjHPZn9s83cjI2OL': {
     en: 'Your Project',
     de: 'Dein Projekt'
@@ -59,10 +27,6 @@ const TEXTS_ADD_FIRST_THING = {
   'rXYPadAB5YgYyLpB': {
     en: 'Attribute',
     de: 'Eigenschaft'
-  },
-  '37B1orLeGG53soUH': {
-    en: 'e.g. Title',
-    de: 'Z.B. Titel'
   },
   'yftlu43NdMw4Gfaa': {
     en: 'e.g. Shining',
@@ -79,14 +43,6 @@ const TEXTS_ADD_FIRST_THING = {
   'vp5aqq4LTfwQ2CkQ': {
     en: '{1} of the {2}',
     de: '{1}'
-  },
-  'SKEFwKi4GfqyOyT5': {
-    en: 'Background-Color',
-    de: 'Hintergrundfarbe'
-  },
-  'GARs4FY1svvEI3Od': {
-    en: 'Text-Color',
-    de: 'Textfarbe'
   },
   'sj5BzmGMC30e1aKl': {
     en: 'Start Manage',

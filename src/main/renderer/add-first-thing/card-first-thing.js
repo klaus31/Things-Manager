@@ -76,7 +76,7 @@ Vue.component('card-first-thing', {
     '</tr>' +
     '<tr>' +
     '<td>' +
-    '{{ml.get("rXYPadAB5YgYyLpB")}}:' +
+    '{{ml.get("rXYPadAB5YgYyLpB")}}' +
     '</td>' +
     '<td class="input">' +
     '<input v-model="value.categoryKeyName" type="text" :placeholder="ml_37B1orLeGG53soUH">' +

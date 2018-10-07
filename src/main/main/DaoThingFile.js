@@ -1,5 +1,6 @@
 const fs = require('fs');
 const {webContents, ipcMain} = require('electron');
+const ml = require('./MultiLanguage');
 
 const APP = {rendererData: null};
 
@@ -7,6 +8,7 @@ class DaoThingFile {
 
   constructor() {
     ipcMain.on('app-changed', (event, newAppData) => {
+      ml.code = newAppData.languageCode; // XXX not solid -> make app global and define two listener
       APP.rendererData = newAppData;
     });
   }

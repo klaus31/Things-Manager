@@ -1,68 +1,68 @@
 // to generate a new key: require('crypto').randomBytes(3*4).toString('base64')
 const TEXTS_MANAGE_THINGS = {
   'PjEbHaH4YWEJUFTH': {
-    en: '',
-    de: ''
+    en: 'Manage Things',
+    de: 'Verwalte Sachen'
   },
   'VbbqP6v1yHoWqABp': {
-    en: '',
-    de: ''
+    en: 'Show details',
+    de: 'Mehr Details'
   },
   'wta6G6dhKTpcPVFD': {
-    en: '',
-    de: ''
+    en: 'Hide details',
+    de: 'Weniger Details'
   },
   'DNzYLhgMFuXzPse7': {
-    en: '',
-    de: ''
+    en: 'Add Thing',
+    de: 'Füge eine Sache hinzu'
   },
-  'S86h5u1O+rUoneOt': {
-    en: '',
-    de: ''
+  'S86h5u1OcrUoneOt': {
+    en: 'Add {1}',
+    de: '{1} hinzufügen'
   },
   'MAa9a19b+hiF0hUA': {
-    en: '',
-    de: ''
+    en: 'Do Show',
+    de: 'Anzeigen'
   },
   'qYv6GRxsa3Kns+Mu': {
-    en: '',
-    de: ''
+    en: 'Add New Property',
+    de: 'Füge neue Eigenschaft hinzu'
   },
   'cwvs+xA9BSZNuL08': {
-    en: '',
-    de: ''
+    en: 'Add missing Properties from all other {1}',
+    de: 'Füge alle hier nicht aufgeführten Eigenschaften aller anderen {1} hinzu'
   },
   'LC5mU7k6ha4ktcLT': {
-    en: '',
-    de: ''
+    en: 'Change this to {1}',
+    de: 'Ändere das hier zu {1}'
   },
   'WxykMLwBTKWHuTIj': {
-    en: '',
-    de: ''
+    en: 'Clone this thing',
+    de: 'Dupliziere diese Sache'
   },
   'CCXaoC1JKRXNcgXH': {
-    en: '',
-    de: ''
+    en: 'Delete this thing',
+    de: 'Lösche diese Sache'
   },
   '6aROasnal7tNQsPt': {
-    en: '',
-    de: ''
+    en: 'Modify this thing',
+    de: 'Bearbeite diese Sache'
   },
-  'iZ4+8dJ2jBTbd7Ja': {
-    en: '',
-    de: ''
+  'iZ4l8dJ2jBTbd7Ja': {
+    en: 'Stop modifying this thing',
+    de: 'Bearbeitung fertig'
   },
   'aSawO4UuPSIxZpQK': {
-    en: '',
-    de: ''
+    en: 'Clone this Property',
+    de: 'Dupliziere diese Eigenschaft'
   },
   '5IwOpns5w1FNb4xj': {
-    en: '',
-    de: ''
+    en: 'Delete this Property',
+    de: 'Lösche diese Eigenschaft'
   },
   'iKdUF7OMQAQHT9aj': {
-    en: '',
-    de: ''
+    en: 'Search in {1} things',
+    de: 'Suche in {1} Sachen'
   },
   'AGneRYhafefZdMZc': {
     en: '',

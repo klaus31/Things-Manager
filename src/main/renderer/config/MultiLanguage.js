@@ -3,7 +3,13 @@ class MultiLanguage {
   constructor() {
     this._texts = {
       ...TEXTS_ADD_FIRST_THING,
-      ...TEXTS_MANAGE_THINGS
+      ...TEXTS_MANAGE_THINGS,
+      ...TEXTS_MANAGE_THINGS_ADD_NEW_THING,
+      ...TEXTS_MANAGE_CATEGORIES,
+      ...TEXTS_SHARED,
+      ...TEXTS_CONFIG,
+      ...TEXTS_CREDITS,
+      ...TEXTS_HELP
     };
   }
 
