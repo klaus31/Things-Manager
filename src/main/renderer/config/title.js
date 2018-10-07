@@ -11,7 +11,7 @@ const vueTitle_computeTitle = function () {
     result.push(APP.currentFile);
   }
   if (APP.changesMade) {
-    result.push(ml.get('XcXP+51C4Uxml8If') + ': ' + moment().format('LLL'));
+    result.push(ml.get('XcXP+51C4Uxml8If') + ' ' + moment(APP.changesMade, "YYYYMMDDHHmm").fromNow());
   }
 
   return result.join(' ||| ');
@@ -25,3 +25,4 @@ const vueTitle = new Vue({
 });
 
 projectListener.on('app-changed', () => vueTitle.title = vueTitle_computeTitle());
+window.setInterval(() => vueTitle.title = vueTitle_computeTitle(), 1000);

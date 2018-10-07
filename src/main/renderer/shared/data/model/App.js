@@ -6,7 +6,6 @@ class App {
     this.currentFile = null;
     this.dataModellVersion = 1;
     this._languageCode = 'en';
-    this.changesMade = false;
     moment.locale(this._languageCode);
   }
 
@@ -18,6 +17,20 @@ class App {
     if (languageCode !== 'de' && languageCode !== 'en') throw 'unsupported language ' + languageCode;
     moment.locale(languageCode);
     this._languageCode = languageCode;
+  }
+
+  get changesMade() {
+    return localStorage.getItem('app-changes-made');
+  }
+
+  set changesMade(changesMade) {
+    if (changesMade) {
+      if (!localStorage.getItem('app-changes-made')) {
+        localStorage.setItem('app-changes-made', moment().format("YYYYMMDDHHmm"))
+      }
+    } else {
+      localStorage.removeItem('app-changes-made');
+    }
   }
 
 

@@ -40,6 +40,7 @@ class Starter {
       if (confirmed) {
         localStorage.clear();
         localStorage.setItem('tmp-language', app.languageCode);
+        localStorage.removeItem('originalHashCodeOfApp');
         window.location.reload();
       }
     });
@@ -49,13 +50,14 @@ class Starter {
     ipcRenderer.on('data-persisted', (event, persistedApp) => {
       app.currentFile = persistedApp.currentFile;
       meStarter._originalHashCodeOfApp = JSON.stringify(app.toJSON()).hashCode();
+      localStorage.setItem('originalHashCodeOfApp', meStarter._originalHashCodeOfApp);
       app.changesMade = false;
     });
 
     ipcRenderer.on('change-language', (event, code) => app.languageCode = code);
 
-    // FIXME this is not working after appStorage.restoreApp, when app has been changed on a session before found in localStorage
-    this._originalHashCodeOfApp = JSON.stringify(app.toJSON()).hashCode();
+    this._originalHashCodeOfApp = localStorage.getItem('originalHashCodeOfApp') || JSON.stringify(app.toJSON()).hashCode();
+    localStorage.setItem('originalHashCodeOfApp', this._originalHashCodeOfApp);
 
     return app;
   }
