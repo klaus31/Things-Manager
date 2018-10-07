@@ -6,6 +6,7 @@ class App {
     this.currentFile = null;
     this.dataModellVersion = 1;
     this._languageCode = 'en';
+    this.changesMade = false;
   }
 
   get languageCode() {

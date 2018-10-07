@@ -10,7 +10,9 @@ const vueTitle_computeTitle = function () {
   if (APP.currentFile) {
     result.push(APP.currentFile);
   }
-  result.push(moment(new Date()).format('DD.MM.YYYY HH:mm:ss'));
+  if (APP.changesMade) {
+    result.push('Modified: ' + moment(new Date()).format('DD.MM.YYYY HH:mm:ss'));
+  }
 
   return result.join(' ||| ');
 };

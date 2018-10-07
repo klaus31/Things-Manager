@@ -4,10 +4,11 @@ class Starter {
   }
 
   start() {
+    const meStarter = this;
     const app = appStorage.restoreApp() || new App();
     if (localStorage.getItem('tmp-language')) {
       app.languageCode = localStorage.getItem('tmp-language');
-      localStorage.setItem('tmp-language', null);
+      localStorage.removeItem('tmp-language');
     }
 
     const vueAppManageThings = new Vue({
@@ -21,6 +22,9 @@ class Starter {
             appStorage.storeApp(app);
             projectListener.fire('app-changed');
             ipcRenderer.send('app-changed', app.toJSON());
+            if (!app.changesMade) {
+              app.changesMade = meStarter._originalHashCodeOfApp !== JSON.stringify(app.toJSON()).hashCode();
+            }
           },
           deep: true
         }
@@ -32,17 +36,26 @@ class Starter {
     ipcRenderer.on('app-area-changed', (event, area) => app.setCurrentAreaKey(area));
 
     ipcRenderer.on('new-project-requested', () => {
-      // TODO changes gets lost ...
-      localStorage.clear();
-      localStorage.setItem('tmp-language', app.languageCode);
-      window.location.reload();
+      const confirmed = !app.changesMade || window.confirm(ml.get('0+Jhdv38B5t0u8zb')); // TODO only show, if changes made
+      if (confirmed) {
+        localStorage.clear();
+        localStorage.setItem('tmp-language', app.languageCode);
+        window.location.reload();
+      }
     });
 
     ipcRenderer.on('data-loaded', (event, data) => appStorage.loadFileData(data));
 
-    ipcRenderer.on('data-persisted', (event, persistedApp) => app.currentFile = persistedApp.currentFile);
+    ipcRenderer.on('data-persisted', (event, persistedApp) => {
+      app.currentFile = persistedApp.currentFile;
+      meStarter._originalHashCodeOfApp = JSON.stringify(app.toJSON()).hashCode();
+      app.changesMade = false;
+    });
 
     ipcRenderer.on('change-language', (event, code) => app.languageCode = code);
+
+    // FIXME this is not working after appStorage.restoreApp, when app has been changed on a session before found in localStorage
+    this._originalHashCodeOfApp = JSON.stringify(app.toJSON()).hashCode();
 
     return app;
   }
