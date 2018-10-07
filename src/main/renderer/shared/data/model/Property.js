@@ -2,7 +2,7 @@ class Property {
 
   constructor(key, value) {
     if (key && !(key instanceof PropertyKey)) throw 'key must be a property key';
-    this._key = key || new PropertyKey('Attribute', 'text');
+    this._key = key || new PropertyKey(ml.get('cSwoACtGwQXy/IK8'), 'text');
     this._value = value || DataTypeValueUtil.getInitValueOfType(this._key.type);
   }
 

@@ -44,56 +44,56 @@ const TEXTS_SHARED = {
     de: 'Z.B. Titel'
   },
   '54r0a5Fb+W4Zp3zZ': {
-    en: '',
-    de: ''
+    en: 'New',
+    de: 'Neu'
   },
   '1e2T7VYBUsFb/oTQ': {
-    en: '',
-    de: ''
+    en: 'Date and Time',
+    de: 'Datum und Uhrzeit'
   },
   'P9SHV5LhUFoTqLam': {
-    en: '',
-    de: ''
+    en: 'Yes or No',
+    de: 'Ja oder Nein'
   },
   'cSwoACtGwQXy/IK8': {
-    en: '',
-    de: ''
+    en: 'Attribute',
+    de: 'Eigenschaft'
   },
   'MOrsQFp4QQJSAZYf': {
-    en: '',
-    de: ''
+    en: 'Text',
+    de: 'Text'
   },
   '/pmIay7RrtL2dlDW': {
-    en: '',
-    de: ''
+    en: 'Date',
+    de: 'Datum'
   },
   'rvtTVH47/aRmozi3': {
-    en: '',
-    de: ''
+    en: 'Time',
+    de: 'Zeit'
   },
   'qJd+kVTuL0r16QCV': {
-    en: '',
-    de: ''
+    en: 'Week',
+    de: 'Woche'
   },
   'wWEfQ9Vzyj4A1zn/': {
-    en: '',
-    de: ''
+    en: 'Month',
+    de: 'Monat'
   },
   'Z5jr4k1ZQtrrMTVH': {
-    en: '',
-    de: ''
+    en: 'Number',
+    de: 'Nummer'
   },
   'jtxttIOvXb4C24io': {
-    en: '',
-    de: ''
+    en: 'Percent',
+    de: 'Prozent'
   },
   '1VWmPdYLJNvxUFZZ': {
-    en: '',
-    de: ''
+    en: 'Color',
+    de: 'Farbe'
   },
   'OP9jnIGR7LnjuzZL': {
-    en: '',
-    de: ''
+    en: 'URL',
+    de: 'URL'
   },
   '9SLfymF38SsASuza': {
     en: '',

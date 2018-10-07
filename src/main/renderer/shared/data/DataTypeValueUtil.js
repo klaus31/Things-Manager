@@ -5,14 +5,12 @@ class DataTypeValueUtil {
 
   static getInitValueOfType(type) {
     switch (type) {
-      case 'text':
-        return 'New';
       case 'date':
       case 'time':
       case 'datetime-local':
       case 'week':
       case 'month':
-        return moment(new Date()).format();
+        return moment().format();
       case 'number':
       case 'range':
         return 0;
@@ -23,7 +21,7 @@ class DataTypeValueUtil {
       case 'checkbox':
         return '';
       default:
-        return 'New';
+        return ml.get('54r0a5Fb+W4Zp3zZ');
     }
   }
 
