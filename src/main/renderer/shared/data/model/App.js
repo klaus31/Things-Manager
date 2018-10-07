@@ -5,7 +5,18 @@ class App {
     this._currentArea = new CurrentArea();
     this.currentFile = null;
     this.dataModellVersion = 1;
+    this._languageCode = 'en';
   }
+
+  get languageCode() {
+    return this._languageCode;
+  }
+
+  set languageCode(languageCode) {
+    if (languageCode !== 'de' && languageCode !== 'en') throw 'unsupported language ' + languageCode;
+    this._languageCode = languageCode;
+  }
+
 
   get project() {
     return this._project;
@@ -31,7 +42,8 @@ class App {
       project: this._project.toJSON(),
       currentArea: this._currentArea.toJSON(),
       dataModellVersion: this.dataModellVersion,
-      currentFile: this.currentFile
+      currentFile: this.currentFile,
+      languageCode: this._languageCode
     }
   }
 
@@ -42,6 +54,7 @@ class App {
     app.dataModellVersion = json.dataModellVersion;
     app.currentFile = json.currentFile;
     app._currentArea = CurrentArea.fromJSON(json.currentArea);
+    app._languageCode = json.languageCode;
     return app;
   }
 }

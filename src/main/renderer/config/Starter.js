@@ -15,6 +15,7 @@ class Starter {
         watchedApp: {
           handler: function () {
             appStorage.storeApp(app);
+            console.info('APP CHANGED')
             projectListener.fire('app-changed');
             ipcRenderer.send('app-changed', app.toJSON());
           },
@@ -29,11 +30,9 @@ class Starter {
 
     ipcRenderer.on('data-loaded', (event, data) => appStorage.loadFileData(data));
 
-    ipcRenderer.on('data-persisted', (event, persistedApp) => {
-      app.currentFile = persistedApp.currentFile;
-      appStorage.storeApp(app);
-      projectListener.fire('app-changed');
-    });
+    ipcRenderer.on('data-persisted', (event, persistedApp) => app.currentFile = persistedApp.currentFile);
+
+    ipcRenderer.on('change-language', (event, code) => app.languageCode = code);
 
     return app;
   }

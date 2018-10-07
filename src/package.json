@@ -1,6 +1,6 @@
 {
   "name": "things-manager",
-  "version": "0.1.2",
+  "version": "0.2.0-SNAPSHOT",
   "private": true,
   "main": "main/main/main.js",
   "scripts": {

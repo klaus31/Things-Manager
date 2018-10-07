@@ -77,7 +77,7 @@ class ManagedThings_ProjectViewModel {
   }
 
   get searchPlaceholder() {
-    return 'Search in ' + this._shownThings.length + ' things';
+    return ml.get('iKdUF7OMQAQHT9aj', this._shownThings.length);
   }
 
   get projectName() {

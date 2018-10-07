@@ -9,19 +9,19 @@ class FirstThingViewModel {
   }
 
   get thingsLabel() {
-    return this.categoryPlural || 'things';
+    return this.categoryPlural || ml.get('v4wZlj52pVH+sqqT');
   }
 
   get keypropertyLabel() {
-    return this.categoryKeyName || 'attribute';
+    return this.categoryKeyName || ml.get('2BsZT2KP5Jr4Y7LS');
   }
 
   get thingLabel() {
-    return this.categorySingular || 'thing';
+    return this.categorySingular || ml.get('5ukUrFBsPqun4Dtc');
   }
 
   get h1() {
-    return this.projectName || 'Your Project';
+    return this.projectName || ml.get('SjHPZn9s83cjI2OL');
   }
 
   toProject() {

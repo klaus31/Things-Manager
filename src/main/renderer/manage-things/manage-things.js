@@ -2,7 +2,8 @@ const vueAppManageThings = new Vue({
   el: '#app-manage-things',
   data: {
     area: APP.currentArea,
-    viewModel: new ManagedThings_ProjectViewModel(APP)
+    viewModel: new ManagedThings_ProjectViewModel(APP),
+    ml: ml
   },
   methods: {
     gotoNewThingAreaOf: function (category) {

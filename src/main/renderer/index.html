@@ -39,7 +39,7 @@
                    :content="viewModel.projectName"
                    :callback="val => viewModel.projectName = val"></tm-editable>
     </h1>
-    <card-new-thing v-model="viewModel"></card-new-thing>
+    <card-new-thing v-model="viewModel" :ml="ml"></card-new-thing>
     <div class="block">
       <tm-button icon="ok" size="xl" buttonstyle="success" @click="viewModel.finalize()">Finish</tm-button>
     </div>
@@ -50,17 +50,14 @@
      id="app-add-first-thing"
      v-if="area.key === 'add-first-thing'">
   <tm-sidebar>
-    <h2>Welcome to the Things Manager</h2>
+    <h2>{{ml.get('K2obBudGwnCRDvIp')}}</h2>
     <div class="block">
-      <p>
-        Before you are able to start managing things, you have to define some basics and your very
-        first thing.
-      </p>
+      <p>{{ml.get('iSrgYfncQe6SQwEV')}}</p>
     </div>
   </tm-sidebar>
   <tm-main-area>
     <h1>{{viewModel.h1}}</h1>
-    <card-first-thing v-model="viewModel" :start="start"></card-first-thing>
+    <card-first-thing v-model="viewModel" :start="start" :ml="ml"></card-first-thing>
   </tm-main-area>
 </div>
 
@@ -68,10 +65,10 @@
      id="app-manage-categories"
      v-if="area.key === 'manage-categories'">
   <tm-sidebar>
-    <h2>Manage Categories</h2>
+    <h2>{{ml.get('ucDNQsAg+2Y6qQEM')}}</h2>
     <div class="block">
       <div class="block">
-        <tm-button icon="plus" buttonstyle="primary" @click="viewModel.addNewCategory()">Add category</tm-button>
+        <tm-button icon="plus" buttonstyle="primary" @click="viewModel.addNewCategory()">{{ml.get('rKrrX58y/cI+GHUo')}}</tm-button>
       </div>
     </div>
   </tm-sidebar>
@@ -84,12 +81,14 @@
     <div id="category-cards">
       <card-manage-category-readonly v-if="category.locked"
                                      v-for="category in viewModel.shownCategories"
+                                     :ml="ml"
                                      :key="category.uuid"
                                      :category="category"
                                      :project="viewModel">
       </card-manage-category-readonly>
       <card-manage-category-editable v-if="!category.locked"
                                      v-for="category in viewModel.shownCategories"
+                                     :ml="ml"
                                      :key="category.uuid"
                                      :category="category"
                                      :project="viewModel">
@@ -102,7 +101,7 @@
      id="app-manage-things"
      v-if="area.key === 'manage-things'">
   <tm-sidebar>
-    <h2>Manage Things</h2>
+    <h2>{{ml.get('PjEbHaH4YWEJUFTH')}}</h2>
     <div class="block">
       <input type="search"
              title="Search"
@@ -111,19 +110,19 @@
              :placeholder="viewModel.searchPlaceholder">
     </div>
     <div class="block">
-      <tm-button v-if="!viewModel.showdetails" icon="th" buttonstyle="primary" @click="viewModel.showdetails = true">Show details</tm-button>
-      <tm-button v-if="viewModel.showdetails" icon="th-large" buttonstyle="primary" @click="viewModel.showdetails = false">Hide details</tm-button>
+      <tm-button v-if="!viewModel.showdetails" icon="th" buttonstyle="primary" @click="viewModel.showdetails = true">{{ml.get('VbbqP6v1yHoWqABp')}}</tm-button>
+      <tm-button v-if="viewModel.showdetails" icon="th-large" buttonstyle="primary" @click="viewModel.showdetails = false">{{ml.get('wta6G6dhKTpcPVFD')}}</tm-button>
     </div>
     <div class="block addnew">
-      <h3>Add Thing</h3>
+      <h3>{{ml.get('DNzYLhgMFuXzPse7')}}</h3>
       <ul>
         <li v-for="category in viewModel.categories" v-colors="category.colors" @click="gotoNewThingAreaOf(category)">
-          <span class="glyphicon glyphicon-plus"></span> Add {{category.labelSingular}}
+          <span class="glyphicon glyphicon-plus"></span> {{ml.get('S86h5u1OcrUoneOt', category.labelSingular)}}
         </li>
       </ul>
     </div>
     <div class="block doshow">
-      <h3>Do Show</h3>
+      <h3>{{ml.get('MAa9a19b+hiF0hUA')}}</h3>
       <ul>
         <li v-for="category in viewModel.categories" v-colors="category.colors">
           <label><input type="checkbox" checked v-model="category.active"> {{category.labelPlural}}</label>
@@ -139,12 +138,31 @@
     </h1>
     <div id="thing-cards">
       <card-manage-thing v-for="thing in viewModel.shownThings"
+                         :ml="ml"
                          :key="thing.uuid"
                          :thing="thing"
                          :project="viewModel">
       </card-manage-thing>
     </div>
   </tm-main-area>
+</div>
+
+<div class="projectarea container"
+     id="app-credits"
+     v-if="area.key === 'credits'">
+  <div class="projectarea container">
+    <h1>{{ml.get('PjEbHaH4YWEJUFTa')}}</h1>
+    <p v-html="ml.get('VbbqP6v1yHoWqABa')"></p>
+  </div>
+</div>
+
+<div class="projectarea container"
+     id="app-help"
+     v-if="area.key === 'help'">
+  <div class="projectarea container">
+    <h1>{{ml.get('PjEbHaH4YWEJUFTb')}}</h1>
+    <p v-html="ml.get('VbbqP6v1yHoWqABb')"></p>
+  </div>
 </div>
 
 <!-- XXX this is a pseudo element needed to store every changes in the project on the fly -->
@@ -155,7 +173,18 @@
 <script src="../../node_modules/moment/min/moment-with-locales.min.js"></script>
 <script src="../../node_modules/less/dist/less.js"></script>
 
-<!-- data -->
+<!-- multi language -->
+<script src="add-first-thing/texts.js"></script>
+<script src="manage-things/texts.js"></script>
+<script src="manage-things/add-new-thing/texts.js"></script>
+<script src="manage-categories/texts.js"></script>
+<script src="shared/texts.js"></script>
+<script src="config/texts.js"></script>
+<script src="help/texts.js"></script>
+<script src="credits/texts.js"></script>
+<script src="config/MultiLanguage.js"></script>
+
+<!-- data model and data services -->
 <script src="shared/data/model/App.js"></script>
 <script src="shared/data/model/CurrentArea.js"></script>
 <script src="shared/data/model/Project.js"></script>
@@ -165,9 +194,6 @@
 <script src="shared/data/model/Thing.js"></script>
 <script src="shared/data/AppStorage.js"></script>
 <script src="shared/data/DataType.js"></script>
-<script src="shared/data/DataTypeProvider.js"></script>
-<script src="shared/data/DataTypeValueUtil.js"></script>
-<script src="shared/ProjectListener.js"></script>
 <script src="shared/UuidFactory.js"></script>
 
 <!-- shared vue elements -->
@@ -179,7 +205,10 @@
 <script src="shared/html/tm-sidebar.js"></script>
 <script src="shared/html/tm-button.js"></script>
 
-<!-- config app -->
+<!-- shared config and services -->
+<script src="shared/data/DataTypeProvider.js"></script>
+<script src="shared/data/DataTypeValueUtil.js"></script>
+<script src="shared/ProjectListener.js"></script>
 <script src="shared/data/BackwardCompatibilityService.js"></script>
 <script src="config/Starter.js"></script>
 <script src="config/begin-config.js"></script>
@@ -203,6 +232,8 @@
 <script src="manage-categories/card-manage-category-editable.js"></script>
 <script src="manage-categories/card-manage-category-readonly.js"></script>
 <script src="manage-categories/manage-categories.js"></script>
+<script src="credits/credits.js"></script>
+<script src="help/help.js"></script>
 
 <!-- finish config -->
 <script src="config/end-config.js"></script>
