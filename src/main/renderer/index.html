@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>{{title}}</title>
+  <!-- TODO update bootstrap -->
   <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet/less" type="text/css" href="styles.less"/>
   <link rel="stylesheet/less" type="text/css" href="add-first-thing/styles.less"/>
@@ -79,6 +80,7 @@
                    :callback="val => viewModel.projectName = val"></tm-editable>
     </h1>
     <div id="category-cards">
+      <!-- FIXME readonlys are always above editables. Thus, when you click the edit icon, the card jumps below the readonlys -->
       <card-manage-category-readonly v-if="category.locked"
                                      v-for="category in viewModel.shownCategories"
                                      :ml="ml"
