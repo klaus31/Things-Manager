@@ -13,6 +13,7 @@ const TEXTS_CREDITS = {
       '<li>Vue.js (https://vuejs.org)</li>' +
       '<li>Glyphicons (http://www.glyphicons.com)</li>' +
       '<li>Moment.js (https://momentjs.com)</li>' +
+      '<li>{less} (http://lesscss.org)</li>' +
       '</ul>' +
       '<p>... and every single Character ist Copy and Pasted from Stack Overflow (https://stackoverflow.com)</p>' +
 
@@ -54,6 +55,7 @@ const TEXTS_CREDITS = {
       '<li>Vue.js (https://vuejs.org)</li>' +
       '<li>Glyphicons (http://www.glyphicons.com)</li>' +
       '<li>Moment.js (https://momentjs.com)</li>' +
+      '<li>{less} (http://lesscss.org)</li>' +
       '</ul>' +
       '<p>... und jeder Buchstabe im Code wurde kopiert von Stack Overflow (https://stackoverflow.com)</p>' +
 

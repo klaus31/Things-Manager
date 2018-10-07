@@ -6,7 +6,7 @@ const TEXTS_HELP = {
   },
   'VbbqP6v1yHoWqABb': { // TODO real help
     en: '<p>This is a program to catalog things of private collecting passions.</p>' +
-      '<p>No matter if you are collecting stones or if you want to have an overview over movies, you watched or you want to watch. ' +
+      '<p>No matter if you are collecting stones or if you want to have an overview of movies, you watched or you want to watch. ' +
       'Things Manager helps you, not losing track of.</p>' +
       '<p>And all that in a nice-looking way without the horror of a spreadsheet.</p>' +
       '<br>' +
