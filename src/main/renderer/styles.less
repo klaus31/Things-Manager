@@ -37,16 +37,60 @@ div.projectarea {
     }
   }
 
+  select, input {
+    background-color: white;
+    color: darkslategray !important;
+  }
+
   .card {
     width: 100%;
     max-width: 100%;
     margin-bottom: 20px;
     vertical-align: top;
     border: 1px solid darkslategray;
+    &.editable {
+      td.input input[type=color] {
+        height: 30px !important;
+      }
+    }
 
     td, th {
       border: 1px solid darkslategray;
       padding: 5px;
+      &.input {
+        padding: 5px;
+        &.activeInput {
+          padding: 0;
+        }
+        .editable-text, .editable-text p {
+          width: 100%;
+          padding: 0;
+          margin: 0;
+          display: inline-block;
+        }
+        select {
+          padding: 6px;
+          border: 0;
+          margin: 0;
+          width: 100%;
+        }
+        input:not([type=checkbox]) {
+          width: 100%;
+          padding: 5px 100px 5px 5px;
+          margin-left: -5px;
+          margin-top: -5px;
+          margin-bottom: -2px;
+          border: 0;
+          &[type=color] {
+            padding: 0;
+            margin: 0;
+            border: 0;
+            height: 20px;
+            width: 100%;
+            cursor: pointer;
+          }
+        }
+      }
     }
     .editable-text {
       display: inline-block;
@@ -54,21 +98,19 @@ div.projectarea {
     p.buttons {
       float: right;
     }
+    p.buttonlink {
+      position: absolute;
+      margin-left: -25px !important;
+      display: none !important;
+    }
+
     thead {
       font-size: 1.5em;
     }
-  }
-}
+    &:hover p.buttonlink {
+      display: inline-block !important;;
+    }
 
-.v-select {
-  display: inline-block;
-  /* XXX :searchable="false" not working */
-  button.clear {
-    display: none !important;
-  }
-  * {
-    padding: 0 !important;
-    margin: 0 !important;
   }
 }
 
