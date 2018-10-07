@@ -1,3 +1,3 @@
 Vue.directive('autofocus', {
-    inserted: el => el.focus()
+  inserted: el => el.focus()
 });

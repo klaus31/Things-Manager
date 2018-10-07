@@ -1,3 +1,3 @@
 Vue.directive('autoselect', {
-    inserted: el => el.select()
+  inserted: el => el.select()
 });
