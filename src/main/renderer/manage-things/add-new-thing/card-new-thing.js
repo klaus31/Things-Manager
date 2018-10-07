@@ -40,7 +40,7 @@ Vue.component('card-new-thing', {
     '<tr>' +
     '<td colspan="4">' +
     '<tm-button icon="plus" @click="value.addNewEmptyProperty()">{{ml.get("dLb8HpEfzuH4saD5")}}</tm-button>' +
-    '<tm-button icon="plus" @click="value.addMissingPropertiesFromOtherThings()">{{ml.get("8TXIUyZoY4iw3IlR"), value.category.plural}}</tm-button>' +
+    '<tm-button icon="plus" @click="value.addMissingPropertiesFromOtherThings()">{{ml.get("8TXIUyZoY4iw3IlR", value.category.plural)}}</tm-button>' +
     '</td>' +
     '</tr>' +
     '</tfoot>' +

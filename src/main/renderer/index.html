@@ -40,8 +40,8 @@
                    :callback="val => viewModel.projectName = val"></tm-editable>
     </h1>
     <card-new-thing v-model="viewModel" :ml="ml"></card-new-thing>
-    <div class="block">
-      <tm-button icon="ok" size="xl" buttonstyle="success" @click="viewModel.finalize()">Finish</tm-button>
+    <div class="block" v-if="viewModel.thing.keyvalue">
+      <tm-button icon="ok" size="xl" buttonstyle="success" @click="viewModel.finalize()">{{ml.get('iI5mxfYtwu5yJ3zU', viewModel.thing.keyvalue)}}</tm-button>
     </div>
   </tm-main-area>
 </div>

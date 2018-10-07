@@ -17,7 +17,7 @@ class MultiLanguage {
     if (!this._texts[key]) throw key + ' does not exist';
     let result = this._texts[key][APP.languageCode];
     for (let i = 1; i < arguments.length; i++) {
-      result = result.replace('{' + i + '}', arguments[i]);
+      result = result.replace('{' + i + '}', arguments[i] === null ? '' : arguments[i]);
     }
     return result;
   }

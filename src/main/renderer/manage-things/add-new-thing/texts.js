@@ -16,8 +16,8 @@ const TEXTS_MANAGE_THINGS_ADD_NEW_THING = {
     de: 'Füge alle hier nicht aufgeführten Eigenschaften aller anderen {1} hinzu'
   },
   'iI5mxfYtwu5yJ3zU': {
-    en: '',
-    de: ''
+    en: 'Add {1}',
+    de: '{1} Hinzufügen'
   },
   '8+8nVAfx/TwWZr0f': {
     en: '',
