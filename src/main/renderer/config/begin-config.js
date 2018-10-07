@@ -6,9 +6,3 @@ const ml = new MultiLanguage();
 
 const STARTER = new Starter();
 const APP = STARTER.start();
-
-
-
-
-
-
