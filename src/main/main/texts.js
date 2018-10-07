@@ -3,6 +3,10 @@ const TEXTS = {
     en: 'File',
     de: 'Datei'
   },
+  'menu-file-new': {
+    en: 'New Project',
+    de: 'Neues Projekt'
+  },
   'menu-file-open': {
     en: 'Open',
     de: 'Öffnen'

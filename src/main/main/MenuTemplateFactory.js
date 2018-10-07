@@ -16,6 +16,13 @@ module.exports =
           label: ml.get('menu-file'),
           submenu: [
             {
+              label: ml.get('menu-file-new'),
+              accelerator: 'CmdOrCtrl+N',
+              click() {
+                webContents.getAllWebContents().forEach(wc => wc.send('new-project-requested'));
+              }
+            },
+            {
               label: ml.get('menu-file-open'),
               accelerator: 'CmdOrCtrl+O',
               click() {
