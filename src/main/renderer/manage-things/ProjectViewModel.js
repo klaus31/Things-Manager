@@ -90,7 +90,7 @@ class ManagedThings_ProjectViewModel {
 
   get shownThings() {
     function matchesSearch(thing, search) {
-      return !search || thing.toString().indexOf(search) >= 0;
+      return !search || thing.toString().toLowerCase().indexOf(search.toLowerCase()) >= 0;
     }
 
     function isActive(thing, categories) {
