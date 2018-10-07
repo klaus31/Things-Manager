@@ -15,7 +15,6 @@ class FileSave {
   }
 
   save() {
-    // FIXME this is not working (currentFile set correctly)
     if (daoThingFile.currentFile && require('fs').existsSync(daoThingFile.currentFile)) {
       daoThingFile.persist(daoThingFile.currentFile);
     } else {
