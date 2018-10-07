@@ -11,7 +11,7 @@ const vueTitle_computeTitle = function () {
     result.push(APP.currentFile);
   }
   if (APP.changesMade) {
-    result.push('Modified: ' + moment(new Date()).format('DD.MM.YYYY HH:mm:ss'));
+    result.push(ml.get('XcXP+51C4Uxml8If') + ': ' + moment().format('LLL'));
   }
 
   return result.join(' ||| ');

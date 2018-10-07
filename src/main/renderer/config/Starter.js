@@ -36,7 +36,7 @@ class Starter {
     ipcRenderer.on('app-area-changed', (event, area) => app.setCurrentAreaKey(area));
 
     ipcRenderer.on('new-project-requested', () => {
-      const confirmed = !app.changesMade || window.confirm(ml.get('0+Jhdv38B5t0u8zb')); // TODO only show, if changes made
+      const confirmed = !app.changesMade || window.confirm(ml.get('0+Jhdv38B5t0u8zb'));
       if (confirmed) {
         localStorage.clear();
         localStorage.setItem('tmp-language', app.languageCode);

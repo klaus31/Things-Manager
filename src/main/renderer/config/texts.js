@@ -4,8 +4,8 @@ const TEXTS_CONFIG = {
     de: 'Vorgenommene Änderungen gehen verloren!'
   },
   'XcXP+51C4Uxml8If': {
-    en: '',
-    de: ''
+    en: 'Edited',
+    de: 'Bearbeitet'
   },
   'jnc+4xJEiV6quv31': {
     en: '',

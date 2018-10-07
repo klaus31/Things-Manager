@@ -7,6 +7,7 @@ class App {
     this.dataModellVersion = 1;
     this._languageCode = 'en';
     this.changesMade = false;
+    moment.locale(this._languageCode);
   }
 
   get languageCode() {
@@ -15,6 +16,7 @@ class App {
 
   set languageCode(languageCode) {
     if (languageCode !== 'de' && languageCode !== 'en') throw 'unsupported language ' + languageCode;
+    moment.locale(languageCode);
     this._languageCode = languageCode;
   }
 
@@ -55,7 +57,7 @@ class App {
     app.dataModellVersion = json.dataModellVersion;
     app.currentFile = json.currentFile;
     app._currentArea = CurrentArea.fromJSON(json.currentArea);
-    app._languageCode = json.languageCode;
+    app.languageCode = json.languageCode;
     return app;
   }
 }
