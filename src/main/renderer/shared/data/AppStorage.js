@@ -18,6 +18,7 @@ class AppStorage {
 
   loadFileData(data) {
     localStorage.setItem('app', JSON.stringify(data));
+    localStorage.removeItem('app-changes-made');
     this._suppressAutoStore = true;
     window.location.reload();
   }
