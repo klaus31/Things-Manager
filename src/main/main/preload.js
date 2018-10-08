@@ -2,6 +2,7 @@
 
 const shell = require('electron').shell;
 window.ipcRenderer = require('electron').ipcRenderer;
+window.APP_VERSION = require(__dirname + '/../../package.json').version;
 
 window.openExternalHttp = function (url) {
   if (url.match(/^https?:\/\/.+/)) {
