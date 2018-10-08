@@ -46,7 +46,7 @@ const TEXTS_CREDITS = {
       '</p>' +
 
       '<h3>About</h3>' +
-      '<p>This is the Things Manager (https://github.com/klaus31/Things-Manager), Version 0.3.0-snapshot</p>', // TODO dynamify version
+      '<p>This is the Things Manager (https://github.com/klaus31/Things-Manager), Version 0.2.1</p>', // TODO dynamify version
     de: '<h3>Credits</h3>' +
       '<p>Danke an die Entwickler_innen der Technologien, die hier verwendet wurden</p>' +
       '<ul>' +
@@ -88,6 +88,6 @@ const TEXTS_CREDITS = {
       '</p>' +
 
       '<h3>Über Things-Manager</h3>' +
-      '<p>Dies ist der Things Manager (https://github.com/klaus31/Things-Manager) in Version 0.3.0-snapshot</p>', // TODO dynamify version
+      '<p>Dies ist der Things Manager (https://github.com/klaus31/Things-Manager) in Version 0.2.1</p>', // TODO dynamify version
   }
 };
