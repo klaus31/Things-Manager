@@ -80,21 +80,20 @@
                    :callback="val => viewModel.projectName = val"></tm-editable>
     </h1>
     <div id="category-cards">
-      <!-- FIXME readonlys are always above editables. Thus, when you click the edit icon, the card jumps below the readonlys -->
-      <card-manage-category-readonly v-if="category.locked"
-                                     v-for="category in viewModel.shownCategories"
-                                     :ml="ml"
-                                     :key="category.uuid"
-                                     :category="category"
-                                     :project="viewModel">
-      </card-manage-category-readonly>
-      <card-manage-category-editable v-if="!category.locked"
-                                     v-for="category in viewModel.shownCategories"
-                                     :ml="ml"
-                                     :key="category.uuid"
-                                     :category="category"
-                                     :project="viewModel">
-      </card-manage-category-editable>
+      <div v-for="category in viewModel.shownCategories">
+        <card-manage-category-readonly v-if="category.locked"
+                                       :ml="ml"
+                                       :key="category.uuid"
+                                       :category="category"
+                                       :project="viewModel">
+        </card-manage-category-readonly>
+        <card-manage-category-editable v-if="!category.locked"
+                                       :ml="ml"
+                                       :key="category.uuid"
+                                       :category="category"
+                                       :project="viewModel">
+        </card-manage-category-editable>
+      </div>
     </div>
   </tm-main-area>
 </div>
