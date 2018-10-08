@@ -13,7 +13,7 @@
   "dependencies": {
     "vue": "2.5.17",
     "moment": "2.22.2",
-    "bootstrap": "3.3.7",
+    "bootstrap-css-only": "3.3.7",
     "minimist": "1.2.0",
     "less": "3.8.1"
   },
