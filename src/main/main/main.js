@@ -1,21 +1,28 @@
-const {app, BrowserWindow, Menu, webContents, ipcMain} = require('electron');
+const {app, BrowserWindow, Menu, webContents} = require('electron');
 const path = require('path');
 const ml = require('./MultiLanguage');
 const createMenuTemplate = require('./MenuTemplateFactory');
 const PROFILE = require('minimist')(process.argv.slice(2)).profile || 'PROD';
 
+// we need an unsafe-eval for working with vuejs.
+// however: nodeIntegration is set to false
+process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
+
 let win;
 
 function createWindow() {
-  win = new BrowserWindow(
-    {
-      frame: true,
-      backgroundColor: 'transparent',
-      autoHideMenuBar: false,
-      icon: path.join(__dirname, 'icon-64x64.png'),
-      width: 1500,
-      height: 1000,
-    });
+  win = new BrowserWindow({
+    frame: true,
+    backgroundColor: 'transparent',
+    autoHideMenuBar: false,
+    icon: path.join(__dirname, 'icon-64x64.png'),
+    width: 1500,
+    height: 1000,
+    webPreferences: {
+      nodeIntegration: false, // do not change!
+      preload: path.join(__dirname, 'preload.js')
+    }
+  });
   win.setMenuBarVisibility(true);
   win.loadFile('main/renderer/index.html');
 

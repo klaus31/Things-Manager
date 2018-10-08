@@ -44,9 +44,6 @@ Vue.component('tm-editable', {
     },
     showLinkToOpen: function () {
       return !this.computedEditable && this.type === 'url';
-    },
-    openLink: function () {
-      require('electron').shell.openExternal(this.content);
     }
   },
   methods: {
@@ -65,12 +62,15 @@ Vue.component('tm-editable', {
     },
     start: function () {
       this.editable = true;
+    },
+    openLink: function () {
+      openExternalHttp(this.content);
     }
   },
   template: '<div role="button" class="editable editable-text">' +
     '<p @click="start()" class="content" v-if="!computedEditable" v-html="computedContent"></p>' +
     '<p v-if="showLinkToOpen" class="buttonlink">' +
-    '<tm-button icon="link" @click="() => openLink()"></tm-button>' +
+    '<tm-button icon="link" @click="openLink()"></tm-button>' +
     '</p>' +
     '<p v-if="computedEditable">' +
     '<input :type="computedType" v-autofocus v-autoselect :value="content" @input="callCallback"' +

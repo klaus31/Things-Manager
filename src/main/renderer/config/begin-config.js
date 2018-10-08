@@ -6,7 +6,8 @@ String.prototype.hashCode = function () {
   }, 0);
 };
 
-const ipcRenderer = require('electron').ipcRenderer;
+if (!openExternalHttp) throw 'openExternalHttp required to open links external';
+if (!ipcRenderer) throw 'ipcRenderer required to inform main process';
 
 const projectListener = new ProjectListener();
 const appStorage = new AppStorage();
