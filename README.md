@@ -1,4 +1,4 @@
-# Things-Manager
+# Things-Manager ![logo](src/main/main/icon-64x64.png) 
 
 This is a program to catalog things of private collecting passions.
 
