@@ -16,13 +16,14 @@ function createWindow() {
     backgroundColor: 'transparent',
     autoHideMenuBar: false,
     icon: path.join(__dirname, 'icon-64x64.png'),
-    width: 1500,
-    height: 1000,
+    minWidth: 800,
+    minHeight: 600,
     webPreferences: {
       nodeIntegration: false, // do not change!
       preload: path.join(__dirname, 'preload.js')
     }
   });
+  win.maximize();
   win.setMenuBarVisibility(true);
   win.loadFile('main/renderer/index.html');
 

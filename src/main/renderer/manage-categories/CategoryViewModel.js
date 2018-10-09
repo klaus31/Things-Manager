@@ -23,6 +23,13 @@ class ManagedCategory_CategoryViewModel {
     callback(this._dataCategory);
   }
 
+  findPropertyKeysOfAllThings() {
+    let dataKeyProperties = this._dataCategory.findPropertyKeysOfAllThings();
+    let propertyKeyViewModels = [];
+    dataKeyProperties.forEach(dataKeyProperty => propertyKeyViewModels.push(new ManagedCategory_PropertyKeyViewModel(dataKeyProperty.name, this._dataCategory)));
+    return propertyKeyViewModels;
+  }
+
   isDeletable() {
     return this._dataCategory.things.length === 0;
   }

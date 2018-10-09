@@ -36,12 +36,12 @@ const TEXTS_MANAGE_CATEGORIES = {
     de: 'Sachen verwalten'
   },
   'sEzqYfSNsSPFwosV': {
-    en: '',
-    de: ''
+    en: 'Attributes for {1}',
+    de: 'Eigenschaften von {1}'
   },
   'QLvPeYYGmyNOAaTS': {
-    en: '',
-    de: ''
+    en: 'Rename the attributes of {1} already defined all at once',
+    de: 'Für {1} wurden bereits Sachen mit folgenden Eigenschaften erfasst, die hier alle auf einen Schlag umbenannt werden können.'
   },
   'ejn+M0lTqXFh5Zgy': {
     en: '',

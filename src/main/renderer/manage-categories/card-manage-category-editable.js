@@ -86,6 +86,18 @@ Vue.component('card-manage-category-editable', {
     '</td>' +
     '</tr>' +
 
+    '<tr v-if="category.findPropertyKeysOfAllThings().length">' +
+    '<td colspan="2">' +
+    '<strong>{{ml.get("sEzqYfSNsSPFwosV", category.plural)}}</strong><br>' +
+    '<span>{{ml.get("QLvPeYYGmyNOAaTS", category.plural)}}</span>' +
+    '</td>' +
+    '</tr>' +
+    '<tr v-for="property in category.findPropertyKeysOfAllThings()">' +
+    '<td colspan="2" class="input">' +
+    '<input v-model="property.key" type="text">' +
+    '</td>' +
+    '</tr>' +
+
     '</tbody>' +
     '</table>'
 });
