@@ -11,3 +11,7 @@ window.openExternalHttp = function (url) {
     console.error('Only http://... and https://... allowed to open external');
   }
 };
+
+window.nodeGetFileContent = function (file) {
+  return require('fs').readFileSync(require('path').join(__dirname, '..', 'renderer', file.replace('..', '')));
+};

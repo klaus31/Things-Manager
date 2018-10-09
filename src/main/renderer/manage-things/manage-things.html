@@ -1,0 +1,55 @@
+<div class="projectarea container"
+     id="app-manage-things"
+     v-if="area.key === 'manage-things'">
+  <tm-sidebar>
+    <h2>{{ml.get('PjEbHaH4YWEJUFTH')}}</h2>
+    <div class="block">
+      <input type="search"
+             title="Search"
+             class="form-control"
+             v-model="viewModel.search"
+             :placeholder="viewModel.searchPlaceholder">
+    </div>
+    <div class="block">
+      <h3>{{ml.get('DNzYLhgMFuXzPse7')}}</h3>
+      <ul class="tm-buttons">
+        <li v-for="category in viewModel.categories" v-colors-hover="category.colors" @click="gotoNewThingAreaOf(category)">
+          <span class="glyphicon glyphicon-plus"></span> {{ml.get('S86h5u1OcrUoneOt', category.labelSingular)}}
+        </li>
+      </ul>
+    </div>
+    <div class="block doshow">
+      <h3>{{ml.get('MAa9a19b+hiF0hUA')}}</h3>
+      <ul class="tm-buttons">
+        <li v-for="category in viewModel.categories" v-colors-hover="category.colors" @click="category.active = !category.active">
+          <input type="checkbox" checked v-model="category.active"><span> {{category.labelPlural}}</span>
+        </li>
+      </ul>
+    </div>
+    <div class="block">
+      <h3>{{ml.get('AGneRYhafefZdMZc')}}</h3>
+      <ul class="tm-buttons">
+        <li v-if="!viewModel.showdetails" @click="viewModel.showdetails = true">{{ml.get('VbbqP6v1yHoWqABp')}}</li>
+        <li v-if="viewModel.showdetails" @click="viewModel.showdetails = false">{{ml.get('wta6G6dhKTpcPVFD')}}</li>
+        <li v-if="!viewModel.isSortationOfShownThings('keyvalue_asc')" @click="viewModel.sortationShownThings = 'keyvalue_asc'">{{ml.get('Xt7O6buuEhoCNUE1')}}</li>
+        <li v-if="!viewModel.isSortationOfShownThings('keyvalue_desc')" @click="viewModel.sortationShownThings = 'keyvalue_desc'">{{ml.get('6RSrfDDH2dz5iOEf')}}</li>
+        <li @click="area.key = 'manage-categories'">{{ml.get('KbunXNar7QTA1nZb')}}</li>
+      </ul>
+    </div>
+  </tm-sidebar>
+  <tm-main-area>
+    <h1>
+      <tm-editable type="text"
+                   :content="viewModel.projectName"
+                   :callback="val => viewModel.projectName = val"></tm-editable>
+    </h1>
+    <div id="thing-cards">
+      <card-manage-thing v-for="thing in viewModel.shownThings"
+                         :ml="ml"
+                         :key="thing.uuid"
+                         :thing="thing"
+                         :project="viewModel">
+      </card-manage-thing>
+    </div>
+  </tm-main-area>
+</div>

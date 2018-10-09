@@ -1,0 +1,37 @@
+<div class="projectarea container"
+     id="app-manage-categories"
+     v-if="area.key === 'manage-categories'">
+  <tm-sidebar>
+    <h2>{{ml.get('ucDNQsAg+2Y6qQEM')}}</h2>
+    <h3>{{ml.get('ModiK8YPB/hJLjzv')}}</h3>
+    <div class="block doshow">
+      <ul class="tm-buttons">
+        <li @click="viewModel.addNewCategory()">{{ml.get('rKrrX58y/cI+GHUo')}}</li>
+        <li @click="area.key = 'manage-things'">{{ml.get('evYA3Kl2sD0ePuoO')}}</li>
+      </ul>
+    </div>
+  </tm-sidebar>
+  <tm-main-area>
+    <h1>
+      <tm-editable type="text"
+                   :content="viewModel.projectName"
+                   :callback="val => viewModel.projectName = val"></tm-editable>
+    </h1>
+    <div id="category-cards">
+      <div v-for="category in viewModel.shownCategories">
+        <card-manage-category-readonly v-if="category.locked"
+                                       :ml="ml"
+                                       :key="category.uuid"
+                                       :category="category"
+                                       :project="viewModel">
+        </card-manage-category-readonly>
+        <card-manage-category-editable v-if="!category.locked"
+                                       :ml="ml"
+                                       :key="category.uuid"
+                                       :category="category"
+                                       :project="viewModel">
+        </card-manage-category-editable>
+      </div>
+    </div>
+  </tm-main-area>
+</div>

@@ -1,0 +1,34 @@
+<div class="projectarea container"
+     id="app-add-new-thing"
+     v-if="area.key === 'add-new-thing'">
+  <tm-sidebar>
+    <h2>{{ml.get('8+8nVAfx/TwWZr0f', viewModel.category.singular)}}</h2>
+    <div class="block">
+      <h3 v-if="viewModel.categories.length > 1">{{ml.get('zC0PTvVG49YSPVqZ')}}</h3>
+      <ul v-if="viewModel.categories.length > 1">
+        <li v-for="category in viewModel.categories" v-colors-hover="viewModel.colors(category)" @click="viewModel.category = category">
+          <label>
+            <input type="radio" :value="category" v-model="viewModel.category"> {{category.singular}}
+          </label>
+        </li>
+      </ul>
+      <div class="block">
+        <h3 v-if="viewModel.categories.length > 1">{{ml.get('Sx1poDR+ZuNnYPRA')}}</h3>
+        <ul class="tm-buttons">
+          <li @click="cancel()">{{ml.get('d9CofVkb/QBrpDOc')}}</li>
+        </ul>
+      </div>
+    </div>
+  </tm-sidebar>
+  <tm-main-area>
+    <h1>
+      <tm-editable type="text"
+                   :content="viewModel.projectName"
+                   :callback="val => viewModel.projectName = val"></tm-editable>
+    </h1>
+    <card-new-thing v-model="viewModel" :ml="ml"></card-new-thing>
+    <div class="block" v-if="viewModel.thing.keyvalue">
+      <tm-button icon="ok" size="xl" buttonstyle="success" @click="finalize()">{{ml.get('iI5mxfYtwu5yJ3zU', viewModel.thing.keyvalue)}}</tm-button>
+    </div>
+  </tm-main-area>
+</div>

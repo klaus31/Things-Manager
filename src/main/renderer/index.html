@@ -6,189 +6,33 @@
   <link rel="stylesheet" href="../../node_modules/bootstrap-css-only/css/bootstrap.min.css">
   <link rel="stylesheet/less" type="text/css" href="styles.less"/>
   <link rel="stylesheet/less" type="text/css" href="add-first-thing/styles.less"/>
-  <link rel="stylesheet/less" type="text/css" href="manage-things/add-new-thing/styles.less"/>
+  <link rel="stylesheet/less" type="text/css" href="add-new-thing/styles.less"/>
   <link rel="stylesheet/less" type="text/css" href="manage-things/styles.less"/>
   <link rel="stylesheet/less" type="text/css" href="manage-categories/styles.less"/>
   <!-- Run npm run config-vue-devtools and uncomment -->
   <!--<script src="http://localhost:8098"></script>-->
 </head>
-<body :class="project.currentProjectAreaKey">
-
-<div class="projectarea container"
-     id="app-add-new-thing"
-     v-if="area.key === 'add-new-thing'">
-  <tm-sidebar>
-    <h2>{{ml.get('8+8nVAfx/TwWZr0f', viewModel.category.singular)}}</h2>
-    <div class="block">
-      <h3 v-if="viewModel.categories.length > 1">{{ml.get('zC0PTvVG49YSPVqZ')}}</h3>
-      <ul v-if="viewModel.categories.length > 1">
-        <li v-for="category in viewModel.categories" v-colors-hover="viewModel.colors(category)" @click="viewModel.category = category">
-          <label>
-            <input type="radio" :value="category" v-model="viewModel.category"> {{category.singular}}
-          </label>
-        </li>
-      </ul>
-      <div class="block">
-        <h3 v-if="viewModel.categories.length > 1">{{ml.get('Sx1poDR+ZuNnYPRA')}}</h3>
-        <ul class="tm-buttons">
-          <li @click="cancel()">{{ml.get('d9CofVkb/QBrpDOc')}}</li>
-        </ul>
-      </div>
-    </div>
-  </tm-sidebar>
-  <tm-main-area>
-    <h1>
-      <tm-editable type="text"
-                   :content="viewModel.projectName"
-                   :callback="val => viewModel.projectName = val"></tm-editable>
-    </h1>
-    <card-new-thing v-model="viewModel" :ml="ml"></card-new-thing>
-    <div class="block" v-if="viewModel.thing.keyvalue">
-      <tm-button icon="ok" size="xl" buttonstyle="success" @click="finalize()">{{ml.get('iI5mxfYtwu5yJ3zU', viewModel.thing.keyvalue)}}</tm-button>
-    </div>
-  </tm-main-area>
-</div>
-
-<div class="projectarea container"
-     id="app-add-first-thing"
-     v-if="area.key === 'add-first-thing'">
-  <tm-sidebar>
-    <h2>{{ml.get('K2obBudGwnCRDvIp')}}</h2>
-    <div class="block">
-      <p>{{ml.get('iSrgYfncQe6SQwEV')}}</p>
-    </div>
-  </tm-sidebar>
-  <tm-main-area>
-    <h1>{{viewModel.h1}}</h1>
-    <card-first-thing v-model="viewModel" :start="start" :ml="ml"></card-first-thing>
-  </tm-main-area>
-</div>
-
-<div class="projectarea container"
-     id="app-manage-categories"
-     v-if="area.key === 'manage-categories'">
-  <tm-sidebar>
-    <h2>{{ml.get('ucDNQsAg+2Y6qQEM')}}</h2>
-    <h3>{{ml.get('ModiK8YPB/hJLjzv')}}</h3>
-    <div class="block doshow">
-      <ul class="tm-buttons">
-        <li @click="viewModel.addNewCategory()">{{ml.get('rKrrX58y/cI+GHUo')}}</li>
-        <li @click="area.key = 'manage-things'">{{ml.get('evYA3Kl2sD0ePuoO')}}</li>
-      </ul>
-    </div>
-  </tm-sidebar>
-  <tm-main-area>
-    <h1>
-      <tm-editable type="text"
-                   :content="viewModel.projectName"
-                   :callback="val => viewModel.projectName = val"></tm-editable>
-    </h1>
-    <div id="category-cards">
-      <div v-for="category in viewModel.shownCategories">
-        <card-manage-category-readonly v-if="category.locked"
-                                       :ml="ml"
-                                       :key="category.uuid"
-                                       :category="category"
-                                       :project="viewModel">
-        </card-manage-category-readonly>
-        <card-manage-category-editable v-if="!category.locked"
-                                       :ml="ml"
-                                       :key="category.uuid"
-                                       :category="category"
-                                       :project="viewModel">
-        </card-manage-category-editable>
-      </div>
-    </div>
-  </tm-main-area>
-</div>
-
-<div class="projectarea container"
-     id="app-manage-things"
-     v-if="area.key === 'manage-things'">
-  <tm-sidebar>
-    <h2>{{ml.get('PjEbHaH4YWEJUFTH')}}</h2>
-    <div class="block">
-      <input type="search"
-             title="Search"
-             class="form-control"
-             v-model="viewModel.search"
-             :placeholder="viewModel.searchPlaceholder">
-    </div>
-    <div class="block">
-      <h3>{{ml.get('DNzYLhgMFuXzPse7')}}</h3>
-      <ul class="tm-buttons">
-        <li v-for="category in viewModel.categories" v-colors-hover="category.colors" @click="gotoNewThingAreaOf(category)">
-          <span class="glyphicon glyphicon-plus"></span> {{ml.get('S86h5u1OcrUoneOt', category.labelSingular)}}
-        </li>
-      </ul>
-    </div>
-    <div class="block doshow">
-      <h3>{{ml.get('MAa9a19b+hiF0hUA')}}</h3>
-      <ul class="tm-buttons">
-        <li v-for="category in viewModel.categories" v-colors-hover="category.colors" @click="category.active = !category.active">
-          <input type="checkbox" checked v-model="category.active"><span> {{category.labelPlural}}</span>
-        </li>
-      </ul>
-    </div>
-    <div class="block">
-      <h3>{{ml.get('AGneRYhafefZdMZc')}}</h3>
-      <ul class="tm-buttons">
-        <li v-if="!viewModel.showdetails" @click="viewModel.showdetails = true">{{ml.get('VbbqP6v1yHoWqABp')}}</li>
-        <li v-if="viewModel.showdetails" @click="viewModel.showdetails = false">{{ml.get('wta6G6dhKTpcPVFD')}}</li>
-        <li v-if="!viewModel.isSortationOfShownThings('keyvalue_asc')" @click="viewModel.sortationShownThings = 'keyvalue_asc'">{{ml.get('Xt7O6buuEhoCNUE1')}}</li>
-        <li v-if="!viewModel.isSortationOfShownThings('keyvalue_desc')" @click="viewModel.sortationShownThings = 'keyvalue_desc'">{{ml.get('6RSrfDDH2dz5iOEf')}}</li>
-        <li @click="area.key = 'manage-categories'">{{ml.get('KbunXNar7QTA1nZb')}}</li>
-      </ul>
-    </div>
-  </tm-sidebar>
-  <tm-main-area>
-    <h1>
-      <tm-editable type="text"
-                   :content="viewModel.projectName"
-                   :callback="val => viewModel.projectName = val"></tm-editable>
-    </h1>
-    <div id="thing-cards">
-      <card-manage-thing v-for="thing in viewModel.shownThings"
-                         :ml="ml"
-                         :key="thing.uuid"
-                         :thing="thing"
-                         :project="viewModel">
-      </card-manage-thing>
-    </div>
-  </tm-main-area>
-</div>
-
-<div class="projectarea container"
-     id="app-credits"
-     v-if="area.key === 'credits'">
-  <div class="projectarea container">
-    <h1>{{ml.get('PjEbHaH4YWEJUFTa')}}</h1>
-    <p v-html="ml.get('VbbqP6v1yHoWqABa')"></p>
-  </div>
-</div>
-
-<div class="projectarea container"
-     id="app-help"
-     v-if="area.key === 'help'">
-  <div class="projectarea container">
-    <h1>{{ml.get('PjEbHaH4YWEJUFTb')}}</h1>
-    <p v-html="ml.get('VbbqP6v1yHoWqABb')"></p>
-  </div>
-</div>
-
-<!-- XXX this is a pseudo element needed to store every changes in the project on the fly -->
-<div id="watch-app"></div>
-
+<body id="body" :class="project.currentProjectAreaKey">
+<script>
+  document.getElementById('body').innerHTML = nodeGetFileContent('add-first-thing/add-first-thing.html') +
+    nodeGetFileContent('manage-categories/manage-categories.html') +
+    nodeGetFileContent('manage-things/manage-things.html') +
+    nodeGetFileContent('add-new-thing/add-new-thing.html') +
+    nodeGetFileContent('credits/credits.html') +
+    nodeGetFileContent('help/help.html') +
+    '<div id="watch-app"></div>' +
+    document.getElementById('body').innerHTML;
+</script>
 <!-- 3rd parties -->
 <script src="../../node_modules/vue/dist/vue.min.js"></script>
 <script src="../../node_modules/moment/min/moment-with-locales.min.js"></script>
-<script> var less = {logLevel: 0, async: true, fileAsync: true};</script>
+<script>var less = {logLevel: 0, async: true, fileAsync: true};</script>
 <script src="../../node_modules/less/dist/less.js"></script>
 
 <!-- multi language -->
 <script src="add-first-thing/texts.js"></script>
 <script src="manage-things/texts.js"></script>
-<script src="manage-things/add-new-thing/texts.js"></script>
+<script src="add-new-thing/texts.js"></script>
 <script src="manage-categories/texts.js"></script>
 <script src="shared/texts.js"></script>
 <script src="config/texts.js"></script>
@@ -229,9 +73,9 @@
 <script src="config/title.js"></script>
 
 <!-- specific vue elements -->
-<script src="manage-things/add-new-thing/card-new-thing.js"></script>
-<script src="manage-things/add-new-thing/NewThingViewModel.js"></script>
-<script src="manage-things/add-new-thing/add-new-thing.js"></script>
+<script src="add-new-thing/card-new-thing.js"></script>
+<script src="add-new-thing/NewThingViewModel.js"></script>
+<script src="add-new-thing/add-new-thing.js"></script>
 <script src="add-first-thing/card-first-thing.js"></script>
 <script src="add-first-thing/FirstThingViewModel.js"></script>
 <script src="add-first-thing/add-first-thing.js"></script>
@@ -252,6 +96,5 @@
 
 <!-- finish config -->
 <script src="config/end-config.js"></script>
-
 </body>
 </html>

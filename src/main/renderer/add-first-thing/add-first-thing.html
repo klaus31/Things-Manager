@@ -1,0 +1,14 @@
+<div class="projectarea container"
+     id="app-add-first-thing"
+     v-if="area.key === 'add-first-thing'">
+  <tm-sidebar>
+    <h2>{{ml.get('K2obBudGwnCRDvIp')}}</h2>
+    <div class="block">
+      <p>{{ml.get('iSrgYfncQe6SQwEV')}}</p>
+    </div>
+  </tm-sidebar>
+  <tm-main-area>
+    <h1>{{viewModel.h1}}</h1>
+    <card-first-thing v-model="viewModel" :start="start" :ml="ml"></card-first-thing>
+  </tm-main-area>
+</div>
