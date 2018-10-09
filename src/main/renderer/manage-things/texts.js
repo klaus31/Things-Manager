@@ -65,8 +65,8 @@ const TEXTS_MANAGE_THINGS = {
     de: 'Suche in {1} Sachen'
   },
   'AGneRYhafefZdMZc': {
-    en: 'View Options',
-    de: 'Darstellung'
+    en: 'Options',
+    de: 'Optionen'
   },
   'Xt7O6buuEhoCNUE1': {
     en: 'Sort by Key-Attribute (A-Z)',
@@ -77,8 +77,8 @@ const TEXTS_MANAGE_THINGS = {
     de: 'Sortierung: Schlüssel Eigenschaft (Z-A)'
   },
   'KbunXNar7QTA1nZb': {
-    en: '',
-    de: ''
+    en: 'Manage Categories',
+    de: 'Kategorien verwalten'
   },
   '0aYq0NzDK5QDGRHU': {
     en: '',

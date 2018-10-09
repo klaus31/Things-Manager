@@ -28,12 +28,12 @@ const TEXTS_MANAGE_CATEGORIES = {
     de: 'In welcher Farbe sollen Karteikarten von {1} erscheinen?'
   },
   'ModiK8YPB/hJLjzv': {
-    en: '',
-    de: ''
+    en: 'Options',
+    de: 'Optionen'
   },
   'evYA3Kl2sD0ePuoO': {
-    en: '',
-    de: ''
+    en: 'Manage Things',
+    de: 'Sachen verwalten'
   },
   'sEzqYfSNsSPFwosV': {
     en: '',

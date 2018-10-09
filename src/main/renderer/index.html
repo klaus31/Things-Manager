@@ -18,18 +18,21 @@
      id="app-add-new-thing"
      v-if="area.key === 'add-new-thing'">
   <tm-sidebar>
-    <h2>Add New {{viewModel.category.singular}}</h2>
+    <h2>{{ml.get('8+8nVAfx/TwWZr0f', viewModel.category.singular)}}</h2>
     <div class="block">
-      <h3 v-if="viewModel.categories.length > 1">Choose category of new thing to add</h3>
+      <h3 v-if="viewModel.categories.length > 1">{{ml.get('zC0PTvVG49YSPVqZ')}}</h3>
       <ul v-if="viewModel.categories.length > 1">
-        <li v-for="category in viewModel.categories" v-colors="viewModel.colors(category)" @click="viewModel.category = category">
+        <li v-for="category in viewModel.categories" v-colors-hover="viewModel.colors(category)" @click="viewModel.category = category">
           <label>
             <input type="radio" :value="category" v-model="viewModel.category"> {{category.singular}}
           </label>
         </li>
       </ul>
       <div class="block">
-        <tm-button icon="chevron-left" buttonstyle="primary" @click="cancel()">Cancel</tm-button>
+        <h3 v-if="viewModel.categories.length > 1">{{ml.get('Sx1poDR+ZuNnYPRA')}}</h3>
+        <ul class="tm-buttons">
+          <li @click="cancel()">{{ml.get('d9CofVkb/QBrpDOc')}}</li>
+        </ul>
       </div>
     </div>
   </tm-sidebar>
@@ -66,10 +69,12 @@
      v-if="area.key === 'manage-categories'">
   <tm-sidebar>
     <h2>{{ml.get('ucDNQsAg+2Y6qQEM')}}</h2>
-    <div class="block">
-      <div class="block">
-        <tm-button icon="plus" buttonstyle="primary" @click="viewModel.addNewCategory()">{{ml.get('rKrrX58y/cI+GHUo')}}</tm-button>
-      </div>
+    <h3>{{ml.get('ModiK8YPB/hJLjzv')}}</h3>
+    <div class="block doshow">
+      <ul class="tm-buttons">
+        <li @click="viewModel.addNewCategory()">{{ml.get('rKrrX58y/cI+GHUo')}}</li>
+        <li @click="area.key = 'manage-things'">{{ml.get('evYA3Kl2sD0ePuoO')}}</li>
+      </ul>
     </div>
   </tm-sidebar>
   <tm-main-area>
@@ -110,28 +115,29 @@
              :placeholder="viewModel.searchPlaceholder">
     </div>
     <div class="block">
-      <h3>{{ml.get('AGneRYhafefZdMZc')}}</h3>
-      <ul class="tm-buttons">
-        <li v-if="!viewModel.showdetails" @click="viewModel.showdetails = true">{{ml.get('VbbqP6v1yHoWqABp')}}</li>
-        <li v-if="viewModel.showdetails" @click="viewModel.showdetails = false">{{ml.get('wta6G6dhKTpcPVFD')}}</li>
-        <li v-if="!viewModel.isSortationOfShownThings('keyvalue_asc')" @click="viewModel.sortationShownThings = 'keyvalue_asc'">{{ml.get('Xt7O6buuEhoCNUE1')}}</li>
-        <li v-if="!viewModel.isSortationOfShownThings('keyvalue_desc')" @click="viewModel.sortationShownThings = 'keyvalue_desc'">{{ml.get('6RSrfDDH2dz5iOEf')}}</li>
-      </ul>
-    </div>
-    <div class="block">
       <h3>{{ml.get('DNzYLhgMFuXzPse7')}}</h3>
       <ul class="tm-buttons">
-        <li v-for="category in viewModel.categories" v-colors="category.colors" @click="gotoNewThingAreaOf(category)">
+        <li v-for="category in viewModel.categories" v-colors-hover="category.colors" @click="gotoNewThingAreaOf(category)">
           <span class="glyphicon glyphicon-plus"></span> {{ml.get('S86h5u1OcrUoneOt', category.labelSingular)}}
         </li>
       </ul>
     </div>
     <div class="block doshow">
       <h3>{{ml.get('MAa9a19b+hiF0hUA')}}</h3>
-      <ul>
-        <li v-for="category in viewModel.categories" v-colors="category.colors">
-          <label><input type="checkbox" checked v-model="category.active"> {{category.labelPlural}}</label>
+      <ul class="tm-buttons">
+        <li v-for="category in viewModel.categories" v-colors-hover="category.colors" @click="category.active = !category.active">
+          <input type="checkbox" checked v-model="category.active"><span> {{category.labelPlural}}</span>
         </li>
+      </ul>
+    </div>
+    <div class="block">
+      <h3>{{ml.get('AGneRYhafefZdMZc')}}</h3>
+      <ul class="tm-buttons">
+        <li v-if="!viewModel.showdetails" @click="viewModel.showdetails = true">{{ml.get('VbbqP6v1yHoWqABp')}}</li>
+        <li v-if="viewModel.showdetails" @click="viewModel.showdetails = false">{{ml.get('wta6G6dhKTpcPVFD')}}</li>
+        <li v-if="!viewModel.isSortationOfShownThings('keyvalue_asc')" @click="viewModel.sortationShownThings = 'keyvalue_asc'">{{ml.get('Xt7O6buuEhoCNUE1')}}</li>
+        <li v-if="!viewModel.isSortationOfShownThings('keyvalue_desc')" @click="viewModel.sortationShownThings = 'keyvalue_desc'">{{ml.get('6RSrfDDH2dz5iOEf')}}</li>
+        <li @click="area.key = 'manage-categories'">{{ml.get('KbunXNar7QTA1nZb')}}</li>
       </ul>
     </div>
   </tm-sidebar>
@@ -204,6 +210,7 @@
 
 <!-- shared vue elements -->
 <script src="shared/html/v-colors.js"></script>
+<script src="shared/html/v-colors-hover.js"></script>
 <script src="shared/html/v-autofocus.js"></script>
 <script src="shared/html/v-autoselect.js"></script>
 <script src="shared/html/tm-editable.js"></script>

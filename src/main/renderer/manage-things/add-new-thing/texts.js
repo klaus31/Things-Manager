@@ -20,20 +20,20 @@ const TEXTS_MANAGE_THINGS_ADD_NEW_THING = {
     de: '{1} Hinzufügen'
   },
   '8+8nVAfx/TwWZr0f': {
-    en: '',
-    de: ''
+    en: 'Add New {1}',
+    de: 'Füge ein(e) {1} hinzu'
   },
   'zC0PTvVG49YSPVqZ': {
-    en: '',
-    de: ''
+    en: 'Choose category of new thing to add',
+    de: 'Wähle die Kategorie'
   },
   'd9CofVkb/QBrpDOc': {
-    en: '',
-    de: ''
+    en: 'Cancel',
+    de: 'Abbrechen'
   },
   'Sx1poDR+ZuNnYPRA': {
-    en: '',
-    de: ''
+    en: 'Options',
+    de: 'Optionen'
   },
   '9Qjre1gJrVQw75hq': {
     en: '',
