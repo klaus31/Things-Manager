@@ -110,12 +110,17 @@
              :placeholder="viewModel.searchPlaceholder">
     </div>
     <div class="block">
-      <tm-button v-if="!viewModel.showdetails" icon="th" buttonstyle="primary" @click="viewModel.showdetails = true">{{ml.get('VbbqP6v1yHoWqABp')}}</tm-button>
-      <tm-button v-if="viewModel.showdetails" icon="th-large" buttonstyle="primary" @click="viewModel.showdetails = false">{{ml.get('wta6G6dhKTpcPVFD')}}</tm-button>
+      <h3>{{ml.get('AGneRYhafefZdMZc')}}</h3>
+      <ul class="tm-buttons">
+        <li v-if="!viewModel.showdetails" @click="viewModel.showdetails = true">{{ml.get('VbbqP6v1yHoWqABp')}}</li>
+        <li v-if="viewModel.showdetails" @click="viewModel.showdetails = false">{{ml.get('wta6G6dhKTpcPVFD')}}</li>
+        <li v-if="!viewModel.isSortationOfShownThings('keyvalue_asc')" @click="viewModel.sortationShownThings = 'keyvalue_asc'">{{ml.get('Xt7O6buuEhoCNUE1')}}</li>
+        <li v-if="!viewModel.isSortationOfShownThings('keyvalue_desc')" @click="viewModel.sortationShownThings = 'keyvalue_desc'">{{ml.get('6RSrfDDH2dz5iOEf')}}</li>
+      </ul>
     </div>
-    <div class="block addnew">
+    <div class="block">
       <h3>{{ml.get('DNzYLhgMFuXzPse7')}}</h3>
-      <ul>
+      <ul class="tm-buttons">
         <li v-for="category in viewModel.categories" v-colors="category.colors" @click="gotoNewThingAreaOf(category)">
           <span class="glyphicon glyphicon-plus"></span> {{ml.get('S86h5u1OcrUoneOt', category.labelSingular)}}
         </li>

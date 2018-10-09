@@ -4,6 +4,7 @@ class App {
     this._project = new Project();
     this._currentArea = new CurrentArea();
     this.currentFile = null;
+    this._forceChange = null;
     this.dataModellVersion = 1;
     this._languageCode = 'en';
     moment.locale(this._languageCode);
@@ -11,6 +12,10 @@ class App {
 
   get languageCode() {
     return this._languageCode;
+  }
+
+  forceChange() {
+    this._forceChange = new Date();
   }
 
   set languageCode(languageCode) {

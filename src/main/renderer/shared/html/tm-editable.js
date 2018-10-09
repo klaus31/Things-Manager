@@ -1,5 +1,5 @@
 Vue.component('tm-editable', {
-  props: ['content', 'callback', 'type'],
+  props: ['content', 'callback', 'type', 'callbackeditablechanged'],
   data: function () {
     return {
       editable: false
@@ -59,9 +59,11 @@ Vue.component('tm-editable', {
         this.callCallback(event);
       }
       this.editable = false;
+      if(this.callbackeditablechanged) this.callbackeditablechanged(false);
     },
     start: function () {
       this.editable = true;
+      if(this.callbackeditablechanged) this.callbackeditablechanged(true);
     },
     openLink: function () {
       openExternalHttp(this.content);

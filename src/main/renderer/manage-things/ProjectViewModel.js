@@ -10,6 +10,12 @@ class ManagedThings_ProjectViewModel {
 
     this._categories = [];
     app.project.categories.forEach(category => this._categories.push(new ManagedThings_CategoryViewModel(category)));
+    this._sortationShownThings = 'keyvalue_asc';
+    this._reuseLatestSortedResult = false;
+  }
+
+  set sortationShownThings(sortationShownThings) {
+    this._sortationShownThings = sortationShownThings;
   }
 
   get categories() {
@@ -88,6 +94,17 @@ class ManagedThings_ProjectViewModel {
     return this._app.project.name = projectName;
   }
 
+  isSortationOfShownThings(key) {
+    return this._sortationShownThings === key;
+  }
+
+  reuseLatestSortedResult(reuseIt) {
+    this._reuseLatestSortedResult = reuseIt;
+    if (!reuseIt) {
+      this._app.forceChange();
+    }
+  }
+
   get shownThings() {
     function matchesSearch(thing, search) {
       return !search || thing.toString().toLowerCase().contains(search.toLowerCase());
@@ -103,6 +120,21 @@ class ManagedThings_ProjectViewModel {
       return false;
     }
 
+    function sortShownThings(things, sortationShownThings) {
+      switch (sortationShownThings) {
+        case 'keyvalue_asc':
+          things.sort((a, b) => a.keyvalue.toLowerCase() > b.keyvalue.toLowerCase());
+          break;
+        case 'keyvalue_desc':
+          things.sort((a, b) => a.keyvalue.toLowerCase() < b.keyvalue.toLowerCase());
+          break;
+      }
+    }
+
+    if (this._reuseLatestSortedResult) {
+      return this._lastResult;
+    }
+
     const result = [];
     let i = this._shownThings.length;
     while (i--) {
@@ -111,6 +143,8 @@ class ManagedThings_ProjectViewModel {
         result.push(this._shownThings[i]);
       }
     }
+    sortShownThings(result, this._sortationShownThings);
+    this._lastResult = result;
     return result;
   }
 }

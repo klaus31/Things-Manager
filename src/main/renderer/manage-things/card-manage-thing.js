@@ -26,7 +26,7 @@ Vue.component('card-manage-thing', {
     '<tr>' +
     '<th :colspan="thing.countColumnsToShow()">' +
     '{{thing.category}}: ' +
-    '<tm-editable :content="thing.keyvalue" :callback="val => thing.keyvalue = val"></tm-editable>' +
+    '<tm-editable :content="thing.keyvalue" :callback="val => thing.keyvalue = val" :callbackeditablechanged="val => project.reuseLatestSortedResult(val)"></tm-editable>' +
     '<p class="buttons">' +
     '<tm-button v-if="!thing.locked" @click="project.clone(thing)" icon="duplicate" :title="ml_WxykMLwBTKWHuTIj"></tm-button>' +
     '<tm-button v-if="!thing.locked && thing.canBeDeleted()" @click="project.deleteThing(thing)" icon="trash" :title="ml_CCXaoC1JKRXNcgXH"></tm-button>' +

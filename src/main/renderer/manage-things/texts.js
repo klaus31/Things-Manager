@@ -65,16 +65,16 @@ const TEXTS_MANAGE_THINGS = {
     de: 'Suche in {1} Sachen'
   },
   'AGneRYhafefZdMZc': {
-    en: '',
-    de: ''
+    en: 'View Options',
+    de: 'Darstellung'
   },
   'Xt7O6buuEhoCNUE1': {
-    en: '',
-    de: ''
+    en: 'Sort by Key-Attribute (A-Z)',
+    de: 'Sortierung: Schlüssel Eigenschaft (A-Z)'
   },
   '6RSrfDDH2dz5iOEf': {
-    en: '',
-    de: ''
+    en: 'Sort by Key-Attribute (Z-A)',
+    de: 'Sortierung: Schlüssel Eigenschaft (Z-A)'
   },
   'KbunXNar7QTA1nZb': {
     en: '',
