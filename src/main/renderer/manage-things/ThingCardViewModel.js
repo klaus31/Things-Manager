@@ -57,7 +57,7 @@ class ThingCardViewModel {
   }
 
   delete() {
-    this._dataCategory.things.splice(this._dataCategory.things.indexOf(this._dataThing), 1);
+    this._dataCategory.things.removeItem(this._dataThing);
   }
 
   containsPropertyKey(propertyKey) {
@@ -81,8 +81,8 @@ class ThingCardViewModel {
   }
 
   deleteProperty(propertyViewModel) {
-    propertyViewModel.withDataProperty(dataProp => this._dataThing.properties.splice(this._dataThing.properties.indexOf(dataProp), 1));
-    this._properties.splice(this._properties.indexOf(propertyViewModel), 1);
+    propertyViewModel.withDataProperty(dataProp => this._dataThing.properties.removeItem(dataProp));
+    this._properties.removeItem(propertyViewModel);
   }
 
   withDataThing(callback) {

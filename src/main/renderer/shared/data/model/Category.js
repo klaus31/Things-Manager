@@ -51,7 +51,7 @@ class Category {
   }
 
   deleteThing(thing) {
-    this._things.splice(this._things.indexOf(thing), 1);
+    this._things.removeItem(thing);
   }
 
   set propertyKey(propertyKey) {
@@ -67,7 +67,7 @@ class Category {
       const properties = this._things[i].properties;
       let j = properties.length;
       while (j--) {
-        if (namesOnly.indexOf(properties[j].key.name) < 0) {
+        if (!namesOnly.contains(properties[j].key.name)) {
           result.push(properties[j].key);
           namesOnly.push(properties[j].key.name);
         }

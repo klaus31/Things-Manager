@@ -58,7 +58,7 @@ class NewThingViewModel {
   }
 
   deleteProperty(property) {
-    this._thing.properties.splice(this._thing.properties.indexOf(property), 1);
+    this._thing.properties.removeItem(property);
   }
 
   cloneProperty(property) {

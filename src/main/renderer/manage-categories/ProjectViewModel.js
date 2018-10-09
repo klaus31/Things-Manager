@@ -18,10 +18,10 @@ class ManagedCategory_ProjectViewModel {
   deleteCategory(managedCategory) {
     let me = this;
     managedCategory.withDataCategory(function (dataCategory) {
-      me._app.project.categories.splice(me._app.project.categories.indexOf(dataCategory), 1);
+      me._app.project.categories.removeItem(dataCategory);
       projectListener.fire('delete-category', dataCategory);
     });
-    this._shownCategories.splice(this._shownCategories.indexOf(managedCategory), 1);
+    this._shownCategories.removeItem(managedCategory);
   }
 
   get shownCategories() {

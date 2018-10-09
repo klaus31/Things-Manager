@@ -23,7 +23,7 @@ class ManagedThings_ProjectViewModel {
 
   deleteThing(managedThing) {
     managedThing.delete();
-    this._shownThings.splice(this._shownThings.indexOf(managedThing), 1);
+    this._shownThings.removeItem(managedThing);
   }
 
   onDataCategoryAdded(dataCategory) {
@@ -38,7 +38,7 @@ class ManagedThings_ProjectViewModel {
     let i = this._categories.length;
     while (i--) {
       if (this._categories[i].manages(dataCategory)) {
-        this._categories.splice(this._categories.indexOf(this._categories[i]), 1);
+        this._categories.removeItemWithIndex(i);
       }
     }
   }
@@ -70,7 +70,7 @@ class ManagedThings_ProjectViewModel {
           newManagedThing.toggleLock();
           shownThings.push(newManagedThing);
         });
-        shownThings.splice(shownThings.indexOf(managedThing), 1);
+        shownThings.removeItem(managedThing);
         managedThing.delete();
       }
     });
@@ -90,7 +90,7 @@ class ManagedThings_ProjectViewModel {
 
   get shownThings() {
     function matchesSearch(thing, search) {
-      return !search || thing.toString().toLowerCase().indexOf(search.toLowerCase()) >= 0;
+      return !search || thing.toString().toLowerCase().contains(search.toLowerCase());
     }
 
     function isActive(thing, categories) {
