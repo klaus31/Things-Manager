@@ -56,7 +56,7 @@ Vue.component('card-manage-thing', {
     '<td :colspan="thing.countColumnsToShow()">' +
     '<tm-button icon="plus" @click="thing.addNewEmptyProperty()">{{ml.get("qYv6GRxsa3Kns+Mu")}}</tm-button>' +
     '<tm-button icon="plus" @click="project.addMissingPropertiesFromOtherThings(thing)">{{ml.get("cwvs+xA9BSZNuL08", thing.categoryPlural)}}</tm-button>' +
-    '<select v-if="project.categoryOptions.length" v-model="thing.changeCategory" @change="event => project.changeCategory(thing, event.currentTarget.value)">' +
+    '<select v-if="project.categoryOptions.length > 1" v-model="thing.changeCategory" @change="event => project.changeCategory(thing, event.currentTarget.value)">' +
     '<option v-for="option in project.categoryOptions" :value="option.value">{{ml.get("LC5mU7k6ha4ktcLT", option.label)}}</option>' +
     '</select>' +
     '</td>' +
