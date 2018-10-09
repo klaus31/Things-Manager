@@ -123,10 +123,10 @@ class ManagedThings_ProjectViewModel {
     function sortShownThings(things, sortationShownThings) {
       switch (sortationShownThings) {
         case 'keyvalue_asc':
-          things.sort((a, b) => a.keyvalue.toLowerCase() > b.keyvalue.toLowerCase());
+          things.sort((a, b) => a.keyvalue.toLowerCase().localeCompare(b.keyvalue.toLowerCase()));
           break;
         case 'keyvalue_desc':
-          things.sort((a, b) => a.keyvalue.toLowerCase() < b.keyvalue.toLowerCase());
+          things.sort((a, b) => b.keyvalue.toLowerCase().localeCompare(a.keyvalue.toLowerCase()));
           break;
       }
     }
