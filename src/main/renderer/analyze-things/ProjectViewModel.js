@@ -34,7 +34,16 @@ class AnalyzeThings_ProjectViewModel {
   }
 
   get analyzeViewModel() {
-    return new AnalyzeTextStrategie(this._shownCategory, this._propertyKeyToAnalyze);
+    switch (this._propertyKeyToAnalyze.type) {
+      case 'checkbox':
+        return new AnalyzeCheckboxStrategy(this._shownCategory, this._propertyKeyToAnalyze);
+      case 'number':
+        return new AnalyzeNumberStrategy(this._shownCategory, this._propertyKeyToAnalyze);
+      case 'range':
+        return new AnalyzeRangeStrategy(this._shownCategory, this._propertyKeyToAnalyze);
+      default:
+        return new AnalyzeTextStrategy(this._shownCategory, this._propertyKeyToAnalyze);
+    }
   }
 
   get categories() {
@@ -51,14 +60,6 @@ class AnalyzeThings_ProjectViewModel {
 
   onDataCategoryAdded(dataCategory) {
     this._categories.push(new AnalyzeThings_CategoryViewModel(dataCategory));
-  }
-
-  onDataThingAdded(thingWithCategory) {
-    // TODO update analysis
-  }
-
-  onDataThingDeleted(thingWithCategory) {
-    // TODO update analysis
   }
 
   onDataCategoryDeleted(dataCategory) {

@@ -1,10 +1,10 @@
-Vue.component('card-analyze-things-text', {
+Vue.component('card-analyze-things-checkbox', {
   props: ['value'],
   computed: {},
   template: '<table class="card editable" v-colors="value.colors">' +
     '<thead>' +
     '<tr>' +
-    '<th colspan="2">' +
+    '<th>' +
     '{{value.summary}}' +
     '</th>' +
     '</tr>' +
@@ -15,9 +15,6 @@ Vue.component('card-analyze-things-text', {
     '<tr v-for="analyzeResult in value.analyzeResults">' +
     '<td>' +
     '{{analyzeResult.thing}}' +
-    '</td>' +
-    '<td>' +
-    '{{analyzeResult.result}}' +
     '</td>' +
     '</tr>' +
 

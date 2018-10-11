@@ -11,5 +11,3 @@ const vueAppAnalyzeThings = new Vue({
 
 projectListener.on('new-category', (category) => vueAppAnalyzeThings.viewModel.onDataCategoryAdded(category));
 projectListener.on('delete-category', (category) => vueAppAnalyzeThings.viewModel.onDataCategoryDeleted(category));
-projectListener.on('new-thing', (thingWithCategory) => vueAppAnalyzeThings.viewModel.onDataThingAdded(thingWithCategory));
-projectListener.on('new-thing', (thingWithCategory) => vueAppAnalyzeThings.viewModel.onDataThingDeleted(thingWithCategory));

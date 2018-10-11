@@ -1,8 +1,8 @@
-class AnalyzeTextStrategie {
+class AnalyzeNumberStrategy {
   constructor(vmCategory, propertyKey) {
+    if (!propertyKey || propertyKey.type !== 'number') throw 'invalid propertyKey';
     this._vmCategory = vmCategory;
     vmCategory.withDataCategory(c => this._category = c);
-    // TODO throw exception if strategy is not valid for key (e.g. text for colors)
     this.propertyKey = propertyKey;
   }
 
@@ -11,7 +11,7 @@ class AnalyzeTextStrategie {
   }
 
   get strategy() {
-    return 'text';
+    return 'number';
   }
 
   get summary() {
@@ -25,13 +25,12 @@ class AnalyzeTextStrategie {
       const thing = this._category.things[i];
       const properties = thing.findPropertyValues(this.propertyKey);
       if (properties.length) {
-        analyzeResults.push({
-          thing: thing.keyvalue,
-          result: properties.join(', ')
-        });
+        let j = properties.length;
+        while (j--) {
+          analyzeResults.push(new AnalyzeResult(thing.keyvalue, properties[j]));
+        }
       }
     }
-    analyzeResults.sort((a, b) => a.thing.toLowerCase().localeCompare(b.thing.toLowerCase()));
-    return analyzeResults;
+    return analyzeResults.sort((a, b) => (a.result - 0) < (b.result - 0) ? 1 : -1);
   }
 }
