@@ -12,6 +12,13 @@
         </li>
       </ul>
     </div>
+    <div class="block">
+      <ul v-if="viewModel.category.propertyKeys.length > 1" class="tm-buttons">
+        <li v-for="propertyKey in viewModel.category.propertyKeys" @click="viewModel.propertyKeyToAnalyze = propertyKey">
+          <input type="radio" :value="propertyKey" v-model="viewModel.propertyKeyToAnalyze"> {{propertyKey.name}}
+        </li>
+      </ul>
+    </div>
   </tm-sidebar>
   <tm-main-area>
     <h1>
@@ -20,10 +27,14 @@
                    :callback="val => viewModel.projectName = val"></tm-editable>
     </h1>
     <div>
-      TODO Analyze-Card for {{viewModel.category.plural}}
+      <card-analyze-things-text v-model="viewModel.analyzeViewModel" v-if="viewModel.analyzeViewModel.strategy === 'text'" :ml="ml"></card-analyze-things-text>
+      <!--TODO Analyze-Card for {{viewModel.propertyKeyToAnalyze.name}} of {{viewModel.category.plural}}-->
     </div>
   </tm-main-area>
 </div>
+<script src="analyze-things/CategoryViewModel.js"></script>
 <script src="analyze-things/ProjectViewModel.js"></script>
+<script src="analyze-things/AnalyzeTextStrategie.js"></script>
+<script src="analyze-things/card-analyze-things-text.js"></script>
 <script src="analyze-things/analyze-things.js"></script>
 

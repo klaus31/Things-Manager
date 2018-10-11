@@ -1,21 +1,3 @@
-class AnalyzeThings_CategoryViewModel {
-  constructor(dataCategory) {
-    this._dataCategory = dataCategory;
-  }
-
-  get colors() {
-    return {backgroundColor: this._dataCategory.colorBackground, color: this._dataCategory.colorText};
-  }
-
-  get plural() {
-    return this._dataCategory.plural;
-  }
-
-  manages(dataCategory) {
-    return this._dataCategory.uuid === dataCategory.uuid;
-  }
-}
-
 class AnalyzeThings_ProjectViewModel {
 
   constructor(app) {
@@ -23,10 +5,20 @@ class AnalyzeThings_ProjectViewModel {
     this._categories = [];
     app.project.categories.forEach(category => this._categories.push(new AnalyzeThings_CategoryViewModel(category)));
     this._shownCategory = null;
+    this._propertyKeyToAnalyze = null;
   }
 
-  changeCategory(vmCategory) {
-    this._shownCategory = vmCategory;
+  get propertyKeyToAnalyze() {
+    if (!this._propertyKeyToAnalyze) {
+      if (this.category.propertyKeys.length) {
+        this._propertyKeyToAnalyze = this.category.propertyKeys[0];
+      }
+    }
+    return this._propertyKeyToAnalyze;
+  }
+
+  set propertyKeyToAnalyze(propertyKeyToAnalyze) {
+    this._propertyKeyToAnalyze = propertyKeyToAnalyze;
   }
 
   get category() {
@@ -36,6 +28,13 @@ class AnalyzeThings_ProjectViewModel {
 
   set category(category) {
     this._shownCategory = category;
+    if (category.propertyKeys.length) {
+      this._propertyKeyToAnalyze = category.propertyKeys[0];
+    }
+  }
+
+  get analyzeViewModel() {
+    return new AnalyzeTextStrategie(this._shownCategory, this._propertyKeyToAnalyze);
   }
 
   get categories() {

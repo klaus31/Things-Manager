@@ -4,8 +4,8 @@ const TEXTS_MANAGE_ANALYZE_THINGS = {
     de: 'Daten-Analyse'
   },
   'IUCvCnLhlpz5qVBx': {
-    en: 'Choose category and property to analyze',
-    de: 'Wähle eine Kategorie zum Analysieren'
+    en: 'What to analyze',
+    de: 'Was soll analysiert werden'
   },
   '9Zy2Lsp0e6999bwr': {
     en: '',

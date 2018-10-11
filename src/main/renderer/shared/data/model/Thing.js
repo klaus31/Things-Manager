@@ -21,6 +21,18 @@ class Thing {
     return Thing.fromJSON(this.toJSON());
   }
 
+  findPropertyValues(propertyKey) {
+    if (!(propertyKey instanceof PropertyKey)) throw 'propertyKey must be PropertyKey';
+    let i = this._properties.length;
+    let result = [];
+    while (i--) {
+      if (this._properties[i].key.name === propertyKey.name && this._properties[i].key.type === propertyKey.type) {
+        result.push(this._properties[i].value);
+      }
+    }
+    return result;
+  }
+
   toJSON() {
     let properties = [];
     this._properties.forEach(property => properties.push(property.toJSON()));
