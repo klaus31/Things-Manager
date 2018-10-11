@@ -22,7 +22,6 @@ class MultiLanguage {
     this._onCodeChanged = onCodeChanged;
   }
 
-
   get(key) {
     if (!this._texts[key]) throw key + ' does not exist';
     return this._texts[key][this._code];

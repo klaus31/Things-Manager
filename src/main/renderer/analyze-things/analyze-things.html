@@ -1,0 +1,29 @@
+<link rel="stylesheet/less" type="text/css" href="analyze-things/styles.less"/>
+<div class="projectarea container"
+     id="app-analyze-things"
+     v-if="area.key === 'analyze-things'">
+  <tm-sidebar>
+    <h2>{{ml.get('9Qjre1gJrVQw75hq')}}</h2>
+    <div class="block">
+      <h3 v-if="viewModel.categories.length > 1">{{ml.get('IUCvCnLhlpz5qVBx')}}</h3>
+      <ul v-if="viewModel.categories.length > 1" class="tm-buttons">
+        <li v-for="category in viewModel.categories" v-colors-hover="category.colors" @click="viewModel.category = category">
+          <input type="radio" :value="category" v-model="viewModel.category"> {{category.plural}}
+        </li>
+      </ul>
+    </div>
+  </tm-sidebar>
+  <tm-main-area>
+    <h1>
+      <tm-editable type="text"
+                   :content="viewModel.projectName"
+                   :callback="val => viewModel.projectName = val"></tm-editable>
+    </h1>
+    <div>
+      TODO Analyze-Card for {{viewModel.category.plural}}
+    </div>
+  </tm-main-area>
+</div>
+<script src="analyze-things/ProjectViewModel.js"></script>
+<script src="analyze-things/analyze-things.js"></script>
+

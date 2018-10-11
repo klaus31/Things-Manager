@@ -71,6 +71,13 @@ module.exports =
               }
             },
             {
+              label: ml.get('menu-edit-analyze'),
+              accelerator: 'CmdOrCtrl+3',
+              click() {
+                webContents.getAllWebContents().forEach(wc => wc.send('app-area-changed', 'analyze-things'));
+              }
+            },
+            {
               type: 'separator'
             },
             {

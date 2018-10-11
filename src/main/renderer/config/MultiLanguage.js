@@ -9,7 +9,8 @@ class MultiLanguage {
       ...TEXTS_SHARED,
       ...TEXTS_CONFIG,
       ...TEXTS_CREDITS,
-      ...TEXTS_HELP
+      ...TEXTS_HELP,
+      ...TEXTS_MANAGE_ANALYZE_THINGS
     };
   }
 

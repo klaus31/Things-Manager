@@ -63,5 +63,9 @@ const TEXTS = {
     en: 'Cut',
     de: 'Ausschneiden'
   },
+  'menu-edit-analyze': {
+    en: 'Analyze',
+    de: 'Daten-Analyse'
+  },
 };
 module.exports = TEXTS;
