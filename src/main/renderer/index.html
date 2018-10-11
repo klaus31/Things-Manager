@@ -13,16 +13,9 @@
   <!--<script src="http://localhost:8098"></script>-->
 </head>
 <body id="body" :class="project.currentProjectAreaKey">
-<script>
-  document.getElementById('body').innerHTML = nodeGetFileContent('add-first-thing/add-first-thing.html') +
-    nodeGetFileContent('manage-categories/manage-categories.html') +
-    nodeGetFileContent('manage-things/manage-things.html') +
-    nodeGetFileContent('add-new-thing/add-new-thing.html') +
-    nodeGetFileContent('credits/credits.html') +
-    nodeGetFileContent('help/help.html') +
-    '<div id="watch-app"></div>' +
-    document.getElementById('body').innerHTML;
-</script>
+
+<div id="watch-app"></div>
+
 <!-- 3rd parties -->
 <script src="../../node_modules/vue/dist/vue.min.js"></script>
 <script src="../../node_modules/moment/min/moment-with-locales.min.js"></script>
@@ -72,27 +65,12 @@
 <script src="config/begin-config.js"></script>
 <script src="config/title.js"></script>
 
-<!-- scripts of projectareas -->
-<script src="add-new-thing/card-new-thing.js"></script>
-<script src="add-new-thing/NewThingViewModel.js"></script>
-<script src="add-new-thing/add-new-thing.js"></script>
-<script src="add-first-thing/card-first-thing.js"></script>
-<script src="add-first-thing/FirstThingViewModel.js"></script>
-<script src="add-first-thing/add-first-thing.js"></script>
-<script src="manage-things/ProjectViewModel.js"></script>
-<script src="manage-things/PropertyViewModel.js"></script>
-<script src="manage-things/ThingCardViewModel.js"></script>
-<script src="manage-things/CategoryViewModel.js"></script>
-<script src="manage-things/card-manage-thing.js"></script>
-<script src="manage-things/manage-things.js"></script>
-<script src="manage-categories/CategoryViewModel.js"></script>
-<script src="manage-categories/PropertyKeyViewModel.js"></script>
-<script src="manage-categories/ProjectViewModel.js"></script>
-<script src="manage-categories/card-manage-category-editable.js"></script>
-<script src="manage-categories/card-manage-category-readonly.js"></script>
-<script src="manage-categories/manage-categories.js"></script>
-<script src="credits/credits.js"></script>
-<script src="help/help.js"></script>
+<script>document.write(nodeGetFileContent('add-first-thing/add-first-thing.html'));</script>
+<script>document.write(nodeGetFileContent('manage-categories/manage-categories.html'));</script>
+<script>document.write(nodeGetFileContent('manage-things/manage-things.html'));</script>
+<script>document.write(nodeGetFileContent('add-new-thing/add-new-thing.html'));</script>
+<script>document.write(nodeGetFileContent('credits/credits.html'));</script>
+<script>document.write(nodeGetFileContent('help/help.html'));</script>
 
 <!-- finish config -->
 <script src="config/end-config.js"></script>

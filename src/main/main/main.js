@@ -16,7 +16,7 @@ function createWindow() {
     backgroundColor: 'transparent',
     autoHideMenuBar: false,
     icon: path.join(__dirname, 'icon-64x64.png'),
-    minWidth: 800,
+    minWidth: 1050,
     minHeight: 600,
     webPreferences: {
       nodeIntegration: false, // do not change!
