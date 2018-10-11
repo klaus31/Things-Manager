@@ -1,18 +1,18 @@
 Vue.component('card-analyze-things-checkbox', {
-  props: ['value'],
+  props: ['analyzedcategory', 'summary'],
   computed: {},
-  template: '<table class="card editable" v-colors="value.colors">' +
+  template: '<table class="card">' +
     '<thead>' +
     '<tr>' +
     '<th>' +
-    '{{value.summary}}' +
+    '{{summary}}' +
     '</th>' +
     '</tr>' +
     '</thead>' +
 
     '<tbody>' +
 
-    '<tr v-for="analyzeResult in value.analyzeResults">' +
+    '<tr v-for="analyzeResult in analyzedcategory.analyzedThingsResults">' +
     '<td>' +
     '{{analyzeResult.thing}}' +
     '</td>' +

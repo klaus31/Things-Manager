@@ -22,4 +22,8 @@ class AnalyzeThings_CategoryViewModel {
   withDataCategory(callback) {
     callback(this._dataCategory);
   }
+
+  forEachThing(callback) {
+    this._dataCategory.things.forEach(callback);
+  }
 }

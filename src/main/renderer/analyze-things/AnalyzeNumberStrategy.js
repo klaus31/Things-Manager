@@ -1,36 +1,16 @@
 class AnalyzeNumberStrategy {
-  constructor(vmCategory, propertyKey) {
-    if (!propertyKey || propertyKey.type !== 'number') throw 'invalid propertyKey';
-    this._vmCategory = vmCategory;
-    vmCategory.withDataCategory(c => this._category = c);
-    this.propertyKey = propertyKey;
-  }
 
-  get colors() {
-    return this._vmCategory.colors;
-  }
-
-  get strategy() {
-    return 'number';
-  }
-
-  get summary() {
-    return this._category.plural + ': ' + this.propertyKey.name;
-  }
-
-  get analyzeResults() {
+  analyzeThing(thing, propertyKeyToAnalyze) {
     let analyzeResults = [];
-    let i = this._category.things.length;
+    const properties = thing.findPropertyValues(propertyKeyToAnalyze);
+    let i = properties.length;
     while (i--) {
-      const thing = this._category.things[i];
-      const properties = thing.findPropertyValues(this.propertyKey);
-      if (properties.length) {
-        let j = properties.length;
-        while (j--) {
-          analyzeResults.push(new AnalyzeResult(thing.keyvalue, properties[j]));
-        }
-      }
+      analyzeResults.push(new AnalyzeThingResult(thing.keyvalue, properties[i] - 0));
     }
-    return analyzeResults.sort((a, b) => (a.result - 0) < (b.result - 0) ? 1 : -1);
+    return analyzeResults;
+  }
+
+  sort(analyzeResults) {
+    return analyzeResults.sort((a, b) => a.result < b.result ? 1 : -1);
   }
 }

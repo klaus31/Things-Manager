@@ -27,17 +27,23 @@
                    :callback="val => viewModel.projectName = val"></tm-editable>
     </h1>
     <div>
-      <card-analyze-things-text v-model="viewModel.analyzeViewModel" v-if="viewModel.analyzeViewModel.strategy === 'text'"></card-analyze-things-text>
-      <card-analyze-things-text v-model="viewModel.analyzeViewModel" v-if="viewModel.analyzeViewModel.strategy === 'number'"></card-analyze-things-text>
-      <card-analyze-things-text v-model="viewModel.analyzeViewModel" v-if="viewModel.analyzeViewModel.strategy === 'range'"></card-analyze-things-text>
-      <card-analyze-things-checkbox v-model="viewModel.analyzeViewModel" v-if="viewModel.analyzeViewModel.strategy === 'checkbox'"></card-analyze-things-checkbox>
-      <!-- TODO <card-analyze-things-number -->
+      <card-analyze-things-text :summary="viewModel.cardSummary"
+                                v-colors="viewModel.cardColors"
+                                :analyzedcategory="viewModel.analyzedCategoryResult"
+                                v-if="viewModel.analyzeCardToShow === 'text'">
+      </card-analyze-things-text>
+      <card-analyze-things-checkbox :summary="viewModel.cardSummary"
+                                    v-colors="viewModel.cardColors"
+                                    :analyzedcategory="viewModel.analyzedCategoryResult"
+                                    v-if="viewModel.analyzeCardToShow === 'checkbox'">
+      </card-analyze-things-checkbox>
       <!-- TODO <card-analyze-things-date -->
       <!-- TODO <card-analyze-things-color -->
     </div>
   </tm-main-area>
 </div>
-<script src="analyze-things/AnalyzeResult.js"></script>
+<script src="analyze-things/AnalyzeThingResult.js"></script>
+<script src="analyze-things/AnalyzedCategoryResult.js"></script>
 <script src="analyze-things/CategoryViewModel.js"></script>
 <script src="analyze-things/ProjectViewModel.js"></script>
 <script src="analyze-things/AnalyzeRangeStrategy.js"></script>

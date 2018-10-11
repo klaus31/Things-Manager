@@ -1,4 +1,4 @@
-class AnalyzeResult {
+class AnalyzeThingResult {
   constructor(thing, result) {
     this._thing = thing;
     this._result = result;

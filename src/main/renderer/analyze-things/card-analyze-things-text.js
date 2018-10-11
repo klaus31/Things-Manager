@@ -1,18 +1,18 @@
 Vue.component('card-analyze-things-text', {
-  props: ['value'],
+  props: ['analyzedcategory', 'summary'],
   computed: {},
-  template: '<table class="card editable" v-colors="value.colors">' +
+  template: '<table class="card">' +
     '<thead>' +
     '<tr>' +
     '<th colspan="2">' +
-    '{{value.summary}}' +
+    '{{summary}}' +
     '</th>' +
     '</tr>' +
     '</thead>' +
 
     '<tbody>' +
 
-    '<tr v-for="analyzeResult in value.analyzeResults">' +
+    '<tr v-for="analyzeResult in analyzedcategory.analyzedThingsResults">' +
     '<td>' +
     '{{analyzeResult.thing}}' +
     '</td>' +

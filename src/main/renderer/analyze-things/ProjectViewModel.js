@@ -10,11 +10,21 @@ class AnalyzeThings_ProjectViewModel {
 
   get propertyKeyToAnalyze() {
     if (!this._propertyKeyToAnalyze) {
-      if (this.category.propertyKeys.length) {
-        this._propertyKeyToAnalyze = this.category.propertyKeys[0];
+      if (this._shownCategory.propertyKeys.length) {
+        this._propertyKeyToAnalyze = this._shownCategory.propertyKeys[0];
       }
     }
     return this._propertyKeyToAnalyze;
+  }
+
+  get cardSummary() {
+    let plural = null;
+    this._shownCategory.withDataCategory(c => plural = c.plural)
+    return plural + ': ' + this._propertyKeyToAnalyze.name;
+  }
+
+  get cardColors() {
+    return this._shownCategory.colors;
   }
 
   set propertyKeyToAnalyze(propertyKeyToAnalyze) {
@@ -33,16 +43,37 @@ class AnalyzeThings_ProjectViewModel {
     }
   }
 
-  get analyzeViewModel() {
+  // XXX this is not an analysis yet but another representation of things
+  get analyzedCategoryResult() {
+    let analyzeThingResults = [];
+    let strategy = null;
     switch (this._propertyKeyToAnalyze.type) {
       case 'checkbox':
-        return new AnalyzeCheckboxStrategy(this._shownCategory, this._propertyKeyToAnalyze);
+        strategy = new AnalyzeCheckboxStrategy();
+        break;
       case 'number':
-        return new AnalyzeNumberStrategy(this._shownCategory, this._propertyKeyToAnalyze);
+        strategy = new AnalyzeNumberStrategy();
+        break;
       case 'range':
-        return new AnalyzeRangeStrategy(this._shownCategory, this._propertyKeyToAnalyze);
+        strategy = new AnalyzeRangeStrategy();
+        break;
       default:
-        return new AnalyzeTextStrategy(this._shownCategory, this._propertyKeyToAnalyze);
+        strategy = new AnalyzeTextStrategy();
+        break;
+    }
+    this._shownCategory.forEachThing(thing => {
+      let results = strategy.analyzeThing(thing, this._propertyKeyToAnalyze);
+      results.forEach(result => analyzeThingResults.push(result));
+    });
+    return new AnalyzedCategoryResult(strategy.sort(analyzeThingResults));
+  }
+
+  get analyzeCardToShow() {
+    switch (this._propertyKeyToAnalyze.type) {
+      case 'checkbox':
+        return 'checkbox';
+      default:
+        return 'text';
     }
   }
 
