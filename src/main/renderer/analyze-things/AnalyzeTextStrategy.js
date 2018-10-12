@@ -1,15 +1,19 @@
-class AnalyzeTextStrategy {
+class AnalyzeTextStrategy extends AnalyzeStrategy {
 
-  analyzeThing(thing, keyProperty) {
-    let analyzeResults = [];
-    const properties = thing.findPropertyValues(keyProperty);
-    if (properties.length) {
-      analyzeResults.push(new AnalyzeThingResult(thing.keyvalue, properties.join(', ')));
-    }
-    return analyzeResults;
+  constructor() {
+    super();
+    this._analyzedResults = [];
   }
 
-  sort(analyzeResults) {
-    return analyzeResults.sort((a, b) => a.thing.toLowerCase().localeCompare(b.thing.toLowerCase()));
+  analyzeThing(thing, propertyKeyToAnalyze) {
+    const properties = thing.findPropertyValues(propertyKeyToAnalyze);
+    if (properties.length) {
+      this._analyzedResults.push(new AnalyzeThingResult(thing.keyvalue, properties.join(', ')));
+    }
+  }
+
+  finalize() {
+    let sorted = this._analyzedResults.sort((a, b) => a.thing.toLowerCase().localeCompare(b.thing.toLowerCase()));
+    return new AnalyzedCategoryResult(sorted);
   }
 }

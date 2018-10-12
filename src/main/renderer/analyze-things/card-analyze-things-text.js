@@ -17,10 +17,21 @@ Vue.component('card-analyze-things-text', {
     '{{analyzeResult.thing}}' +
     '</td>' +
     '<td>' +
-    '{{analyzeResult.result}}' +
+    '{{analyzeResult.resultFormatted}}' +
     '</td>' +
     '</tr>' +
 
     '</tbody>' +
+    
+    '<tfoot v-if="analyzedcategory.additionalResults.length">' +
+    '<tr v-for="additionalResult in analyzedcategory.additionalResults">' +
+    '<td>' +
+    '{{additionalResult.key}}' +
+    '</td>' +
+    '<td>' +
+    '{{additionalResult.value}}' +
+    '</td>' +
+    '</tr>' +
+    '</tfoot>' +
     '</table>'
 });

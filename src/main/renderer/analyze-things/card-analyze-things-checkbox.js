@@ -4,7 +4,7 @@ Vue.component('card-analyze-things-checkbox', {
   template: '<table class="card">' +
     '<thead>' +
     '<tr>' +
-    '<th>' +
+    '<th colspan="2">' +
     '{{summary}}' +
     '</th>' +
     '</tr>' +
@@ -13,11 +13,22 @@ Vue.component('card-analyze-things-checkbox', {
     '<tbody>' +
 
     '<tr v-for="analyzeResult in analyzedcategory.analyzedThingsResults">' +
-    '<td>' +
+    '<td colspan="2">' +
     '{{analyzeResult.thing}}' +
     '</td>' +
     '</tr>' +
 
     '</tbody>' +
+
+    '<tfoot v-if="analyzedcategory.additionalResults.length">' +
+    '<tr v-for="additionalResult in analyzedcategory.additionalResults">' +
+    '<td>' +
+    '{{additionalResult.key}}' +
+    '</td>' +
+    '<td>' +
+    '{{additionalResult.value}}' +
+    '</td>' +
+    '</tr>' +
+    '</tfoot>' +
     '</table>'
 });

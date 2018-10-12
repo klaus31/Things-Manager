@@ -22,4 +22,9 @@ class MultiLanguage {
     }
     return result;
   }
+
+  countrySpecificNumberFormat(number) {
+    if (APP.languageCode === 'de') return (number + '').replace(/\./, ',');
+    else return number;
+  }
 }

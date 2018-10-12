@@ -45,7 +45,6 @@ class AnalyzeThings_ProjectViewModel {
 
   // XXX this is not an analysis yet but another representation of things
   get analyzedCategoryResult() {
-    let analyzeThingResults = [];
     let strategy = null;
     switch (this._propertyKeyToAnalyze.type) {
       case 'checkbox':
@@ -63,9 +62,8 @@ class AnalyzeThings_ProjectViewModel {
     }
     this._shownCategory.forEachThing(thing => {
       let results = strategy.analyzeThing(thing, this._propertyKeyToAnalyze);
-      results.forEach(result => analyzeThingResults.push(result));
     });
-    return new AnalyzedCategoryResult(strategy.sort(analyzeThingResults));
+    return strategy.finalize();
   }
 
   get analyzeCardToShow() {

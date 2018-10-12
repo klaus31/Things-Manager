@@ -1,16 +1,27 @@
-class AnalyzeNumberStrategy {
+class AnalyzeNumberStrategy extends AnalyzeStrategy {
+
+  constructor() {
+    super();
+    this._analyzedResults = [];
+  }
 
   analyzeThing(thing, propertyKeyToAnalyze) {
-    let analyzeResults = [];
     const properties = thing.findPropertyValues(propertyKeyToAnalyze);
     let i = properties.length;
     while (i--) {
-      analyzeResults.push(new AnalyzeThingResult(thing.keyvalue, properties[i] - 0));
+      const cleanValue = Number.parseInt(properties[i]);
+      if (cleanValue) {
+        this._analyzedResults.push(new AnalyzeThingResult(thing.keyvalue, cleanValue));
+      }
     }
-    return analyzeResults;
   }
 
-  sort(analyzeResults) {
-    return analyzeResults.sort((a, b) => a.result < b.result ? 1 : -1);
+  finalize() {
+    let sorted = this._analyzedResults.sort((a, b) => a.result < b.result ? 1 : -1);
+    let result = new AnalyzedCategoryResult(sorted);
+    result.addAdditionalResult(ml.get('9Zy2Lsp0e6999bwr'), AnalyzeUtil.sum(this._analyzedResults));
+    result.addAdditionalResult(ml.get('fTcBoDLCXfYEcpTn'), AnalyzeUtil.average(this._analyzedResults));
+    return result;
   }
+
 }

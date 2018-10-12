@@ -8,24 +8,24 @@ const TEXTS_MANAGE_ANALYZE_THINGS = {
     de: 'Was soll analysiert werden'
   },
   '9Zy2Lsp0e6999bwr': {
-    en: '',
-    de: ''
+    en: 'Sum',
+    de: 'Summe'
   },
   'fTcBoDLCXfYEcpTn': {
-    en: '',
-    de: ''
+    en: 'Average',
+    de: 'Durchschnitt'
   },
   'tkZPaNmNs3x2qGPT': {
-    en: '',
-    de: ''
+    en: 'Percentage',
+    de: 'Prozent'
   },
   'yntAgfOY1s0frOe7': {
-    en: '',
-    de: ''
+    en: 'Total',
+    de: 'Total'
   },
   '3vAJL+taVslCh98X': {
-    en: '',
-    de: ''
+    en: '{1} of {2}',
+    de: '{1} von {2}'
   },
   'ash2kn9musZFfcbW': {
     en: '',

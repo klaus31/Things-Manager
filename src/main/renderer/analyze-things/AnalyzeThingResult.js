@@ -16,8 +16,16 @@ class AnalyzeThingResult {
     return this._result;
   }
 
+  get resultFormatted() {
+    return this._result + (this._unit ? ' ' + this._unit : '');
+  }
+
   set result(result) {
     this._result = result;
+  }
+
+  setUnit(unit) {
+    this._unit = unit;
   }
 
 }
