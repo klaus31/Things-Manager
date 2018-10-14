@@ -53,6 +53,13 @@ class AnalyzeThings_ProjectViewModel {
       case 'number':
         strategy = new AnalyzeNumberStrategy();
         break;
+      case 'date':
+      case 'time':
+      case 'datetime-local':
+      case 'week':
+      case 'month':
+        strategy = new AnalyzeDateStrategy();
+        break;
       case 'color':
         strategy = new AnalyzeColorStrategy();
         break;

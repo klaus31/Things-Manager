@@ -3,8 +3,6 @@ class AnalyzeColorStrategy extends AnalyzeStrategy {
   constructor() {
     super();
     this._analyzedResults = [];
-    this._notChecked = 0;
-    this._total = 0;
   }
 
   analyzeThing(thing, propertyKeyToAnalyze) {

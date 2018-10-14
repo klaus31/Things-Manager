@@ -20,14 +20,13 @@ Vue.component('tm-editable', {
     },
     computedContent: function () {
       switch (this.type) {
+        case 'time':
+          return moment('1970-01-01T' + this.content).format(DataTypeValueUtil.getDateTimeFormat(this.type));
         case 'date':
-          return moment(this.content).format('L');
         case 'month':
-          return moment(this.content).format('MMMM YYYY');
         case 'week':
-          return moment(this.content).week() + ' / ' + moment(this.content).format('YYYY');
         case 'datetime-local':
-          return moment(this.content).format('LLL');
+          return moment(this.content).format(DataTypeValueUtil.getDateTimeFormat(this.type));
         case 'range':
           return this.content + ' %';
         case 'checkbox':
@@ -59,11 +58,11 @@ Vue.component('tm-editable', {
         this.callCallback(event);
       }
       this.editable = false;
-      if(this.callbackeditablechanged) this.callbackeditablechanged(false);
+      if (this.callbackeditablechanged) this.callbackeditablechanged(false);
     },
     start: function () {
       this.editable = true;
-      if(this.callbackeditablechanged) this.callbackeditablechanged(true);
+      if (this.callbackeditablechanged) this.callbackeditablechanged(true);
     },
     openLink: function () {
       openExternalHttp(this.content);

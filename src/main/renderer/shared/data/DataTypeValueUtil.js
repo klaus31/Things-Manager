@@ -25,6 +25,23 @@ class DataTypeValueUtil {
     }
   }
 
+  static getDateTimeFormat(type) {
+    switch (type) {
+      case 'date':
+        return 'L';
+      case 'month':
+        return 'MMMM YYYY';
+      case 'week':
+        return 'YYYY';
+      case 'datetime-local':
+        return 'LLL';
+      case 'time':
+        return 'LT';
+      default:
+        throw 'unknown type ' + type;
+    }
+  }
+
   static valueCompatible(type, value) {
     switch (type) {
       case 'date':
