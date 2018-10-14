@@ -53,6 +53,9 @@ class AnalyzeThings_ProjectViewModel {
       case 'number':
         strategy = new AnalyzeNumberStrategy();
         break;
+      case 'color':
+        strategy = new AnalyzeColorStrategy();
+        break;
       case 'range':
         strategy = new AnalyzeRangeStrategy();
         break;
@@ -70,6 +73,8 @@ class AnalyzeThings_ProjectViewModel {
     switch (this._propertyKeyToAnalyze.type) {
       case 'checkbox':
         return 'checkbox';
+      case 'color':
+        return 'color';
       default:
         return 'text';
     }

@@ -36,8 +36,12 @@
                                     :analyzedcategory="viewModel.analyzedCategoryResult"
                                     v-if="viewModel.analyzeCardToShow === 'checkbox'">
       </card-analyze-things-checkbox>
+      <card-analyze-things-color :summary="viewModel.cardSummary"
+                                    v-colors="viewModel.cardColors"
+                                    :analyzedcategory="viewModel.analyzedCategoryResult"
+                                    v-if="viewModel.analyzeCardToShow === 'color'">
+      </card-analyze-things-color>
       <!-- TODO <card-analyze-things-date -->
-      <!-- TODO <card-analyze-things-color -->
     </div>
   </tm-main-area>
 </div>
@@ -48,10 +52,12 @@
 <script src="analyze-things/CategoryViewModel.js"></script>
 <script src="analyze-things/ProjectViewModel.js"></script>
 <script src="analyze-things/AnalyzeNumberStrategy.js"></script>
+<script src="analyze-things/AnalyzeColorStrategy.js"></script>
 <script src="analyze-things/AnalyzeRangeStrategy.js"></script>
 <script src="analyze-things/AnalyzeTextStrategy.js"></script>
 <script src="analyze-things/AnalyzeCheckboxStrategy.js"></script>
 <script src="analyze-things/card-analyze-things-text.js"></script>
 <script src="analyze-things/card-analyze-things-checkbox.js"></script>
+<script src="analyze-things/card-analyze-things-color.js"></script>
 <script src="analyze-things/analyze-things.js"></script>
 
