@@ -32,7 +32,7 @@ class DataTypeValueUtil {
       case 'month':
         return 'MMMM YYYY';
       case 'week':
-        return 'YYYY';
+        return 'W / YYYY';
       case 'datetime-local':
         return 'LLL';
       case 'time':

@@ -18,6 +18,8 @@ class AnalyzeDateStrategy extends AnalyzeStrategy {
   getResult(dateTime, propertyKeyToAnalyze) {
     if (propertyKeyToAnalyze.type === 'time') {
       return new Date('1970-01-01T' + dateTime);
+    } else if (propertyKeyToAnalyze.type === 'week') {
+      return new Date(moment(dateTime));
     } else {
       return new Date(dateTime);
     }
