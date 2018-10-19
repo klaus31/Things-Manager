@@ -1,5 +1,6 @@
 const ctrlFileLoad = require('./FileLoad');
 const ctrlFileSave = require('./FileSave');
+const daoThingFile = require('./DaoThingFile');
 const ml = require('./MultiLanguage');
 const PROFILE = require('minimist')(process.argv.slice(2)).profile || 'PROD';
 const {webContents, ipcMain} = require('electron');
@@ -38,9 +39,16 @@ module.exports =
             },
             {
               label: ml.get('menu-file-save-as'),
-              accelerator: 'CmdOrCtrl+Shift+S',
+              accelerator: 'CmdOrCtrl+Shift+S', // FIXME "Shift" is not shown (electron bug?!)
               click() {
                 ctrlFileSave.saveAs();
+              }
+            },
+            {
+              label: ml.get('menu-file-reset-changes'),
+              accelerator: 'CmdOrCtrl+Shift+R', // FIXME "Shift" is not shown (electron bug?!)
+              click() {
+                webContents.getAllWebContents().forEach(wc => wc.send('reset-all-changes'));
               }
             },
             {
@@ -144,3 +152,4 @@ module.exports =
   };
 
 ipcMain.on('save-requested', () => ctrlFileSave.save());
+ipcMain.on('reload-data-from-file', (event, file) => daoThingFile.load(file));

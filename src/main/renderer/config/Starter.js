@@ -35,15 +35,9 @@ class Starter {
 
     ipcRenderer.on('app-area-changed', (event, area) => app.setCurrentAreaKey(area));
 
-    ipcRenderer.on('new-project-requested', () => {
-      const confirmed = !app.changesMade || window.confirm(ml.get('0+Jhdv38B5t0u8zb'));
-      if (confirmed) {
-        localStorage.clear();
-        localStorage.setItem('tmp-language', app.languageCode);
-        localStorage.removeItem('originalHashCodeOfApp');
-        window.location.reload();
-      }
-    });
+    ipcRenderer.on('reset-all-changes', () => new ResetChangesCtrl(app, ipcRenderer).start());
+
+    ipcRenderer.on('new-project-requested', () => new NewProjectRequestedCtrl(app).handle());
 
     ipcRenderer.on('data-loaded', (event, data) => appStorage.loadFileData(data));
 

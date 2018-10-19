@@ -59,6 +59,10 @@ const TEXTS = {
     en: 'Paste',
     de: 'Einfügen'
   },
+  'menu-file-reset-changes': {
+    en: 'Reset all changes',
+    de: 'Änderungen rückgängig machen'
+  },
   'menu-edit-cut': {
     en: 'Cut',
     de: 'Ausschneiden'
