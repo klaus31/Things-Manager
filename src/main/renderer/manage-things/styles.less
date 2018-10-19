@@ -19,26 +19,7 @@
   table.card {
 
     &.editable {
-      tr, th {
-        td.input {
-          padding: 0;
-          margin: 0;
-          input {
-            width: 100%;
-            margin: 0;
-            border: 0;
-            &[type=date], &[type=time], &[type=datetime-local], &[type=week], &[type=month] {
-              padding: 2px;
-            }
-            &[type=checkbox] {
-              margin: 0 0 0 5px;
-              height: 20px;
-            }
-            &[type=number], &[type=url], &[type=text] {
-              padding: 5px;
-            }
-          }
-        }
+      tr {
         td:nth-child(1), td:nth-child(1) {
           width: 34%;
         }

@@ -63,6 +63,27 @@ div.projectarea {
       td.input input[type=color] {
         height: 30px !important;
       }
+      tr, th {
+        td.input {
+          padding: 0;
+          margin: 0;
+          input {
+            width: 100%;
+            margin: 0;
+            border: 0;
+            &[type=date], &[type=time], &[type=datetime-local], &[type=week], &[type=month] {
+              padding: 2px;
+            }
+            &[type=checkbox] {
+              margin: 0 0 0 5px;
+              height: 20px;
+            }
+            &[type=number], &[type=url], &[type=text] {
+              padding: 5px;
+            }
+          }
+        }
+      }
     }
 
     td, th {
@@ -87,7 +108,6 @@ div.projectarea {
         }
         input:not([type=checkbox]) {
           width: 100%;
-          padding: 5px 100px 5px 5px;
           margin-left: -5px;
           margin-top: -5px;
           margin-bottom: -2px;
@@ -128,7 +148,7 @@ div.projectarea {
 button.btn-default {
   &.btn-inset {
     border-style: inset;
-    background-color: antiquewhite;
+    background-color: gainsboro;
   }
 
   &.btn-outset {
