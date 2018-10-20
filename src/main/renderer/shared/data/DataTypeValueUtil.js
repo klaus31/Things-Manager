@@ -21,7 +21,7 @@ class DataTypeValueUtil {
       case 'checkbox':
         return '';
       case 'geodata':
-        return new Geodata();
+        return new Geodata().toString();
       default:
         return ml.get('54r0a5Fb+W4Zp3zZ');
     }
@@ -60,7 +60,7 @@ class DataTypeValueUtil {
       case 'url':
         return !!value.match(/^https?:\/\/[^ ]+$/i);
       case 'geodata':
-        return value instanceof Geodata;
+        return new Geodata(value).isComplete();
       case 'checkbox':
         return value === true || value === false;
       default:
@@ -69,6 +69,7 @@ class DataTypeValueUtil {
   }
 
   static formatContent(type, content, format) {
+    let geoURL;
     switch (type) {
       case 'time':
         return moment('1970-01-01T' + content).format(DataTypeValueUtil.getDateTimeFormat(type));
@@ -87,6 +88,8 @@ class DataTypeValueUtil {
         } else {
           throw 'need format';
         }
+      case 'geodata':
+        return content.toString();
       case 'url':
         let aContent = content;
         if (aContent.length > 30) {
@@ -95,6 +98,22 @@ class DataTypeValueUtil {
         return aContent;
       default:
         return content;
+    }
+  }
+
+  static isLinkable(content, type) {
+    if (type === 'geodata') {
+      return new Geodata(content).isComplete();
+    } else {
+      return content.match(/^https?:\/\/[^ ]+$/i);
+    }
+  }
+
+  static getAsLink(content, type) {
+    if (type === 'geodata') {
+      return new Geodata(content).getAsLink();
+    } else {
+      return content;
     }
   }
 }

@@ -1,58 +1,42 @@
 class Geodata {
-  constructor() {
-    this._n1 = 0;
-    this._n2 = 0;
-    this._n3 = 0;
-    this._e1 = 0;
-    this._e2 = 0;
-    this._e3 = 0;
+  constructor(raw) {
+    // 00°00'00,0"N+00°00'00,0"E°
+    if (raw) {
+      let geos = raw.replace(/\.[\d]+/g, '').split(/[^\d]/).filter(e => e);
+      this._n1 = geos[0] || null;
+      this._n2 = geos[1] || null;
+      this._n3 = geos[2] || null;
+      this._e1 = geos[3] || null;
+      this._e2 = geos[4] || null;
+      this._e3 = geos[5] || null;
+    } else {
+      this._n1 = null;
+      this._n2 = null;
+      this._n3 = null;
+      this._e1 = null;
+      this._e2 = null;
+      this._e3 = null;
+    }
   }
 
-  get n1() {
-    return this._n1;
+  isComplete() {
+    return this._n1 !== null &&
+      this._n2 !== null &&
+      this._n3 !== null &&
+      this._e1 !== null &&
+      this._e2 !== null &&
+      this._e3 !== null;
   }
 
-  set n1(n1) {
-    this._n1 = n1;
+  toString() {
+    if (this.isComplete()) {
+      return `${this._n1}°${this._n2}'${this._n3}.0"N+${this._e1}°${this._e2}'${this._e3}.0"E`;
+    } else {
+      return '';
+    }
   }
 
-  get n2() {
-    return this._n2;
-  }
-
-  set n2(n2) {
-    this._n2 = n2;
-  }
-
-  get n3() {
-    return this._n3;
-  }
-
-  set n3(n3) {
-    this._n3 = n3;
-  }
-
-  get e1() {
-    return this._e1;
-  }
-
-  set e1(e1) {
-    this._e1 = e1;
-  }
-
-  get e2() {
-    return this._e2;
-  }
-
-  set e2(e2) {
-    this._e2 = e2;
-  }
-
-  get e3() {
-    return this._e3;
-  }
-
-  set e3(e3) {
-    this._e3 = e3;
+  getAsLink() {
+    return 'https://www.google.de/maps/place/' + this.toString();
   }
 }
