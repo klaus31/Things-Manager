@@ -95,6 +95,10 @@ const TEXTS_SHARED = {
     en: 'URL',
     de: 'URL'
   },
+  'OP9jnIGR7LnjuzZM': {
+    en: 'Geodata',
+    de: 'Geodaten'
+  },
   '9SLfymF38SsASuza': {
     en: '',
     de: ''

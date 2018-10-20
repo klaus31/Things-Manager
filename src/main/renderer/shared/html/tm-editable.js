@@ -15,6 +15,9 @@ Vue.component('tm-editable', {
     isRange: function () {
       return this.type === 'range';
     },
+    isGeodata: function () {
+      return this.type === 'geodata';
+    },
     isCheckbox: function () {
       return this.type === 'checkbox';
     },
@@ -22,7 +25,7 @@ Vue.component('tm-editable', {
       return DataTypeValueUtil.formatContent(this.type, this.content, 'html');
     },
     showLinkToOpen: function () {
-      return !this.computedEditable && this.type === 'url';
+      return !this.computedEditable && DataTypeValueUtil.isLinkable(this.content, this.type);
     }
   },
   methods: {
@@ -45,7 +48,7 @@ Vue.component('tm-editable', {
       if (this.callbackeditablechanged) this.callbackeditablechanged(true);
     },
     openLink: function () {
-      openExternalHttp(this.content);
+      openExternalHttp(DataTypeValueUtil.getAsLink(this.content, this.type));
     }
   },
   template: '<div role="button" class="editable editable-text">' +
@@ -57,6 +60,8 @@ Vue.component('tm-editable', {
     '<input :type="computedType" v-autofocus v-autoselect :value="content" @input="callCallback"' +
     ' @blur="finish" @keydown.enter="finish">' +
     '<span v-if="isRange">{{content}} %</span>' +
+    // TODO Multilanguage 'Example'
+    '<span v-if="isGeodata">44°01\'01.0"N+28°38\'06.2"E</span>' +
     '</p>' +
     '</div>'
 
