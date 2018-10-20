@@ -19,27 +19,7 @@ Vue.component('tm-editable', {
       return this.type === 'checkbox';
     },
     computedContent: function () {
-      switch (this.type) {
-        case 'time':
-          return moment('1970-01-01T' + this.content).format(DataTypeValueUtil.getDateTimeFormat(this.type));
-        case 'date':
-        case 'month':
-        case 'week':
-        case 'datetime-local':
-          return moment(this.content).format(DataTypeValueUtil.getDateTimeFormat(this.type));
-        case 'range':
-          return this.content + ' %';
-        case 'checkbox':
-          return this.content ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
-        case 'url':
-          let aContent = this.content;
-          if (aContent.length > 30) {
-            aContent = aContent.substr(0, 27) + '...';
-          }
-          return aContent;
-        default:
-          return this.content;
-      }
+      return DataTypeValueUtil.formatContent(this.type, this.content, 'html');
     },
     showLinkToOpen: function () {
       return !this.computedEditable && this.type === 'url';
