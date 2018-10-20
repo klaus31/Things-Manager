@@ -20,6 +20,8 @@ class DataTypeValueUtil {
         return 'http://????';
       case 'checkbox':
         return '';
+      case 'geodata':
+        return new Geodata();
       default:
         return ml.get('54r0a5Fb+W4Zp3zZ');
     }
@@ -57,6 +59,8 @@ class DataTypeValueUtil {
         return !!value.match(/^#[0-9a-f]{6}$/i);
       case 'url':
         return !!value.match(/^https?:\/\/[^ ]+$/i);
+      case 'geodata':
+        return value instanceof Geodata;
       case 'checkbox':
         return value === true || value === false;
       default:
