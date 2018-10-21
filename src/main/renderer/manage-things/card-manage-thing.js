@@ -43,7 +43,10 @@ Vue.component('card-manage-thing', {
     '<td v-if="thing.locked && property.type === \'checkbox\'" class="input"><input type="checkbox" v-model="property.value"></td>' +
     '<td v-if="thing.locked && property.type !== \'checkbox\'" class="input"><tm-editable :type="property.type" :content="property.value" :callback="val => property.value = val"></tm-editable></td>' +
     '<td v-if="!thing.locked" class="input"><input type="text" v-model="property.key"></td>' +
-    '<td v-if="!thing.locked" class="input"><input :type="property.type" v-model="property.value"></td>' +
+    '<td v-if="!thing.locked" class="input">' +
+    // XXX so much code in ":actions" for a workaround for v-model :(
+    '<tm-input :type="property.type" :content="property.value" :actions="{onChange: value => property.value = value, onDone: value => property.value = value}">' +
+    '</td>' +
     '<td v-if="!thing.locked" class="input"><select v-model="property.type"><option v-for="option in property.datatypeOptions" :value="option.value">{{option.label}}</option></select></td>' +
     '<td v-if="!thing.locked" class="input buttons">' +
     '<tm-button @click="thing.cloneProperty(property)" icon="duplicate" :title="ml_aSawO4UuPSIxZpQK"></tm-button>' +
