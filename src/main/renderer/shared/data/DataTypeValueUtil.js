@@ -102,6 +102,9 @@ class DataTypeValueUtil {
   }
 
   static isLinkable(content, type) {
+    if(typeof content !== 'string') {
+      return false;
+    }
     if (type === 'geodata') {
       return new Geodata(content).isComplete();
     } else {
