@@ -36,7 +36,7 @@ Vue.component('tm-editable', {
     '<tm-button icon="link" @click="openLink()"></tm-button>' +
     '</p>' +
     '<p v-if="computedEditable">' +
-    '<tm-input :type="type" :actions="{onChange: callback, onDone: finish}" :content="content">' +
+    '<tm-input :type="type" :actions="{onChange: callback, onDone: finish}" :content="content"></tm-input>' +
     '</p>' +
     '</div>'
 });

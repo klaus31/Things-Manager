@@ -1,10 +1,5 @@
 Vue.component('tm-input', {
   props: ['content', 'actions', 'type'],
-  data: function () {
-    return {
-      editable: false
-    }
-  },
   computed: {
     computedType: function () {
       return this.type || 'text';
@@ -14,6 +9,9 @@ Vue.component('tm-input', {
     },
     isGeodata: function () {
       return this.type === 'geodata';
+    },
+    isDefaultInput: function () {
+      return this.type !== 'geodata' && this.type !== 'range';
     }
   },
   methods: {
@@ -36,11 +34,9 @@ Vue.component('tm-input', {
     }
   },
   template: '<span>' +
-    '<input :type="computedType" v-autofocus v-autoselect :value="content" @input="onChange"' +
-    ' @blur="finish" @keydown.enter="finish">' +
-    '<span v-if="isRange">{{content}} %</span>' +
-    // TODO Multilanguage 'Example'
-    '<span v-if="isGeodata">44°01\'01.0"N+28°38\'06.2"E</span>' +
+    '<input v-if="isDefaultInput" :type="computedType" v-autofocus v-autoselect :value="content" @input="onChange" @blur="finish" @keydown.enter="finish">' +
+    '<tm-input-geodata v-if="isGeodata" :content="content" :actions="actions"></tm-input-geodata>' +
+    '<tm-input-range v-if="isRange" :content="content" :actions="actions"></tm-input-range>' +
     '</span>'
 
 });

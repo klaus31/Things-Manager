@@ -28,7 +28,7 @@ Vue.component('card-new-thing', {
     '<tr v-for="property in value.thing.properties">' +
     '<td class="input"><input type="text" v-model="property.key.name"></td>' +
     // XXX so much code in ":actions" for a workaround for v-model :(
-    '<td class="input"><tm-input :type="property.key.type" :content="property.value" :actions="{onChange: value => property.value = value, onDone: value => property.value = value}"></td>' +
+    '<td class="input"><tm-input :type="property.key.type" :content="property.value" :actions="{onChange: value => property.value = value, onDone: value => property.value = value}"></tm-input></td>' +
     '<td class="input"><select v-model="property.key.type"><option v-for="option in value.datatypeOptions" :value="option.value">{{option.label}}</option></select></td>' +
     '<td class="input buttons">' +
     '<tm-button @click="value.cloneProperty(property)" icon="duplicate" :title="ml_cdZVHIoilBz1bJ4e"></tm-button>' +

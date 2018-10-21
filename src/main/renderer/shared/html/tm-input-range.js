@@ -1,4 +1,4 @@
-Vue.component('tm-input-geodata', {
+Vue.component('tm-input-range', {
   props: ['content', 'actions'],
   methods: {
     onChange: function (event) {
@@ -13,9 +13,8 @@ Vue.component('tm-input-geodata', {
     }
   },
   template: '<span>' +
-    '<input type="text" v-autofocus v-autoselect :value="content" @input="onChange" @blur="onDone" @keydown.enter="onDone">' +
-    // TODO Multilanguage 'Example'
-    '<span>44°01\'01.0"N+28°38\'06.2"E</span>' +
+    '<input type="range" v-autofocus v-autoselect :value="content" @input="onChange" @blur="onDone" @keydown.enter="onDone">' +
+    '<span>{{content}} %</span>' +
     '</span>'
 
 });

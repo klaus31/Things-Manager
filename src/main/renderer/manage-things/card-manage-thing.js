@@ -45,7 +45,7 @@ Vue.component('card-manage-thing', {
     '<td v-if="!thing.locked" class="input"><input type="text" v-model="property.key"></td>' +
     '<td v-if="!thing.locked" class="input">' +
     // XXX so much code in ":actions" for a workaround for v-model :(
-    '<tm-input :type="property.type" :content="property.value" :actions="{onChange: value => property.value = value, onDone: value => property.value = value}">' +
+    '<tm-input :type="property.type" :content="property.value" :actions="{onChange: value => property.value = value, onDone: value => property.value = value}"></tm-input>' +
     '</td>' +
     '<td v-if="!thing.locked" class="input"><select v-model="property.type"><option v-for="option in property.datatypeOptions" :value="option.value">{{option.label}}</option></select></td>' +
     '<td v-if="!thing.locked" class="input buttons">' +
