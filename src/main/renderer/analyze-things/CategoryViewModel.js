@@ -1,4 +1,4 @@
-class AnalyzeThings_CategoryViewModel {
+export class AnalyzeThings_CategoryViewModel {
   constructor(dataCategory) {
     this._dataCategory = dataCategory;
   }

@@ -1,4 +1,8 @@
-class ThingCardViewModel {
+import {UuidFactory} from "../shared/UuidFactory.js";
+import {ManagedThings_PropertyViewModel} from "./PropertyViewModel.js";
+import {Property} from "../shared/data/model/Property.js";
+
+export class ThingCardViewModel {
   constructor(category, thing) {
     this.locked = true;
     this.uuid = UuidFactory.create();

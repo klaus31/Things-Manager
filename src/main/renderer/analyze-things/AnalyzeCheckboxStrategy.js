@@ -1,4 +1,7 @@
-class AnalyzeCheckboxStrategy extends AnalyzeStrategy {
+import {AnalyzeThingResult} from "./AnalyzeThingResult.js";
+import {AnalyzeStrategy} from "./AnalyzeStrategy.js";
+
+export class AnalyzeCheckboxStrategy extends AnalyzeStrategy {
 
   constructor() {
     super();

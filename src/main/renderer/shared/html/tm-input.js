@@ -1,3 +1,8 @@
+import './tm-input-geodata.js';
+import './tm-input-range.js';
+import './v-autofocus.js';
+import './v-autoselect.js';
+
 Vue.component('tm-input', {
   props: ['content', 'actions', 'type'],
   computed: {

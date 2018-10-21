@@ -1,4 +1,4 @@
-class AnalyzeUtil {
+export class AnalyzeUtil {
   static sum(analzeResults) {
     let i = analzeResults.length;
     let result = 0;

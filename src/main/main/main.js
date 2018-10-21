@@ -1,4 +1,4 @@
-const Server = require('./server');
+const Server = require('./Server');
 const {app, BrowserWindow, Menu, webContents} = require('electron');
 const path = require('path');
 const ml = require('./MultiLanguage');
@@ -10,6 +10,7 @@ const PROFILE = require('minimist')(process.argv.slice(2)).profile || 'PROD';
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 
 let win;
+let server = new Server(8125);
 
 function createWindow() {
   win = new BrowserWindow({
@@ -26,12 +27,13 @@ function createWindow() {
   });
   win.maximize();
   win.setMenuBarVisibility(true);
-  win.loadURL('http://127.0.0.1:8125/index.html');
+  server.start(() => win.loadURL('http://127.0.0.1:8125/index.html'));
 
   if (PROFILE.toUpperCase() === 'DEV') win.webContents.openDevTools();
   else win.setMenu(null);
 
   win.on('closed', () => {
+    server.stop();
     webContents.getAllWebContents().forEach(wc => wc.send('app-closed'));
     win = null
   });
@@ -43,8 +45,9 @@ function createWindow() {
 app.on('ready', createWindow);
 
 app.on('window-all-closed', () => {
+  server.stop();
   if (process.platform !== 'darwin') {
-    app.quit()
+    app.quit();
   }
 });
 

@@ -1,4 +1,4 @@
-class CurrentArea {
+export class CurrentArea {
   constructor() {
     this._key = 'add-first-thing';
     this._tmpData = {};

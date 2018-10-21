@@ -1,4 +1,12 @@
-class AnalyzeThings_ProjectViewModel {
+import {AnalyzeThings_CategoryViewModel} from './CategoryViewModel.js';
+import {AnalyzeCheckboxStrategy} from './AnalyzeCheckboxStrategy.js';
+import {AnalyzeNumberStrategy} from './AnalyzeNumberStrategy.js';
+import {AnalyzeDateStrategy} from './AnalyzeDateStrategy.js';
+import {AnalyzeColorStrategy} from './AnalyzeColorStrategy.js';
+import {AnalyzeRangeStrategy} from './AnalyzeRangeStrategy.js';
+import {AnalyzeTextStrategy} from './AnalyzeTextStrategy.js';
+
+export class AnalyzeThings_ProjectViewModel {
 
   constructor(app) {
     this._app = app;

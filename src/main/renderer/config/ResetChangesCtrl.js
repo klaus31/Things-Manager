@@ -1,4 +1,4 @@
-class ResetChangesCtrl {
+export class ResetChangesCtrl {
   constructor(app, ipcRenderer) {
     this._app = app;
     this._ipcRenderer = ipcRenderer;

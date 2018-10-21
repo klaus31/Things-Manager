@@ -1,3 +1,7 @@
+import {Geodata} from "../data/model/Geodata.js";
+import "./v-autofocus.js";
+import "./v-autoselect.js";
+
 Vue.component('tm-input-geodata', {
   props: ['content', 'actions'],
   data: function () {
@@ -19,13 +23,13 @@ Vue.component('tm-input-geodata', {
   },
   template: '<span class="input-geodata">' +
     // 00°00'00,0"N+00°00'00,0"E°
-    'N:&nbsp;<input type="number" v-autofocus v-autoselect v-model="geodata.nDegrees" min="-89" max="89" @keydown.enter= "onDone" @input="onChange">°&nbsp;&nbsp;&nbsp;' +
-    '<input type="number" v-model="geodata.nMinutes" min="0" max="59" @keydown.enter= "onDone" @input="onChange">\'&nbsp;&nbsp;&nbsp;' +
-    '<input type="number" v-model="geodata.nSeconds" min="0" max="59" @keydown.enter= "onDone" @input="onChange">.0"' +
+    'N:&nbsp;<input type="number" v-autofocus v-autoselect v-model="geodata.nDegrees" min="-89" max="89" @keydown.enter="onDone" @input="onChange">°&nbsp;&nbsp;&nbsp;' +
+    '<input type="number" v-model="geodata.nMinutes" min="0" max="59" @keydown.enter="onDone" @input="onChange">\'&nbsp;&nbsp;&nbsp;' +
+    '<input type="number" v-model="geodata.nSeconds" min="0" max="59" @keydown.enter="onDone" @input="onChange">.0"' +
     '<br>' +
-    'E:&nbsp;<input type="number" v-model="geodata.eDegrees" min="-179" max="179" @keydown.enter= "onDone" @input="onChange">°&nbsp;&nbsp;&nbsp;' +
-    '<input type="number" v-model="geodata.eMinutes" min="0" max="59" @keydown.enter= "onDone" @input="onChange">\'&nbsp;&nbsp;&nbsp;' +
-    '<input type="number" v-model="geodata.eSeconds" min="0" max="59" @keydown.enter= "onDone" @input="onChange">.0"' +
+    'E:&nbsp;<input type="number" v-model="geodata.eDegrees" min="-179" max="179" @keydown.enter="onDone" @input="onChange">°&nbsp;&nbsp;&nbsp;' +
+    '<input type="number" v-model="geodata.eMinutes" min="0" max="59" @keydown.enter="onDone" @input="onChange">\'&nbsp;&nbsp;&nbsp;' +
+    '<input type="number" v-model="geodata.eSeconds" min="0" max="59" @keydown.enter="onDone" @input="onChange">.0"' +
     '<br>' +
     '<tm-button icon="ok" @click="onDone"></tm-button>' +
     '</span>'

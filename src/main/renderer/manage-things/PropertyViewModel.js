@@ -1,4 +1,6 @@
-class ManagedThings_PropertyViewModel {
+import {DataTypeProvider} from "../shared/data/DataTypeProvider.js";
+
+export class ManagedThings_PropertyViewModel {
   constructor(property) {
     this._dataProperty = property;
   }

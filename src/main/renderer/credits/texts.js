@@ -1,5 +1,5 @@
 // to generate a new key: require('crypto').randomBytes(3*4).toString('base64')
-const TEXTS_CREDITS = {
+export const TEXTS_CREDITS = {
   'PjEbHaH4YWEJUFTa': {
     en: 'Credits, License and About',
     de: 'Credits, Lizenz und Über Things-Manager'

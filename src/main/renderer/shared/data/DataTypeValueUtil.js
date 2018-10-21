@@ -1,4 +1,6 @@
-class DataTypeValueUtil {
+import {ml} from './../../config/begin-config.js';
+import {Geodata} from "./model/Geodata.js";
+export class DataTypeValueUtil {
 
   constructor() {
   }
@@ -54,7 +56,7 @@ class DataTypeValueUtil {
         return !isNaN(new Date(value));
       case 'number':
       case 'range':
-        return !isNaN(value)
+        return !isNaN(value);
       case 'color':
         return !!value.match(/^#[0-9a-f]{6}$/i);
       case 'url':

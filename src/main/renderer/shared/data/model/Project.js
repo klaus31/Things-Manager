@@ -1,4 +1,6 @@
-class Project {
+import {Category} from './Category.js';
+
+export class Project {
 
   constructor() {
     this._name = null;

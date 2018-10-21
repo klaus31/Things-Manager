@@ -1,4 +1,4 @@
-const TEXTS_SHARED = {
+export const TEXTS_SHARED = {
   'aKaexK0ACUBUqi5o': {
     en: 'Singular Term',
     de: 'Einzahl'

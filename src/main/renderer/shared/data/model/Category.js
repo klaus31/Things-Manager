@@ -1,4 +1,8 @@
-class Category {
+import {PropertyKey} from './PropertyKey.js';
+import {Thing} from './Thing.js';
+import {UuidFactory} from "../../UuidFactory.js";
+
+export class Category {
 
   constructor() {
     this.uuid = UuidFactory.create();

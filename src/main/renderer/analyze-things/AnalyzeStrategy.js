@@ -1,4 +1,4 @@
-class AnalyzeStrategy {
+export class AnalyzeStrategy {
   analyzeThing(thing, propertyKeyToAnalyze) {
     throw 'analyzeThing must be overridden';
   }

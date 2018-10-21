@@ -1,4 +1,6 @@
-class Thing {
+import {Property} from './Property.js';
+
+export class Thing {
 
   constructor() {
     this._properties = [];

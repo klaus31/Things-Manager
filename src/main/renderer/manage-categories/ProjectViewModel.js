@@ -1,4 +1,6 @@
-class ManagedCategory_ProjectViewModel {
+import {ManagedCategory_CategoryViewModel} from "./CategoryViewModel.js";
+
+export class ManagedCategory_ProjectViewModel {
 
   constructor(app) {
     this._shownCategories = [];

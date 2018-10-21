@@ -1,3 +1,7 @@
+import './../shared/html/v-colors.js';
+import './../shared/html/v-autofocus.js';
+import './../shared/html/tm-button.js';
+
 Vue.component('card-first-thing', {
   props: ['value', 'start', 'ml'],
   methods: {},

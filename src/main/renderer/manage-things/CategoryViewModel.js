@@ -1,4 +1,4 @@
-class ManagedThings_CategoryViewModel {
+export class ManagedThings_CategoryViewModel {
   constructor(dataCategory) {
     this.active = true;
     this._dataCategory = dataCategory;

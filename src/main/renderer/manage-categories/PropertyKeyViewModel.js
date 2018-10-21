@@ -1,4 +1,4 @@
-class ManagedCategory_PropertyKeyViewModel {
+export class ManagedCategory_PropertyKeyViewModel {
   constructor(propertyKey, dataCategory) {
     this._key = propertyKey;
     this._dataCategory = dataCategory;

@@ -1,4 +1,4 @@
-class BackwardCompatibilityService {
+export class BackwardCompatibilityService {
 
   constructor(json) {
     this._json = json;

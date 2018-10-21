@@ -1,4 +1,7 @@
-class AnalyzeTextStrategy extends AnalyzeStrategy {
+import {AnalyzeThingResult} from "./AnalyzeThingResult.js";
+import {AnalyzeStrategy} from "./AnalyzeStrategy.js";
+
+export class AnalyzeTextStrategy extends AnalyzeStrategy {
 
   constructor() {
     super();

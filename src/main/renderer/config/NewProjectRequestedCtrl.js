@@ -1,4 +1,5 @@
-class NewProjectRequestedCtrl {
+import {ml} from './../config/begin-config.js';
+export class NewProjectRequestedCtrl {
 
   constructor(app) {
     this._app = app;

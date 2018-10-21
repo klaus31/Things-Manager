@@ -1,4 +1,9 @@
-class FirstThingViewModel {
+import {ml} from './../config/begin-config.js';
+import {Thing} from "../shared/data/model/Thing.js";
+import {Category} from "../shared/data/model/Category.js";
+import {Project} from "../shared/data/model/Project.js";
+
+export class FirstThingViewModel {
   constructor() {
     this.projectName = null;
     this.categorySingular = null;
