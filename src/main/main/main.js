@@ -1,3 +1,4 @@
+const Server = require('./server');
 const {app, BrowserWindow, Menu, webContents} = require('electron');
 const path = require('path');
 const ml = require('./MultiLanguage');
@@ -25,7 +26,7 @@ function createWindow() {
   });
   win.maximize();
   win.setMenuBarVisibility(true);
-  win.loadFile('main/renderer/index.html');
+  win.loadURL('http://127.0.0.1:8125/index.html');
 
   if (PROFILE.toUpperCase() === 'DEV') win.webContents.openDevTools();
   else win.setMenu(null);
