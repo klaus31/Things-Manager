@@ -1,3 +1,4 @@
+import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
 // XXX extract thing.locked to the outside and make 2 components of it: one for locked state, the other for unlocked state
 Vue.component('card-manage-category-readonly', {
   props: ['project', 'category', 'ml'],

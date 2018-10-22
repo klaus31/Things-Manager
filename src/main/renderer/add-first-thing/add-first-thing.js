@@ -1,3 +1,4 @@
+import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
 import {APP, ml} from './../config/begin-config.js';
 import {FirstThingViewModel} from "./FirstThingViewModel.js";
 import {appStorage} from "../shared/data/AppStorage.js";
