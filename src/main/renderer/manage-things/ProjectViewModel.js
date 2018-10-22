@@ -1,4 +1,8 @@
-class ManagedThings_ProjectViewModel {
+import {ml} from './../config/begin-config.js';
+import {ThingCardViewModel} from "./ThingCardViewModel.js";
+import {ManagedThings_CategoryViewModel} from "./CategoryViewModel.js";
+
+export class ManagedThings_ProjectViewModel {
 
   constructor(app) {
     this._app = app;

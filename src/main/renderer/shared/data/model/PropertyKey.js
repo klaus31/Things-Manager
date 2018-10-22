@@ -1,4 +1,4 @@
-class PropertyKey {
+export class PropertyKey {
 
   constructor(name, type) {
     this._name = name;

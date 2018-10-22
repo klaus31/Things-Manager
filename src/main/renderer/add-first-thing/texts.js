@@ -1,5 +1,5 @@
 // to generate a new key: require('crypto').randomBytes(3*4).toString('base64')
-const TEXTS_ADD_FIRST_THING = {
+export const TEXTS_ADD_FIRST_THING = {
   'VlsFXjPultjFOija': {
     en: 'Define your first thing here',
     de: 'Definiere Deine erste Sache'

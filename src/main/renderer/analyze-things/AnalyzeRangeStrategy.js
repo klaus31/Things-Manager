@@ -1,4 +1,10 @@
-class AnalyzeRangeStrategy extends AnalyzeNumberStrategy {
+import {ml} from './../config/begin-config.js';
+import {AnalyzeThingResult} from "./AnalyzeThingResult.js";
+import {AnalyzeNumberStrategy} from "./AnalyzeNumberStrategy.js";
+import {AnalyzedCategoryResult} from "./AnalyzedCategoryResult.js";
+import {AnalyzeUtil} from "./AnalyzeUtil.js";
+
+export class AnalyzeRangeStrategy extends AnalyzeNumberStrategy {
 
   constructor() {
     super();

@@ -1,4 +1,4 @@
-const TEXTS_CONFIG = {
+export const TEXTS_CONFIG = {
   '0+Jhdv38B5t0u8zb': {
     en: 'Changes made gets lost!',
     de: 'Vorgenommene Änderungen gehen verloren!'

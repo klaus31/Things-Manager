@@ -1,3 +1,5 @@
+import {APP, ml, projectListener} from './begin-config.js';
+
 const vueTitle_computeTitle = function () {
   let result = [];
 

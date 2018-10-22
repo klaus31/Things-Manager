@@ -1,4 +1,4 @@
-class ProjectListener {
+export class ProjectListener {
 
     constructor() {
         this.funcs = {};
@@ -14,3 +14,6 @@ class ProjectListener {
         this.funcs[eventName].forEach(func => func(data));
     }
 }
+
+const singleton = new ProjectListener();
+export {singleton as projectListener};

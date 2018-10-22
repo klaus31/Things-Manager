@@ -1,4 +1,4 @@
-const TEXTS_MANAGE_THINGS_ADD_NEW_THING = {
+export const TEXTS_MANAGE_THINGS_ADD_NEW_THING = {
   'cdZVHIoilBz1bJ4e': {
     en: 'Clone this Property',
     de: 'Dupliziere diese Eigenschaft'

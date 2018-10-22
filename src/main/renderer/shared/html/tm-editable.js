@@ -1,3 +1,7 @@
+import {DataTypeValueUtil} from "../data/DataTypeValueUtil.js";
+import './tm-button.js';
+import './tm-input.js';
+
 Vue.component('tm-editable', {
   props: ['content', 'callback', 'type', 'callbackeditablechanged'],
   data: function () {

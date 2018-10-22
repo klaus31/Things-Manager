@@ -1,5 +1,5 @@
 // to generate a new key: require('crypto').randomBytes(3*4).toString('base64')
-const TEXTS_MANAGE_THINGS = {
+export const TEXTS_MANAGE_THINGS = {
   'PjEbHaH4YWEJUFTH': {
     en: 'Manage Things',
     de: 'Verwalte Sachen'

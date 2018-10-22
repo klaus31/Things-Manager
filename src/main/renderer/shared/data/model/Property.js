@@ -1,4 +1,8 @@
-class Property {
+import {ml} from './../../../config/begin-config.js';
+import {PropertyKey} from "./PropertyKey.js";
+import {DataTypeValueUtil} from './../DataTypeValueUtil.js';
+
+export class Property {
 
   constructor(key, value) {
     if (key && !(key instanceof PropertyKey)) throw 'key must be a property key';
@@ -18,20 +22,6 @@ class Property {
   get value() {
     return this._value;
   }
-
-  get selectoption() {
-    let result = ThingPropertyTypesUtil.getThingProperty(this._key.type);
-    if (result) {
-      return result;
-    } else {
-      return ThingPropertyTypesUtil.getFallback();
-    }
-  }
-
-  set selectoption(selectoption) {
-    this._type = selectoption.value;
-  }
-
 
   set value(value) {
     this._value = value;

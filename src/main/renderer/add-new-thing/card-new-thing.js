@@ -1,3 +1,6 @@
+import './../shared/html/v-colors.js';
+import './../shared/html/tm-button.js';
+
 Vue.component('card-new-thing', {
   props: ['value', 'ml'],
   methods: {},

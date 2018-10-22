@@ -1,4 +1,12 @@
-const vueAppAddNewThing = new Vue({
+import {APP, ml} from './../config/begin-config.js';
+import {NewThingViewModel} from "./NewThingViewModel.js";
+import './../shared/html/v-colors-hover.js';
+import './../shared/html/tm-editable.js';
+import './../shared/html/tm-sidebar.js';
+import './../shared/html/tm-main-area.js';
+import './card-new-thing.js'
+
+new Vue({
   el: '#app-add-new-thing',
   data: {
     area: APP.currentArea,

@@ -15,6 +15,13 @@
 </head>
 <body id="body" :class="project.currentProjectAreaKey">
 
+<script>document.write(nodeGetFileContent('add-first-thing/add-first-thing.html'));</script>
+<script>document.write(nodeGetFileContent('manage-categories/manage-categories.html'));</script>
+<script>document.write(nodeGetFileContent('manage-things/manage-things.html'));</script>
+<script>document.write(nodeGetFileContent('add-new-thing/add-new-thing.html'));</script>
+<script>document.write(nodeGetFileContent('analyze-things/analyze-things.html'));</script>
+<script>document.write(nodeGetFileContent('credits/credits.html'));</script>
+<script>document.write(nodeGetFileContent('help/help.html'));</script>
 <div id="watch-app"></div>
 
 <!-- 3rd parties -->
@@ -23,65 +30,21 @@
 <script>var less = {logLevel: 0, async: true, fileAsync: true};</script>
 <script src="../../node_modules/less/dist/less.js"></script>
 
-<!-- multi language -->
-<script src="add-first-thing/texts.js"></script>
-<script src="manage-things/texts.js"></script>
-<script src="add-new-thing/texts.js"></script>
-<script src="analyze-things/texts.js"></script>
-<script src="manage-categories/texts.js"></script>
-<script src="shared/texts.js"></script>
-<script src="config/texts.js"></script>
-<script src="help/texts.js"></script>
-<script src="credits/texts.js"></script>
-<script src="config/MultiLanguage.js"></script>
+<!-- begin config -->
+<script type="module" src="config/enhance-javascript.js"></script>
+<script type="module" src="config/begin-config.js"></script>
 
-<!-- data model and data services -->
-<script src="shared/data/model/App.js"></script>
-<script src="shared/data/model/CurrentArea.js"></script>
-<script src="shared/data/model/Geodata.js"></script>
-<script src="shared/data/model/Project.js"></script>
-<script src="shared/data/model/Category.js"></script>
-<script src="shared/data/model/PropertyKey.js"></script>
-<script src="shared/data/model/Property.js"></script>
-<script src="shared/data/model/Thing.js"></script>
-<script src="shared/data/AppStorage.js"></script>
-<script src="shared/data/DataType.js"></script>
-<script src="shared/UuidFactory.js"></script>
+<!-- content -->
+<script type="module" src="config/title.js"></script>
+<script type="module" src="add-first-thing/add-first-thing.js"></script>
+<script type="module" src="add-new-thing/add-new-thing.js"></script>
+<script type="module" src="analyze-things/analyze-things.js"></script>
+<script type="module" src="credits/credits.js"></script>
+<script type="module" src="help/help.js"></script>
+<script type="module" src="manage-categories/manage-categories.js"></script>
+<script type="module" src="manage-things/manage-things.js"></script>
 
-<!-- shared vue elements -->
-<script src="shared/html/v-colors.js"></script>
-<script src="shared/html/v-colors-hover.js"></script>
-<script src="shared/html/v-autofocus.js"></script>
-<script src="shared/html/v-autoselect.js"></script>
-<script src="shared/html/tm-editable.js"></script>
-<script src="shared/html/tm-main-area.js"></script>
-<script src="shared/html/tm-sidebar.js"></script>
-<script src="shared/html/tm-button.js"></script>
-<script src="shared/html/tm-input.js"></script>
-<script src="shared/html/tm-input-geodata.js"></script>
-<script src="shared/html/tm-input-range.js"></script>
-
-<!-- shared config and services -->
-<script src="shared/data/DataTypeProvider.js"></script>
-<script src="shared/data/DataTypeValueUtil.js"></script>
-<script src="shared/ProjectListener.js"></script>
-<script src="shared/data/BackwardCompatibilityService.js"></script>
-<script src="config/enhance-javascript.js"></script>
-<script src="config/ResetChangesCtrl.js"></script>
-<script src="config/NewProjectRequestedCtrl.js"></script>
-<script src="config/Starter.js"></script>
-<script src="config/begin-config.js"></script>
-<script src="config/title.js"></script>
-
-<script>document.write(nodeGetFileContent('add-first-thing/add-first-thing.html'));</script>
-<script>document.write(nodeGetFileContent('manage-categories/manage-categories.html'));</script>
-<script>document.write(nodeGetFileContent('manage-things/manage-things.html'));</script>
-<script>document.write(nodeGetFileContent('add-new-thing/add-new-thing.html'));</script>
-<script>document.write(nodeGetFileContent('analyze-things/analyze-things.html'));</script>
-<script>document.write(nodeGetFileContent('credits/credits.html'));</script>
-<script>document.write(nodeGetFileContent('help/help.html'));</script>
-
-<!-- finish config -->
-<script src="config/end-config.js"></script>
+<!-- end config -->
+<script type="module" src="config/end-config.js"></script>
 </body>
 </html>

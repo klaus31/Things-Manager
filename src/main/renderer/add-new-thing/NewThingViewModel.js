@@ -1,4 +1,9 @@
-class NewThingViewModel {
+import {DataTypeProvider} from "../shared/data/DataTypeProvider.js";
+import {projectListener} from "../shared/ProjectListener.js";
+import {Thing} from "../shared/data/model/Thing.js";
+import {Property} from "../shared/data/model/Property.js";
+
+export class NewThingViewModel {
 
   constructor(app) {
     this._dataCategory = null;

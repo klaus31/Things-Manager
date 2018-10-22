@@ -1,4 +1,4 @@
-const TEXTS_MANAGE_CATEGORIES = {
+export const TEXTS_MANAGE_CATEGORIES = {
   'ucDNQsAg+2Y6qQEM': {
     en: 'Manage Categories',
     de: 'Kategorien verwalten'

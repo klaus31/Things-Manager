@@ -1,4 +1,4 @@
-const TEXTS_MANAGE_ANALYZE_THINGS = {
+export const TEXTS_MANAGE_ANALYZE_THINGS = {
   '9Qjre1gJrVQw75hq': {
     en: 'Analyze Things',
     de: 'Daten-Analyse'

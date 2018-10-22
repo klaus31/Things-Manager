@@ -1,4 +1,4 @@
-class AnalyzedCategoryResult {
+export class AnalyzedCategoryResult {
   constructor(analyzedThingsResults) {
     this._analyzedThingsResults = analyzedThingsResults;
     this._additionalResults = [];

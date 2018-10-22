@@ -1,4 +1,6 @@
-class ManagedCategory_CategoryViewModel {
+import {ManagedCategory_PropertyKeyViewModel} from "./PropertyKeyViewModel.js";
+
+export class ManagedCategory_CategoryViewModel {
 
   constructor(dataCategory) {
     this.uuid = dataCategory.uuid;

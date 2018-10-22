@@ -1,4 +1,5 @@
-class AnalyzeUtil {
+import {ml} from './../config/begin-config.js';
+export class AnalyzeUtil {
   static sum(analzeResults) {
     let i = analzeResults.length;
     let result = 0;

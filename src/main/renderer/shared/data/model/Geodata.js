@@ -1,4 +1,4 @@
-class Geodata {
+export class Geodata {
   constructor(raw) {
     // 00°00'00,0"N+00°00'00,0"E°
     if (raw) {
@@ -9,8 +9,8 @@ class Geodata {
       this._eDegrees = geos[3] || null;
       this._eMinutes = geos[4] || null;
       this._eSeconds = geos[5] || null;
-      if(raw.contains('S')) this._nDegrees *= -1;
-      if(raw.contains('W')) this._eDegrees *= -1;
+      if (raw.contains('S')) this._nDegrees *= -1;
+      if (raw.contains('W')) this._eDegrees *= -1;
     } else {
       this._nDegrees = null;
       this._nMinutes = null;
@@ -86,7 +86,7 @@ class Geodata {
       this._eSeconds !== null;
   }
 
-  convertDMSToDD(degrees, minutes, seconds, direction) {
+  convertDMSToDD(degrees, minutes, seconds) {
     return degrees + minutes / 60 + seconds / (60 * 60);
   }
 
@@ -103,9 +103,6 @@ class Geodata {
   }
 
   getAsLink() {
-    console.info('https://www.google.de/maps/place/' + this.toString());
-    console.log(this);
     return this.isComplete() ? 'https://www.google.de/maps/place/' + this.toString() : null;
-    // 'https://www.google.de/maps/place/@' + this.getNorthAsDecimal() + ',' + this.getEastAsDecimal() + ',21z';
   }
 }

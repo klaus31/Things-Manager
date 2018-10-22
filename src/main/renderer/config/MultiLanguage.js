@@ -1,3 +1,14 @@
+import {TEXTS_ADD_FIRST_THING} from './../add-first-thing/texts.js';
+import {TEXTS_MANAGE_THINGS} from './../manage-things/texts.js';
+import {TEXTS_MANAGE_THINGS_ADD_NEW_THING} from './../add-new-thing/texts.js';
+import {TEXTS_MANAGE_ANALYZE_THINGS} from './../analyze-things/texts.js';
+import {TEXTS_MANAGE_CATEGORIES} from './../manage-categories/texts.js';
+import {TEXTS_SHARED} from './../shared/texts.js';
+import {TEXTS_CONFIG} from './../config/texts.js';
+import {TEXTS_HELP} from './../help/texts.js';
+import {TEXTS_CREDITS} from './../credits/texts.js';
+import {APP} from "../config/begin-config.js";
+
 class MultiLanguage {
 
   constructor() {
@@ -28,3 +39,6 @@ class MultiLanguage {
     else return number;
   }
 }
+
+const singleton = new MultiLanguage();
+export {singleton as ml};

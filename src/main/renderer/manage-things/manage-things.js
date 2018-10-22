@@ -1,3 +1,11 @@
+import {APP, ml, projectListener} from './../config/begin-config.js';
+import {ManagedThings_ProjectViewModel} from "./ProjectViewModel.js";
+import './../shared/html/v-colors-hover.js';
+import './../shared/html/tm-editable.js';
+import './../shared/html/tm-sidebar.js';
+import './../shared/html/tm-main-area.js';
+import './card-manage-thing.js';
+
 const vueAppManageThings = new Vue({
   el: '#app-manage-things',
   data: {

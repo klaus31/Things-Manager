@@ -1,4 +1,11 @@
-const vueAppAddFirstThing = new Vue({
+import {APP, ml} from './../config/begin-config.js';
+import {FirstThingViewModel} from "./FirstThingViewModel.js";
+import {appStorage} from "../shared/data/AppStorage.js";
+import './../shared/html/tm-sidebar.js';
+import './../shared/html/tm-main-area.js';
+import './card-first-thing.js';
+
+new Vue({
   el: '#app-add-first-thing',
   data: {
     area: APP.currentArea,

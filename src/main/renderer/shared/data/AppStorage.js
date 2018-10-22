@@ -1,4 +1,7 @@
-class AppStorage {
+import {BackwardCompatibilityService} from './BackwardCompatibilityService.js';
+import {App} from './model/App.js';
+
+export class AppStorage {
 
   constructor() {
     this._suppressAutoStore = false;
@@ -29,3 +32,6 @@ class AppStorage {
     }
   }
 }
+
+const singleton = new AppStorage();
+export {singleton as appStorage};

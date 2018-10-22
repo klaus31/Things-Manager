@@ -1,4 +1,10 @@
-class Starter {
+import {projectListener} from './../config/begin-config.js';
+import {appStorage} from './../shared/data/AppStorage.js';
+import {ResetChangesCtrl} from "./ResetChangesCtrl.js";
+import {NewProjectRequestedCtrl} from "./NewProjectRequestedCtrl.js";
+import {App} from "../shared/data/model/App.js";
+
+export class Starter {
 
   constructor() {
   }
@@ -11,7 +17,7 @@ class Starter {
       localStorage.removeItem('tmp-language');
     }
 
-    const vueAppManageThings = new Vue({
+    new Vue({
       el: '#watch-app',
       data: {
         watchedApp: app
@@ -56,3 +62,6 @@ class Starter {
     return app;
   }
 }
+
+const singleton = new Starter();
+export {singleton as starter};

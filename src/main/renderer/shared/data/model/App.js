@@ -1,10 +1,13 @@
-class App {
+import {Project} from './Project.js';
+import {CurrentArea} from "./CurrentArea.js";
+
+export class App {
 
   constructor() {
     this._project = new Project();
     this._currentArea = new CurrentArea();
     this.currentFile = null;
-    this._forceChange = null;
+    this._forceChange = null; // XXX hack field to force vue.js to reload
     this.dataModellVersion = 1;
     this._languageCode = 'en';
     moment.locale(this._languageCode);
