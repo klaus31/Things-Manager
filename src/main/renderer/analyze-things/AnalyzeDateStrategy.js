@@ -1,5 +1,7 @@
 import {AnalyzeThingResult} from "./AnalyzeThingResult.js";
 import {AnalyzeStrategy} from "./AnalyzeStrategy.js";
+import {AnalyzedCategoryResult} from "./AnalyzedCategoryResult.js";
+import {DataTypeValueUtil} from "../shared/data/DataTypeValueUtil.js";
 
 export class AnalyzeDateStrategy extends AnalyzeStrategy {
 

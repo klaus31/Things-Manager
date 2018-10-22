@@ -1,5 +1,6 @@
 import {AnalyzeThingResult} from "./AnalyzeThingResult.js";
 import {AnalyzeStrategy} from "./AnalyzeStrategy.js";
+import {AnalyzedCategoryResult} from "./AnalyzedCategoryResult.js";
 
 export class AnalyzeColorStrategy extends AnalyzeStrategy {
 
