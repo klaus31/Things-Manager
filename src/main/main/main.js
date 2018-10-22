@@ -10,7 +10,7 @@ const PROFILE = require('minimist')(process.argv.slice(2)).profile || 'PROD';
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 
 let win;
-let server = new Server(8125);
+let server = new Server(8125, '127.0.0.1');
 
 function createWindow() {
   win = new BrowserWindow({
@@ -27,7 +27,8 @@ function createWindow() {
   });
   win.maximize();
   win.setMenuBarVisibility(true);
-  server.start(() => win.loadURL('http://127.0.0.1:8125/index.html'));
+  server.start(() => win.loadURL(`${server.getHttpUrl()}index.html`));
+  // server.start(() => win.loadURL(`http://0.0.0.0:8080/index.html`));
 
   if (PROFILE.toUpperCase() === 'DEV') win.webContents.openDevTools();
   else win.setMenu(null);

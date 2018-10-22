@@ -3,9 +3,10 @@ const fs = require('fs');
 const path = require('path');
 
 class Server {
-  constructor(port) {
+  constructor(port, ip) {
     this._port = port;
     this._serverInstance = null;
+    this._ip = ip || '0.0.0.0';
   }
 
   start(callback) {
@@ -49,9 +50,13 @@ class Server {
           response.end(content, 'utf-8');
         }
       });
-    }).listen(this._port);
+    }).listen(this._port, this._ip);
     callback();
-    console.info(`Server running at http://127.0.0.1:${this._port}/`);
+    console.info(`Server running at ${this.getHttpUrl()}`);
+  }
+
+  getHttpUrl() {
+    return `http://${this._ip}:${this._port}/`;
   }
 
   stop() {
