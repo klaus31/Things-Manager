@@ -1,4 +1,4 @@
-export class ProjectListener {
+class ProjectListener {
 
     constructor() {
         this.funcs = {};

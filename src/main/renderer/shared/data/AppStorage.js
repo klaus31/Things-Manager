@@ -1,7 +1,7 @@
 import {BackwardCompatibilityService} from './BackwardCompatibilityService.js';
 import {App} from './model/App.js';
 
-export class AppStorage {
+class AppStorage {
 
   constructor() {
     this._suppressAutoStore = false;

@@ -5,7 +5,7 @@ import {ResetChangesCtrl} from "./ResetChangesCtrl.js";
 import {NewProjectRequestedCtrl} from "./NewProjectRequestedCtrl.js";
 import {App} from "../shared/data/model/App.js";
 
-export class Starter {
+class Starter {
 
   constructor() {
   }

@@ -12,9 +12,16 @@ class Server {
   start(callback) {
     this._serverInstance = http.createServer(function (request, response) {
       const basedir = request.url.match(/^\/node_modules/) ? './' : './main/renderer';
-      const filePath = basedir + request.url;
+      let filePath = basedir + request.url;
+      let extname = path.extname(filePath);
 
-      const extname = path.extname(filePath);
+      // correct things, when import stuff with es6
+      // XXX I do not know why I am the only guy on planet that has to do that
+      if (extname === '') {
+        filePath += '.js';
+        extname = '.js';
+      }
+
       let contentType = null;
       switch (extname) {
         case '.html':
