@@ -1,3 +1,6 @@
+import {ml} from "./MultiLanguage.js";
+import {NewProjectRequestedCtrl} from "./NewProjectRequestedCtrl.js";
+
 export class ResetChangesCtrl {
   constructor(app, ipcRenderer) {
     this._app = app;
