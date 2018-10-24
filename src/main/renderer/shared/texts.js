@@ -100,8 +100,8 @@ export const TEXTS_SHARED = {
     de: 'Geodaten'
   },
   '9SLfymF38SsASuza': {
-    en: '',
-    de: ''
+    en: 'Rating',
+    de: 'Bewertung'
   },
   'ON6Z9aSM5hC5C73g': {
     en: '',

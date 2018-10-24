@@ -1,5 +1,7 @@
 import {ml} from './../../config/begin-config.js';
 import {Geodata} from "./model/Geodata.js";
+import {Rating} from "./model/Rating";
+
 export class DataTypeValueUtil {
 
   constructor() {
@@ -15,6 +17,7 @@ export class DataTypeValueUtil {
         return moment().format();
       case 'number':
       case 'range':
+      case 'rating':
         return 0;
       case 'color':
         return '#dddddd';
@@ -57,6 +60,8 @@ export class DataTypeValueUtil {
       case 'number':
       case 'range':
         return !isNaN(value);
+      case 'rating':
+        return Rating.isValidValue(value);
       case 'color':
         return !!value.match(/^#[0-9a-f]{6}$/i);
       case 'url':
@@ -82,6 +87,8 @@ export class DataTypeValueUtil {
         return moment(content).format(DataTypeValueUtil.getDateTimeFormat(type));
       case 'range':
         return content + ' %';
+      case 'rating':
+        return content; // TODO make stars of it
       case 'checkbox':
         if (format === 'html') {
           return content ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
@@ -104,7 +111,7 @@ export class DataTypeValueUtil {
   }
 
   static isLinkable(content, type) {
-    if(typeof content !== 'string') {
+    if (typeof content !== 'string') {
       return false;
     }
     if (type === 'geodata') {

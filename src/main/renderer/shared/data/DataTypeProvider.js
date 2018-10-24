@@ -19,7 +19,8 @@ export class DataTypeProvider {
       new DataType('color', ml.get('1VWmPdYLJNvxUFZZ'), () => '#dddddd'),
       new DataType('url', ml.get('OP9jnIGR7LnjuzZL'), () => 'http://???'),
       new DataType('geodata', ml.get('OP9jnIGR7LnjuzZM'), () => new Geodata()),
-      new DataType('checkbox', ml.get('P9SHV5LhUFoTqLam'), () => '')
+      new DataType('checkbox', ml.get('P9SHV5LhUFoTqLam'), () => ''),
+      new DataType('rating', ml.get('9SLfymF38SsASuza'), () => '')
     ];
   }
 }
