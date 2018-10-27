@@ -3,6 +3,7 @@
 const shell = require('electron').shell;
 window.ipcRenderer = require('electron').ipcRenderer;
 window.APP_VERSION = require(__dirname + '/../../package.json').version;
+const Handlebars = require('handlebars');
 
 window.openExternalHttp = function (url) {
   if (url.match(/^https?:\/\/.+/)) {
@@ -15,4 +16,18 @@ window.openExternalHttp = function (url) {
 window.nodeGetFileContent = function (file) {
   let secureFilePath = require('path').join(__dirname, '..', 'renderer', file.replace(/\.\./g, ''));
   return require('fs').readFileSync(secureFilePath, 'UTF-8');
+};
+
+window.nodeGetTemplate = function (name, vm) {
+  let filePath;
+  switch (name) {
+    case 'star':
+      filePath = require('path').join(__dirname, '..', 'renderer/shared/graphics/star.svg');
+      break;
+    default:
+      throw 'unknown template ' + name;
+      return null;
+  }
+  let content = require('fs').readFileSync(filePath, 'UTF-8');
+  return Handlebars.compile(content)(vm);
 };

@@ -75,14 +75,17 @@ export class DataTypeValueUtil {
     }
   }
 
-  static formatContent(type, content, format) {
+  static formatContent(type, content, format, color) {
     let geoURL;
-
+    color = color || '#000000';
     function getStars(count) {
       let i = 0;
       let result = '';
+      let vmOn = {fillColor: color, strokeColor: color};
+      let vmOff = {fillColor: '#FFFFFF', strokeColor: color};
       while (i++ < Rating.MAX) {
-        result += i <= count ? nodeGetFileContent('shared/graphics/star-on.svg') : nodeGetFileContent('shared/graphics/star-off.svg');
+        let vm = i <= count ? vmOn : vmOff;
+        result += nodeGetTemplate('star', vm);
       }
       return result;
     }
