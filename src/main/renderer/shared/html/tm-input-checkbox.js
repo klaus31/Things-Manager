@@ -9,8 +9,17 @@ Vue.component('tm-input-checkbox', {
     }
   },
   computed: {
-    computedHtml: function () {
-      return DataTypeValueUtil.formatContent('checkbox', this.on, 'html');
+    computedHtmlOn: function () {
+      let colors = {
+        colorBackground: this.on ? 'white' : 'rgb(255,255,255,0)'
+      };
+      return DataTypeValueUtil.formatContent('checkbox', true, 'html', colors);
+    },
+    computedHtmlOff: function () {
+      let colors = {
+        colorBackground: !this.on ? 'white' : 'rgb(255,255,255,0)'
+      };
+      return DataTypeValueUtil.formatContent('checkbox', false, 'html', colors);
     }
   },
   methods: {
@@ -19,16 +28,22 @@ Vue.component('tm-input-checkbox', {
         this.actions.onDone(this.on);
       }
     },
-    toggleOn: function () {
-      this.on = !this.on;
+    setChange: function (on) {
+      this.on = on;
       if (this.actions && this.actions.onChange) {
-        this.actions.onChange(this.on);
+        this.actions.onChange(on);
       }
       this.onDone();
+    },
+    setOn: function () {
+      this.setChange(true);
+    },
+    setOff: function () {
+      this.setChange(false);
     }
   },
   template: '<p>' +
-    '<span v-html="computedHtml" @click="toggleOn"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +
-    '<tm-button icon="ok" @click="onDone" v-if="actions.onDone"></tm-button>' +
+    '<span v-html="computedHtmlOff" @click="setOff"></span>&nbsp;&nbsp;' +
+    '<span v-html="computedHtmlOn" @click="setOn"></span>' +
     '</p>'
 });
