@@ -19,9 +19,8 @@
     <td v-if="thing.locked" class="input">
       <tm-editable :content="property.key" :callback="val => property.key = val"></tm-editable>
     </td>
-    <td v-if="thing.locked && property.type === 'checkbox'" class="input"><input type="checkbox" v-model="property.value"></td>
-    <td v-if="thing.locked && property.type !== 'checkbox'" class="input">
-        <tm-editable :type="property.type" :content="property.value" :callback="val => property.value = val" :color="thing.colors.color"></tm-editable>
+    <td class="input">
+        <tm-editable :type="property.type" :content="property.value" :callback="val => property.value = val" :colors="thing.colors"></tm-editable>
     </td>
     <td v-if="!thing.locked" class="input"><input type="text" v-model="property.key"></td>
     <td v-if="!thing.locked" class="input">

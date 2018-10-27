@@ -125,7 +125,7 @@ export class ThingCardViewModel {
   }
 
   get colors() {
-    return {backgroundColor: this._dataCategory.colorBackground, color: this._dataCategory.colorText};
+    return {colorBackground: this._dataCategory.colorBackground, colorText: this._dataCategory.colorText};
   }
 
   get keyproperty() {

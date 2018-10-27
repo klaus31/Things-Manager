@@ -1,0 +1,16 @@
+<svg version="1.2"
+     class="circle"
+     width="20"
+     height="20"
+     viewBox="7283 11683 506 506"
+     preserveAspectRatio="xMidYMid"
+     fill-rule="evenodd"
+     stroke-width="30"
+     stroke-linejoin="round"
+     xmlns="http://www.w3.org/2000/svg"
+     xml:space="preserve">
+        <path fill="{{fillColor}}" stroke="none"
+              d="M 7535,11700 C 7668,11700 7770,11802 7770,11935 7770,12068 7668,12170 7535,12170 7402,12170 7300,12068 7300,11935 7300,11802 7402,11700 7535,11700 Z M 7300,11700 L 7300,11700 Z M 7771,12171 L 7771,12171 Z"/>
+        <path fill="none" stroke="{{strokeColor}}" stroke-width="35" stroke-linejoin="round"
+              d="M 7535,11700 C 7668,11700 7770,11802 7770,11935 7770,12068 7668,12170 7535,12170 7402,12170 7300,12068 7300,11935 7300,11802 7402,11700 7535,11700 Z"/>
+</svg>

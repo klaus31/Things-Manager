@@ -2,6 +2,7 @@ import Vue from "../../../../node_modules/vue/dist/vue.esm.browser.js";
 import './tm-input-geodata.js';
 import './tm-input-range.js';
 import './tm-input-rating.js';
+import './tm-input-checkbox.js';
 import './v-autofocus.js';
 import './v-autoselect.js';
 
@@ -20,9 +21,12 @@ Vue.component('tm-input', {
     isGeodata: function () {
       return this.type === 'geodata';
     },
+    isCheckbox: function () {
+      return this.type === 'checkbox';
+    },
     isDefaultInput: function () {
       // XXX does not work. don't know why. return !['rating', 'range', 'geodata'].contains(this._type);
-      return this.type !== 'geodata' && this.type !== 'range' && this.type !== 'rating';
+      return this.type !== 'geodata' && this.type !== 'range' && this.type !== 'checkbox' && this.type !== 'rating';
     }
   },
   methods: {
@@ -46,6 +50,7 @@ Vue.component('tm-input', {
   },
   template: '<span>' +
     '<input v-if="isDefaultInput" :type="computedType" v-autofocus v-autoselect :value="content" @input="onChange" @blur="finish" @keydown.enter="finish">' +
+    '<tm-input-checkbox v-if="isCheckbox" :content="content" :actions="actions"></tm-input-checkbox>' +
     '<tm-input-geodata v-if="isGeodata" :content="content" :actions="actions"></tm-input-geodata>' +
     '<tm-input-range v-if="isRange" :content="content" :actions="actions"></tm-input-range>' +
     '<tm-input-rating v-if="isRating" :content="content" :actions="actions"></tm-input-rating>' +

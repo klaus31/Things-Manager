@@ -42,7 +42,7 @@ export class NewThingViewModel {
 
   colors(category) {
     category = category || this._dataCategory;
-    return {backgroundColor: category.colorBackground, color: category.colorText};
+    return {colorBackground: category.colorBackground, colorText: category.colorText};
   }
 
   get datatypeOptions() {

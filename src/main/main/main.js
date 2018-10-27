@@ -15,7 +15,7 @@ let server = new Server(8125, '127.0.0.1');
 function createWindow() {
   win = new BrowserWindow({
     frame: true,
-    backgroundColor: 'transparent',
+    colorBackground: 'transparent',
     autoHideMenuBar: false,
     icon: path.join(__dirname, 'icon-64x64.png'),
     minWidth: 1050,

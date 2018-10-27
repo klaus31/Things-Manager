@@ -4,8 +4,8 @@ Vue.directive('colors-hover', function (el, binding) {
   let oldStyle = el.style;
 
   el.addEventListener("mouseover", function () {
-    el.style.backgroundColor = binding.value.backgroundColor;
-    el.style.color = binding.value.color;
+    el.style.backgroundColor = binding.value.colorBackground;
+    el.style.color = binding.value.colorText;
   });
   
   el.addEventListener("mouseout", function () {

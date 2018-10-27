@@ -12,14 +12,22 @@ Vue.component('tm-input-rating', {
     }
   },
   methods: {
+    onDone: function () {
+      if (this.actions && this.actions.onDone) {
+        this.actions.onDone(this.rating.value);
+      }
+    }
   },
-  template: '<star-rating v-model="rating.value" :star-size="20" :max-rating="maxRating"></star-rating>',
+  template: '<p>' +
+    '<star-rating v-model="rating.value" :star-size="20" :max-rating="maxRating"></star-rating>' +
+    '<tm-button icon="ok" @click="onDone"></tm-button>' +
+    '</p>',
   watch: {
     rating: {
       handler: function () {
         if (this.actions) {
-          if(this.actions.onChange) this.actions.onChange(this.rating.value);
-          if(this.actions.onDone) this.actions.onDone(this.rating.value);
+          if (this.actions.onChange) this.actions.onChange(this.rating.value);
+          if (this.actions.onDone) this.actions.onDone(this.rating.value);
         }
       },
       deep: true

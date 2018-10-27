@@ -4,7 +4,7 @@ import './tm-button.js';
 import './tm-input.js';
 
 Vue.component('tm-editable', {
-  props: ['content', 'callback', 'type', 'callbackeditablechanged', 'color'],
+  props: ['content', 'callback', 'type', 'callbackeditablechanged', 'colors'],
   data: function () {
     return {
       editable: false
@@ -14,14 +14,14 @@ Vue.component('tm-editable', {
     computedEditable: function () {
       return this.editable || this.type === 'color';
     },
-    computedColor: function () {
-      return this.color || '#000000'
+    computedColors: function () {
+      return this.colors || {};
     },
     showLinkToOpen: function () {
       return !this.computedEditable && DataTypeValueUtil.isLinkable(this.content, this.type);
     },
     computedContent: function () {
-      return DataTypeValueUtil.formatContent(this.type, this.content, 'html', this.computedColor);
+      return DataTypeValueUtil.formatContent(this.type, this.content, 'html', this.computedColors);
     }
   },
   methods: {

@@ -17,7 +17,7 @@ Vue.component('card-analyze-things-color', {
     '<td>' +
     '{{analyzeResult.thing}}' +
     '</td>' +
-    '<td :style="{backgroundColor: analyzeResult.result}">' +
+    '<td :style="{colorBackground: analyzeResult.result}">' +
     '</td>' +
     '</tr>' +
 

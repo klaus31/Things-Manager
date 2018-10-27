@@ -10,7 +10,7 @@ export class FirstThingViewModel {
     this.categoryPlural = null;
     this.categoryKeyName = null;
     this.firstThingValue = null;
-    this.colors = {backgroundColor: '#faebd7', color: '#000000'};
+    this.colors = {colorBackground: '#faebd7', color: '#000000'};
   }
 
   get thingsLabel() {
@@ -37,7 +37,7 @@ export class FirstThingViewModel {
     category.propertyKey.type = 'text';
     category.singular = this.categorySingular;
     category.plural = this.categoryPlural;
-    category.colorBackground = this.colors.backgroundColor;
+    category.colorBackground = this.colors.colorBackground;
     category.colorText = this.colors.color;
     category.things.push(thing);
     const project = new Project();

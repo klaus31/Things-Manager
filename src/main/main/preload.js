@@ -24,6 +24,12 @@ window.nodeGetTemplate = function (name, vm) {
     case 'star':
       filePath = require('path').join(__dirname, '..', 'renderer/shared/graphics/star.svg');
       break;
+    case 'circle':
+      filePath = require('path').join(__dirname, '..', 'renderer/shared/graphics/circle.svg');
+      break;
+    case 'circle-checked':
+      filePath = require('path').join(__dirname, '..', 'renderer/shared/graphics/circle-checked.svg');
+      break;
     default:
       throw 'unknown template ' + name;
       return null;

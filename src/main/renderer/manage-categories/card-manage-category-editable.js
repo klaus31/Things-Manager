@@ -75,7 +75,7 @@ Vue.component('card-manage-category-editable', {
     '{{ml.get("SKEFwKi4GfqyOyT5")}}' +
     '</td>' +
     '<td class="input">' +
-    '<input v-model="category.backgroundColor" type="color">' +
+    '<input v-model="category.colorBackground" type="color">' +
     '</td>' +
     '</tr>' +
     '<tr>' +

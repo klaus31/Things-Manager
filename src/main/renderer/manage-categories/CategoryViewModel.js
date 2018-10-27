@@ -45,7 +45,7 @@ export class ManagedCategory_CategoryViewModel {
   }
 
   get colors() {
-    return {backgroundColor: this._dataCategory.colorBackground, color: this._dataCategory.colorText};
+    return {colorBackground: this._dataCategory.colorBackground, colorText: this._dataCategory.colorText};
   }
 
   get singular() {
@@ -64,12 +64,12 @@ export class ManagedCategory_CategoryViewModel {
     this._dataCategory.plural = plural;
   }
 
-  get backgroundColor() {
+  get colorBackground() {
     return this._dataCategory.colorBackground;
   }
 
-  set backgroundColor(backgroundColor) {
-    this._dataCategory.colorBackground = backgroundColor;
+  set colorBackground(colorBackground) {
+    this._dataCategory.colorBackground = colorBackground;
   }
 
   get textColor() {

@@ -112,7 +112,7 @@ Vue.component('card-first-thing', {
     '{{ml.get("SKEFwKi4GfqyOyT5")}}' +
     '</td>' +
     '<td class="input">' +
-    '<input v-model="value.colors.backgroundColor" type="color">' +
+    '<input v-model="value.colors.colorBackground" type="color">' +
     '</td>' +
     '</tr>' +
     '<tr>' +

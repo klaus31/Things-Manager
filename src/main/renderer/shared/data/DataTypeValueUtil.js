@@ -75,14 +75,16 @@ export class DataTypeValueUtil {
     }
   }
 
-  static formatContent(type, content, format, color) {
+  static formatContent(type, content, format, colors) {
+    colors = colors || {};
+    colors.colorText = colors.colorText || 'black';
+    colors.colorBackground = colors.colorBackground || 'white';
     let geoURL;
-    color = color || '#000000';
     function getStars(count) {
       let i = 0;
       let result = '';
-      let vmOn = {fillColor: color, strokeColor: color};
-      let vmOff = {fillColor: '#FFFFFF', strokeColor: color};
+      let vmOn = {fillColor: colors.colorText, strokeColor: colors.colorText};
+      let vmOff = {fillColor: colors.colorBackground, strokeColor: colors.colorText};
       while (i++ < Rating.MAX) {
         let vm = i <= count ? vmOn : vmOff;
         result += nodeGetTemplate('star', vm);
@@ -104,7 +106,8 @@ export class DataTypeValueUtil {
         return getStars(content);
       case 'checkbox':
         if (format === 'html') {
-          return content ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
+          let vm = {fillColor: colors.colorBackground, strokeColor: colors.colorText};
+          return content ? nodeGetTemplate('circle-checked', vm) : nodeGetTemplate('circle', vm);
         } else if (format === 'text') {
           return content ? '+' : '-';
         } else {
