@@ -37,10 +37,16 @@
                                     v-if="viewModel.analyzeCardToShow === 'checkbox'">
       </card-analyze-things-checkbox>
       <card-analyze-things-color :summary="viewModel.cardSummary"
-                                    v-colors="viewModel.cardColors"
-                                    :analyzedcategory="viewModel.analyzedCategoryResult"
-                                    v-if="viewModel.analyzeCardToShow === 'color'">
+                                 v-colors="viewModel.cardColors"
+                                 :analyzedcategory="viewModel.analyzedCategoryResult"
+                                 v-if="viewModel.analyzeCardToShow === 'color'">
       </card-analyze-things-color>
+      <card-analyze-things-rating :summary="viewModel.cardSummary"
+                                  v-colors="viewModel.cardColors"
+                                  :colors="viewModel.cardColors"
+                                  :analyzedcategory="viewModel.analyzedCategoryResult"
+                                  v-if="viewModel.analyzeCardToShow === 'rating'">
+      </card-analyze-things-rating>
     </div>
   </tm-main-area>
 </div>

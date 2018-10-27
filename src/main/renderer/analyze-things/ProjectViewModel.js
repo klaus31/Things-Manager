@@ -59,6 +59,7 @@ export class AnalyzeThings_ProjectViewModel {
         strategy = new AnalyzeCheckboxStrategy();
         break;
       case 'number':
+      case 'rating':
         strategy = new AnalyzeNumberStrategy();
         break;
       case 'date':
@@ -90,6 +91,8 @@ export class AnalyzeThings_ProjectViewModel {
         return 'checkbox';
       case 'color':
         return 'color';
+      case 'rating':
+        return 'rating';
       default:
         return 'text';
     }

@@ -22,6 +22,13 @@ export class Category {
     this._colorText = colorText;
   }
 
+  get colors() {
+    return {
+      colorText: this._colorText,
+      colorBackground: this._colorBackground
+    };
+  }
+
   get colorBackground() {
     return this._colorBackground;
   }

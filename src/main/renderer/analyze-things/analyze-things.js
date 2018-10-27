@@ -4,6 +4,7 @@ import {AnalyzeThings_ProjectViewModel} from "./ProjectViewModel.js";
 import './card-analyze-things-checkbox.js';
 import './card-analyze-things-color.js';
 import './card-analyze-things-text.js';
+import './card-analyze-things-rating.js';
 import './../shared/html/v-colors-hover.js';
 import './../shared/html/tm-editable.js';
 import './../shared/html/tm-sidebar.js';
