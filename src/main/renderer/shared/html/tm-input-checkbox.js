@@ -29,6 +29,6 @@ Vue.component('tm-input-checkbox', {
   },
   template: '<p>' +
     '<span v-html="computedHtml" @click="toggleOn"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +
-    '<tm-button icon="ok" @click="onDone"></tm-button>' +
+    '<tm-button icon="ok" @click="onDone" v-if="actions.onDone"></tm-button>' +
     '</p>'
 });

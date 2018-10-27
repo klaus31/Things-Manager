@@ -20,7 +20,7 @@ Vue.component('tm-input-rating', {
   },
   template: '<p>' +
     '<star-rating v-model="rating.value" :star-size="20" :max-rating="maxRating"></star-rating>' +
-    '<tm-button icon="ok" @click="onDone"></tm-button>' +
+    '<tm-button icon="ok" @click="onDone" v-if="actions.onDone"></tm-button>' +
     '</p>',
   watch: {
     rating: {

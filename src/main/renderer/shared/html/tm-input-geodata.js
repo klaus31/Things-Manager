@@ -32,6 +32,6 @@ Vue.component('tm-input-geodata', {
     '<input type="number" v-model="geodata.eMinutes" min="0" max="59" @keydown.enter="onDone" @input="onChange">\'&nbsp;&nbsp;&nbsp;' +
     '<input type="number" v-model="geodata.eSeconds" min="0" max="59" @keydown.enter="onDone" @input="onChange">.0"' +
     '<br>' +
-    '<tm-button icon="ok" @click="onDone"></tm-button>' +
+    '<tm-button icon="ok" @click="onDone" v-if="actions.onDone"></tm-button>' +
     '</span>'
 });
