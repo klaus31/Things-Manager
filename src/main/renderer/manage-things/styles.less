@@ -4,14 +4,25 @@
   svg {
     position: relative;
   }
-  svg.circle, svg.circle-checked {
-    top: 3px;
-    left: -1px;
+
+  .card.locked {
+    svg.circle, svg.circle-checked {
+      top: 3px;
+      left: -1px;
+    }
+    svg.star {
+      top: 2px;
+      margin-right: 2px;
+    }
   }
-  svg.star {
-    top: 2px;
-    margin-right: 2px;
+
+  .card.editable {
+    svg.circle, svg.circle-checked {
+      top: 5px;
+      left: 5px;
+    }
   }
+
   .doshow {
     li {
       border-top: 1px solid darkslategray;

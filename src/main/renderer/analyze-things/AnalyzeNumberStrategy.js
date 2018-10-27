@@ -16,7 +16,7 @@ export class AnalyzeNumberStrategy extends AnalyzeStrategy {
     let i = properties.length;
     while (i--) {
       const cleanValue = Number.parseInt(properties[i]);
-      if (cleanValue) {
+      if (!isNaN(cleanValue)) {
         this._analyzedResults.push(new AnalyzeThingResult(thing.keyvalue, cleanValue));
       }
     }
