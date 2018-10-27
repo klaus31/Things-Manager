@@ -13,5 +13,6 @@ window.openExternalHttp = function (url) {
 };
 
 window.nodeGetFileContent = function (file) {
-  return require('fs').readFileSync(require('path').join(__dirname, '..', 'renderer', file.replace(/\.\./g, '')));
+  let secureFilePath = require('path').join(__dirname, '..', 'renderer', file.replace(/\.\./g, ''));
+  return require('fs').readFileSync(secureFilePath, 'UTF-8');
 };

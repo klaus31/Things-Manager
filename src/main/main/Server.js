@@ -37,6 +37,9 @@ class Server {
         case '.json':
           contentType = 'application/json';
           break;
+        case '.svg':
+          contentType = 'image/svg+xml';
+          break;
         case '.png':
           contentType = 'image/png';
           break;

@@ -12,24 +12,14 @@ Vue.component('tm-input-rating', {
     }
   },
   methods: {
-    onChange: function () {
-      console.info(this.rating.value);
-      // if (this.actions && this.actions.onChange) {
-      //   this.actions.onChange(this.rating.toString());
-      // }
-    },
-    onDone: function () {
-      // if (this.actions && this.actions.onDone) {
-      //   this.actions.onDone(this.rating.toString());
-      // }
-    }
   },
   template: '<star-rating v-model="rating.value" :star-size="20" :max-rating="maxRating"></star-rating>',
   watch: {
     rating: {
       handler: function () {
-        if (this.actions && this.actions.onChange) {
-          this.actions.onChange(this.rating.value);
+        if (this.actions) {
+          if(this.actions.onChange) this.actions.onChange(this.rating.value);
+          if(this.actions.onDone) this.actions.onDone(this.rating.value);
         }
       },
       deep: true

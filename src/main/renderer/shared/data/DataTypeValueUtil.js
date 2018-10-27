@@ -77,6 +77,16 @@ export class DataTypeValueUtil {
 
   static formatContent(type, content, format) {
     let geoURL;
+
+    function getStars(count) {
+      let i = 0;
+      let result = '';
+      while (i++ < Rating.MAX) {
+        result += i <= count ? nodeGetFileContent('shared/graphics/star-on.svg') : nodeGetFileContent('shared/graphics/star-off.svg');
+      }
+      return result;
+    }
+
     switch (type) {
       case 'time':
         return moment('1970-01-01T' + content).format(DataTypeValueUtil.getDateTimeFormat(type));
@@ -88,7 +98,7 @@ export class DataTypeValueUtil {
       case 'range':
         return content + ' %';
       case 'rating':
-        return content; // TODO make stars of it
+        return getStars(content);
       case 'checkbox':
         if (format === 'html') {
           return content ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
