@@ -3,6 +3,8 @@ export class Photo {
     this._originalFilePath = originalFilePath;
     console.info(internFileName);
     this._internFileName = internFileName;
+    this._image = new Image();
+    this._image.src = internFileName;
   }
 
   get originalFilePath() {
@@ -11,6 +13,10 @@ export class Photo {
 
   get internFileName() {
     return this._internFileName;
+  }
+
+  get image() {
+    return this._image;
   }
 
   toString() {

@@ -24,6 +24,14 @@
 <script>document.write(nodeGetFileContent('credits/credits.html'));</script>
 <script>document.write(nodeGetFileContent('help/help.html'));</script>
 <div id="watch-app"></div>
+<div id="enlarged-photo" v-if="photo">
+  <p class="close">
+    <tm-button icon="remove" @click="close"></tm-button>
+  </p>
+  <p class="image">
+    <img :src="photo.internFileName" :width="width" :height="height">
+  </p>
+</div>
 
 <!-- 3rd parties -->
 <script src="../../node_modules/moment/min/moment-with-locales.min.js"></script>
