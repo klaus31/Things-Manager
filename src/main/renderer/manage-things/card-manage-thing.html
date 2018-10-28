@@ -35,12 +35,18 @@
       <tm-button @click="thing.deleteProperty(property)" icon="trash" :title="ml_5IwOpns5w1FNb4xj"></tm-button>
     </td>
   </tr>
+  <tr v-if="thing.photos.length">
+    <td :colspan="thing.countColumnsToShow()">
+      <photo-gallery :photos="thing.photos"></photo-gallery>
+    </td>
+  </tr>
   </tbody>
   <tfoot v-if="!thing.locked && project.showdetails">
   <tr>
     <td :colspan="thing.countColumnsToShow()">
       <tm-button icon="plus" @click="thing.addNewEmptyProperty()">{{ml.get("qYv6GRxsa3Kns+Mu")}}</tm-button>
       <tm-button icon="plus" @click="project.addMissingPropertiesFromOtherThings(thing)">{{ml.get("cwvs+xA9BSZNuL08", thing.categoryPlural)}}</tm-button>
+      <tm-button icon="plus" @click="thing.addPhoto()">{{ml.get("0aYq0NzDK5QDGRHU")}}</tm-button>
       <select v-if="project.categoryOptions.length > 1" v-model="thing.changeCategory" @change="event => project.changeCategory(thing, event.currentTarget.value)">
         <option v-for="option in project.categoryOptions" :value="option.value">{{ml.get("LC5mU7k6ha4ktcLT", option.label)}}</option>
       </select>

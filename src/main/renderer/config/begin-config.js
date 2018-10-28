@@ -1,6 +1,8 @@
 import {starter} from './Starter.js';
 import {projectListener} from "../shared/ProjectListener.js";
 import {ml} from "./MultiLanguage.js";
+import './PhotoAddedEventHandler.js'
+import './enlarged-photo.js'
 
 if (!nodeGetFileContent) throw 'nodeGetFileContent required to show contents';
 if (!APP_VERSION) throw 'APP_VERSION required to show in Front';

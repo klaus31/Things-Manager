@@ -1,11 +1,15 @@
 import {Property} from './Property.js';
 import {PropertyKey} from "./PropertyKey.js";
+import {Photo} from "./Photo.js";
+import {UuidUtil} from "../../UuidUtil";
 
 export class Thing {
 
   constructor() {
+    this.uuid = UuidUtil.create();
     this._properties = [];
     this._keyvalue = null;
+    this._photos = [];
   }
 
   get keyvalue() {
@@ -14,6 +18,14 @@ export class Thing {
 
   set keyvalue(keyvalue) {
     this._keyvalue = keyvalue;
+  }
+
+  get photos() {
+    return this._photos;
+  }
+
+  set photos(photos) {
+    this._photos = photos;
   }
 
   get properties() {
@@ -38,10 +50,13 @@ export class Thing {
 
   toJSON() {
     let properties = [];
+    let photos = [];
     this._properties.forEach(property => properties.push(property.toJSON()));
+    this._photos.forEach(photo => photos.push(photo.toJSON()));
     return {
       keyvalue: this._keyvalue,
-      properties: properties
+      properties: properties,
+      photos: photos
     }
   }
 
@@ -49,6 +64,7 @@ export class Thing {
     const result = new Thing();
     result._properties = [];
     json.properties.forEach(prop => result._properties.push(Property.fromJSON(prop)));
+    json.photos.forEach(photo => result._photos.push(Photo.fromJSON(photo)));
     result.keyvalue = json.keyvalue;
     return result;
   }
@@ -57,6 +73,7 @@ export class Thing {
     let result = [];
     result.push(this._keyvalue);
     this._properties.forEach(p => result.push(p.toString()));
+    this._photos.forEach(p => result.push(p.toString()));
     return result.join(',');
   }
 

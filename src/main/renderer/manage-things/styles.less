@@ -1,4 +1,3 @@
-
 #app-manage-things {
 
   svg {
@@ -72,6 +71,19 @@
       }
       tr td:nth-child(2), tr th:nth-child(2) {
         width: 60%;
+      }
+    }
+  }
+
+  .photo-gallery {
+    .photo {
+      border: 1px solid black;
+      margin-right: 10px;
+      &.clickable {
+        cursor: pointer;
+        &:hover {
+          border: 1px solid blue;
+        }
       }
     }
   }

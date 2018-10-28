@@ -81,8 +81,8 @@ export const TEXTS_MANAGE_THINGS = {
     de: 'Kategorien verwalten'
   },
   '0aYq0NzDK5QDGRHU': {
-    en: '',
-    de: ''
+    en: 'Add Photo',
+    de: 'Foto hinzufügen'
   },
   '66E0cBeAE36DjwdR': {
     en: '',
