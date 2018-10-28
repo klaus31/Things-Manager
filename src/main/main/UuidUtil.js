@@ -1,0 +1,14 @@
+class UuidUtil {
+  static create() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      let r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
+  }
+
+  static isUuid(possibleUuid) {
+    return possibleUuid.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/); // e.g. '/xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx.png'
+  }
+}
+
+module.exports = UuidUtil;

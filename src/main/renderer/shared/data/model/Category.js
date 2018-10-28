@@ -1,11 +1,11 @@
 import {PropertyKey} from './PropertyKey.js';
 import {Thing} from './Thing.js';
-import {UuidFactory} from "../../UuidFactory.js";
+import {UuidUtil} from "../../UuidUtil.js";
 
 export class Category {
 
   constructor() {
-    this.uuid = UuidFactory.create();
+    this.uuid = UuidUtil.create();
     this._singular = null;
     this._plural = null;
     this._propertyKey = new PropertyKey();

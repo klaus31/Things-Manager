@@ -1,11 +1,12 @@
-import {UuidFactory} from "../shared/UuidFactory.js";
+import {UuidUtil} from "../shared/UuidUtil.js";
 import {ManagedThings_PropertyViewModel} from "./PropertyViewModel.js";
 import {Property} from "../shared/data/model/Property.js";
+import {photoAddedEventHandler} from "../config/PhotoAddedEventHandler";
 
 export class ThingCardViewModel {
   constructor(category, thing) {
     this.locked = true;
-    this.uuid = UuidFactory.create();
+    this.uuid = UuidUtil.create();
 
     this._dataCategory = category;
     this._dataThing = thing;
@@ -25,6 +26,15 @@ export class ThingCardViewModel {
 
   countColumnsToShow() {
     return this.locked ? 2 : 4;
+  }
+
+  get photos() {
+    return this._dataThing.photos; // TODO do not return data directly here
+  }
+
+  addPhoto() {
+    photoAddedEventHandler.thing = this._dataThing;
+    ipcRenderer.send('add-photo-requested', this._dataThing.uuid);
   }
 
   addNewEmptyProperty() {

@@ -1,4 +1,5 @@
-const ctrlFileLoad = require('./FileLoad');
+const ctrlFileLoadTmf = require('./FileLoadTmf');
+const FileLoadPhoto = require('./FileLoadPhoto');
 const ctrlFileSave = require('./FileSave');
 const daoThingFile = require('./DaoThingFile');
 const ml = require('./MultiLanguage');
@@ -27,7 +28,7 @@ module.exports =
               label: ml.get('menu-file-open'),
               accelerator: 'CmdOrCtrl+O',
               click() {
-                ctrlFileLoad.load();
+                ctrlFileLoadTmf.load();
               }
             },
             {
@@ -151,5 +152,7 @@ module.exports =
     }
   };
 
+// XXX this has nothing to do with the menu
 ipcMain.on('save-requested', () => ctrlFileSave.save());
 ipcMain.on('reload-data-from-file', (event, file) => daoThingFile.load(file));
+ipcMain.on('add-photo-requested', (e, uuid) => new FileLoadPhoto(uuid).addPhoto());

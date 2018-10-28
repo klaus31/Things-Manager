@@ -23,6 +23,19 @@ export class Project {
     this._categories = categories;
   }
 
+  getThingFromUuid(uuid) {
+    let i = this._categories.length;
+    while (i--) {
+      let j = this._categories[i]._things.length;
+      while (j--) {
+        if (this._categories[i]._things[j].uuid === uuid) {
+          return this._categories[i]._things[j];
+        }
+      }
+    }
+    return null;
+  }
+
   getCategoryFromUuid(uuid) {
     let i = this._categories.length;
     while (i--) {
@@ -32,8 +45,6 @@ export class Project {
     }
     throw 'no category with uuid "' + uuid + '" found';
   }
-
-
 
   toJSON() {
     let categories = [];

@@ -8,7 +8,7 @@ export class App {
     this._currentArea = new CurrentArea();
     this.currentFile = null;
     this._forceChange = null; // XXX hack field to force vue.js to reload
-    this.dataModellVersion = 1;
+    this.dataModellVersion = 2;
     this._languageCode = 'en';
     moment.locale(this._languageCode);
   }

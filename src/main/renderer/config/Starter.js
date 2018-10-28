@@ -4,6 +4,7 @@ import {appStorage} from './../shared/data/AppStorage.js';
 import {ResetChangesCtrl} from "./ResetChangesCtrl.js";
 import {NewProjectRequestedCtrl} from "./NewProjectRequestedCtrl.js";
 import {App} from "../shared/data/model/App.js";
+import {photoAddedEventHandler} from "./PhotoAddedEventHandler.js";
 
 class Starter {
 
@@ -56,6 +57,8 @@ class Starter {
     });
 
     ipcRenderer.on('change-language', (event, code) => app.languageCode = code);
+
+    ipcRenderer.on('photo-added', (e, photoAddedEvent) => photoAddedEventHandler.addToProject(photoAddedEvent));
 
     this._originalHashCodeOfApp = localStorage.getItem('originalHashCodeOfApp') || JSON.stringify(app.toJSON()).hashCode();
     localStorage.setItem('originalHashCodeOfApp', this._originalHashCodeOfApp);
