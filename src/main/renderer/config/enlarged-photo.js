@@ -9,13 +9,20 @@ class ImageInWindowCalculator {
     this._maxHeight = this._screenHeight * 0.8;
     this._imageWidth = image.width;
     this._imageHeight = image.height;
-    // FIXME not correct
     const scaleX = this._maxWidth / this._imageWidth;
     const scaleY = this._maxHeight / this._imageHeight;
-    this._scaleToUse = this._maxWidth * scaleY > this._maxWidth ? scaleY : scaleX;
+    this._scaleToUse = this._maxWidth * scaleY > this._maxWidth ? scaleX : scaleY;
     if (this._scaleToUse > 1) {
       this._scaleToUse = 1;
     }
+    console.info('scaleX: ' + scaleX);
+    console.info('scaleY: ' + scaleY);
+    console.info('scaleToUse: ' + this._scaleToUse);
+    console.info('image: ' + this._imageWidth + " x " + this._imageHeight);
+    console.info('window: ' + window.innerWidth + " x " + window.innerHeight );
+    console.info('max: ' + this._maxWidth + " x " + this._maxHeight);
+    console.info('result: ' + this._imageWidth * this._scaleToUse + " x " + this._imageHeight * this._scaleToUse);
+    console.info('----------');
   }
 
   calcWidth() {

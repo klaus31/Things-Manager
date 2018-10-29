@@ -16,13 +16,16 @@ class FileLoadPhoto {
       ],
     };
     dialog.showOpenDialog(win, options, (filePath) => {
-      const result = {
-        filePath: filePath[0],
-        internFileName: this._homeDataService.copyImage(filePath[0]),
-        uuid: this._uuid
-      };
-      webContents.getAllWebContents().forEach(wc => wc.send('photo-added', result));
-    });
+        if (filePath && filePath[0]) {
+          const result = {
+            filePath: filePath[0],
+            internFileName: this._homeDataService.copyImage(filePath[0]),
+            uuid: this._uuid
+          };
+          webContents.getAllWebContents().forEach(wc => wc.send('photo-added', result));
+        }
+      }
+    );
   }
 }
 
