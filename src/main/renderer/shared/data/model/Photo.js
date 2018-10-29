@@ -4,6 +4,7 @@ export class Photo {
   constructor(originalFilePath, internFileName) {
     this.uuid = UuidUtil.create();
     this.uuidThing = null;
+    this._text = '';
     this._originalFilePath = originalFilePath;
     this._internFileName = internFileName;
     this._image = new Image();
@@ -22,21 +23,33 @@ export class Photo {
     return this._image;
   }
 
+  get text() {
+    return this._text;
+  }
+
+  set text(text) {
+    this._text = text;
+  }
+
   toString() {
     let result = [];
     result.push(this._originalFilePath);
     result.push(this._internFileName);
+    result.push(this._text);
     return result.join(',');
   }
 
   toJSON() {
     return {
       originalFilePath: this._originalFilePath,
-      internFileName: this._internFileName
+      internFileName: this._internFileName,
+      text: this._text
     }
   }
 
   static fromJSON(json) {
-    return new Photo(json.originalFilePath, json.internFileName);
+    let photo = new Photo(json.originalFilePath, json.internFileName);
+    photo._text = json.text || '';
+    return photo;
   }
 }

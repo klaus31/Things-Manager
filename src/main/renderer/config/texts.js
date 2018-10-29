@@ -20,8 +20,8 @@ export const TEXTS_CONFIG = {
     de: 'Möchten sie das Foto tatsächlich löschen?'
   },
   'uJ+kNIBM0h0Itvcz': {
-    en: '',
-    de: ''
+    en: 'Click to descripe photo',
+    de: 'Klicken, um Foto zu beschreiben'
   },
   'iFUxPvHD6ndSyQfg': {
     en: '',
