@@ -57,8 +57,11 @@ const vueEnlargedPhoto = new Vue({
         this.close();
       }
     },
-    finalizePhotoDescription: function(value) {
+    finalizePhotoDescription: function (value) {
       this.photo.text = value;
+    },
+    cancel: function () {
+      if (this.photo) this.close();
     }
   }
 });
@@ -68,3 +71,5 @@ const vueEnlargedPhoto = new Vue({
 projectListener.on('enlarge-photo', function (photo) {
   vueEnlargedPhoto.photo = photo;
 });
+
+projectListener.on('key-event-esc', () => vueEnlargedPhoto.cancel());
