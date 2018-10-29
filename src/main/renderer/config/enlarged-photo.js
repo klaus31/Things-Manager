@@ -9,6 +9,7 @@ class ImageInWindowCalculator {
     this._maxHeight = this._screenHeight * 0.8;
     this._imageWidth = image.width;
     this._imageHeight = image.height;
+    // FIXME not correct
     const scaleX = this._maxWidth / this._imageWidth;
     const scaleY = this._maxHeight / this._imageHeight;
     this._scaleToUse = this._maxWidth * scaleY > this._maxWidth ? scaleY : scaleX;
@@ -42,9 +43,14 @@ const vueEnlargedPhoto = new Vue({
   methods: {
     close: function () {
       this.photo = null;
+    },
+    deletePhoto: function () {
+      console.info('TODO delete photo');
     }
   }
 });
+
+// TODO close on ESC
 
 projectListener.on('enlarge-photo', function (photo) {
   vueEnlargedPhoto.photo = photo;

@@ -11,6 +11,7 @@
   <link rel="stylesheet/less" type="text/css" href="manage-categories/styles.less"/>
   <link rel="stylesheet/less" type="text/css" href="manage-things/styles.less"/>
   <!-- Run npm run config-vue-devtools and uncomment -->
+  <!-- FIXME does not work when putting html to index.html via document.write -->
   <!--<script src="http://localhost:8098"></script>-->
 </head>
 <body id="body" :class="project.currentProjectAreaKey">
@@ -24,9 +25,12 @@
 <script>document.write(nodeGetFileContent('credits/credits.html'));</script>
 <script>document.write(nodeGetFileContent('help/help.html'));</script>
 <div id="watch-app"></div>
+<!-- TODO load like others -->
 <div id="enlarged-photo" v-if="photo">
   <p class="close">
-    <tm-button icon="remove" @click="close"></tm-button>
+    <!-- TODO multi-language -->
+    <tm-button icon="trash" @click="deletePhoto">Delete</tm-button>
+    <tm-button icon="remove" @click="close">Close</tm-button>
   </p>
   <p class="image">
     <img :src="photo.internFileName" :width="width" :height="height">

@@ -1,7 +1,6 @@
 export class Photo {
   constructor(originalFilePath, internFileName) {
     this._originalFilePath = originalFilePath;
-    console.info(internFileName);
     this._internFileName = internFileName;
     this._image = new Image();
     this._image.src = internFileName;
