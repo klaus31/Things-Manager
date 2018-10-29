@@ -24,8 +24,9 @@ export class Thing {
     return this._photos;
   }
 
-  set photos(photos) {
-    this._photos = photos;
+  addPhoto(photo) {
+    photo.uuidThing = this.uuid;
+    this._photos.push(photo);
   }
 
   get properties() {
@@ -48,6 +49,10 @@ export class Thing {
     return result;
   }
 
+  deletePhoto(photo) {
+    this._photos.removeItem(photo);
+  }
+
   toJSON() {
     let properties = [];
     let photos = [];
@@ -64,7 +69,7 @@ export class Thing {
     const result = new Thing();
     result._properties = [];
     json.properties.forEach(prop => result._properties.push(Property.fromJSON(prop)));
-    json.photos.forEach(photo => result._photos.push(Photo.fromJSON(photo)));
+    json.photos.forEach(photo => result.addPhoto(Photo.fromJSON(photo)));
     result.keyvalue = json.keyvalue;
     return result;
   }

@@ -29,7 +29,7 @@
 <div id="enlarged-photo" v-if="photo">
   <p class="close">
     <!-- TODO multi-language -->
-    <tm-button icon="trash" @click="deletePhoto">Delete</tm-button>
+    <tm-button icon="trash" @click="deletePhoto" v-if="isDeletable">Delete</tm-button>
     <tm-button icon="remove" @click="close">Close</tm-button>
   </p>
   <p class="image">

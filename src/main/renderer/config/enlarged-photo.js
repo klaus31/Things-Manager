@@ -1,5 +1,5 @@
 import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
-import {projectListener} from '../shared/ProjectListener.js';
+import {APP, projectListener} from './../config/begin-config.js';
 
 class ImageInWindowCalculator {
   constructor(image) {
@@ -38,6 +38,9 @@ const vueEnlargedPhoto = new Vue({
     },
     height: function () {
       return this.photo ? new ImageInWindowCalculator(this.photo.image).calcHeight() : null;
+    },
+    isDeletable: function () {
+      return this.photo && this.photo.uuidThing;
     }
   },
   methods: {
@@ -45,7 +48,9 @@ const vueEnlargedPhoto = new Vue({
       this.photo = null;
     },
     deletePhoto: function () {
-      console.info('TODO delete photo');
+      const thing = APP.project.getThingFromUuid(this.photo.uuidThing);
+      thing.deletePhoto(this.photo);
+      this.close();
     }
   }
 });

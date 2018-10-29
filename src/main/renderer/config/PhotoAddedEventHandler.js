@@ -9,7 +9,7 @@ class PhotoAddedEventHandler {
   addToProject(photoAddedEvent) {
     let thing = APP.project.getThingFromUuid(photoAddedEvent.uuid);
     if (thing && photoAddedEvent.filePath) {
-      thing.photos.push(new Photo(photoAddedEvent.filePath, photoAddedEvent.internFileName));
+      thing.addPhoto(new Photo(photoAddedEvent.filePath, photoAddedEvent.internFileName));
     }
   }
 }

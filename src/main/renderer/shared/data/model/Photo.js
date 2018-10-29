@@ -1,5 +1,9 @@
+import {UuidUtil} from "../../UuidUtil";
+
 export class Photo {
   constructor(originalFilePath, internFileName) {
+    this.uuid = UuidUtil.create();
+    this.uuidThing = null;
     this._originalFilePath = originalFilePath;
     this._internFileName = internFileName;
     this._image = new Image();
