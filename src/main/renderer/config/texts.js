@@ -8,16 +8,16 @@ export const TEXTS_CONFIG = {
     de: 'Bearbeitet'
   },
   'jnc+4xJEiV6quv31': {
-    en: '',
-    de: ''
+    en: 'Delete',
+    de: 'Löschen'
   },
   'ITgBInv9wE3Kg7HV': {
-    en: '',
-    de: ''
+    en: 'Close',
+    de: 'Schließen'
   },
   'qMIHCrBQn2dq6rd5': {
-    en: '',
-    de: ''
+    en: 'Do you really want to delete this photo?',
+    de: 'Möchten sie das Foto tatsächlich löschen?'
   },
   'uJ+kNIBM0h0Itvcz': {
     en: '',

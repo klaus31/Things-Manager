@@ -28,9 +28,8 @@
 <!-- TODO load like others -->
 <div id="enlarged-photo" v-if="photo">
   <p class="controls">
-    <!-- TODO multi-language -->
-    <tm-button icon="trash" @click="deletePhoto" v-if="isDeletable">Delete</tm-button>
-    <tm-button icon="remove" @click="close">Close</tm-button>
+    <tm-button icon="trash" @click="deletePhoto" v-if="isDeletable">{{ml.get('jnc+4xJEiV6quv31')}}</tm-button>
+    <tm-button icon="remove" @click="close">{{ml.get('ITgBInv9wE3Kg7HV')}}</tm-button>
   </p>
   <p class="image">
     <img :src="photo.internFileName" :width="width" :height="height">

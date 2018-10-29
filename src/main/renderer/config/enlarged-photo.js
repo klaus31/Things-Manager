@@ -1,5 +1,5 @@
 import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
-import {APP, projectListener} from './../config/begin-config.js';
+import {APP, ml, projectListener} from './../config/begin-config.js';
 
 class ImageInWindowCalculator {
   constructor(image) {
@@ -15,14 +15,6 @@ class ImageInWindowCalculator {
     if (this._scaleToUse > 1) {
       this._scaleToUse = 1;
     }
-    console.info('scaleX: ' + scaleX);
-    console.info('scaleY: ' + scaleY);
-    console.info('scaleToUse: ' + this._scaleToUse);
-    console.info('image: ' + this._imageWidth + " x " + this._imageHeight);
-    console.info('window: ' + window.innerWidth + " x " + window.innerHeight );
-    console.info('max: ' + this._maxWidth + " x " + this._maxHeight);
-    console.info('result: ' + this._imageWidth * this._scaleToUse + " x " + this._imageHeight * this._scaleToUse);
-    console.info('----------');
   }
 
   calcWidth() {
@@ -37,7 +29,8 @@ class ImageInWindowCalculator {
 const vueEnlargedPhoto = new Vue({
   el: '#enlarged-photo',
   data: {
-    photo: null
+    photo: null,
+    ml: ml
   },
   computed: {
     width: function () {
@@ -55,9 +48,11 @@ const vueEnlargedPhoto = new Vue({
       this.photo = null;
     },
     deletePhoto: function () {
-      const thing = APP.project.getThingFromUuid(this.photo.uuidThing);
-      thing.deletePhoto(this.photo);
-      this.close();
+      if (window.confirm(ml.get('qMIHCrBQn2dq6rd5'))) {
+        const thing = APP.project.getThingFromUuid(this.photo.uuidThing);
+        thing.deletePhoto(this.photo);
+        this.close();
+      }
     }
   }
 });
