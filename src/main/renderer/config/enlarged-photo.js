@@ -15,6 +15,14 @@ class ImageInWindowCalculator {
     if (this._scaleToUse > 1) {
       this._scaleToUse = 1;
     }
+    console.info('scaleX: ' + scaleX);
+    console.info('scaleY: ' + scaleY);
+    console.info('scaleToUse: ' + this._scaleToUse);
+    console.info('image: ' + this._imageWidth + " x " + this._imageHeight);
+    console.info('window: ' + window.innerWidth + " x " + window.innerHeight );
+    console.info('max: ' + this._maxWidth + " x " + this._maxHeight);
+    console.info('result: ' + this._imageWidth * this._scaleToUse + " x " + this._imageHeight * this._scaleToUse);
+    console.info('----------');
   }
 
   calcWidth() {
