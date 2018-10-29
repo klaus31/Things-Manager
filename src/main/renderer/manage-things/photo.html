@@ -1,1 +1,5 @@
-<img class="photo clickable" :src="photo.internFileName" height="60" @click="enlarge(photo)" :alt="photo.text">
+<!-- TODO use for enlarged photo as well and inject style class "clickable" by attribute -->
+<p>
+  <img class="photo clickable" :src="photo.internFileName" height="60" @click="enlarge(photo)" :alt="photo.text">
+  <span v-if="!photo.isPresent" class="warning">{{ml.get('iFUxPvHD6ndSyQfg', photo.internFileName, photo.originalFilePath)}}.</span>
+</p>

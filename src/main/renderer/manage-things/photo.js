@@ -1,8 +1,8 @@
 import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
-import {projectListener} from '../shared/ProjectListener.js';
+import {projectListener} from './../config/begin-config.js';
 
 Vue.component('photo', {
-  props: ['photo'],
+  props: ['photo', 'ml'],
   computed: {},
   methods: {
     enlarge: function (photo) {

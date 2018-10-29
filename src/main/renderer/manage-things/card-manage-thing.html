@@ -37,7 +37,7 @@
   </tr>
   <tr v-if="thing.photos.length">
     <td :colspan="thing.countColumnsToShow()">
-      <photo-gallery :photos="thing.photos"></photo-gallery>
+      <photo-gallery :photos="thing.photos" :ml="ml"></photo-gallery>
     </td>
   </tr>
   </tbody>

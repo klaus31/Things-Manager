@@ -23,9 +23,10 @@ export const TEXTS_CONFIG = {
     en: 'Click to descripe photo',
     de: 'Klicken, um Foto zu beschreiben'
   },
+  // this can be tried automaticaly
   'iFUxPvHD6ndSyQfg': {
-    en: '',
-    de: ''
+    en: 'Photo {1} not found. Please delete and upload [2} again.',
+    de: 'Foto {1} nicht gefunden. Bitte löschen und {2} erneut hochladen.'
   },
   'kSfN8mynH2cOyP6x': {
     en: '',
