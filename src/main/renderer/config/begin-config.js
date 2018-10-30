@@ -2,7 +2,6 @@ import {starter} from './Starter.js';
 import {projectListener} from "../shared/ProjectListener.js";
 import {ml} from "./MultiLanguage.js";
 import './PhotoAddedEventHandler.js'
-import './enlarged-photo.js'
 import './global-key-events.js'
 
 if (!nodeGetFileContent) throw 'nodeGetFileContent required to show contents';

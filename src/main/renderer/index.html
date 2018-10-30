@@ -16,28 +16,18 @@
 </head>
 <body id="body" :class="project.currentProjectAreaKey">
 
-<!-- XXX make vue components of it -->
-<script>document.write(nodeGetFileContent('add-first-thing/add-first-thing.html'));</script>
-<script>document.write(nodeGetFileContent('manage-categories/manage-categories.html'));</script>
-<script>document.write(nodeGetFileContent('manage-things/manage-things.html'));</script>
-<script>document.write(nodeGetFileContent('add-new-thing/add-new-thing.html'));</script>
-<script>document.write(nodeGetFileContent('analyze-things/analyze-things.html'));</script>
-<script>document.write(nodeGetFileContent('credits/credits.html'));</script>
-<script>document.write(nodeGetFileContent('help/help.html'));</script>
+<!-- HTML (rendered on server) -->
+{{{add-first-thing}}}
+{{{manage-categories}}}
+{{{manage-things}}}
+{{{add-new-thing}}}
+{{{analyze-things}}}
+{{{credits}}}
+{{{help}}}
+{{{enlarged-photo}}}
+
+<!-- pseudo element to watch changes in app globally -->
 <div id="watch-app"></div>
-<!-- TODO load like others -->
-<div id="enlarged-photo" v-if="photo">
-  <p class="controls">
-    <tm-button icon="trash" @click="deletePhoto" v-if="isDeletable">{{ml.get('jnc+4xJEiV6quv31')}}</tm-button>
-    <tm-button icon="remove" @click="close">{{ml.get('ITgBInv9wE3Kg7HV')}}</tm-button>
-  </p>
-  <p class="text">
-    <tm-editable :content="description" :callback="val => finalizePhotoDescription(val)"></tm-editable>
-  </p>
-  <p class="image">
-    <img :src="photo.internFileName" :width="width" :height="height">
-  </p>
-</div>
 
 <!-- 3rd parties -->
 <script src="../../node_modules/moment/min/moment-with-locales.min.js"></script>
@@ -59,6 +49,7 @@
 <script type="module" src="help/help.js"></script>
 <script type="module" src="manage-categories/manage-categories.js"></script>
 <script type="module" src="manage-things/manage-things.js"></script>
+<script type="module" src="enlarged-photo/enlarged-photo.js"></script>
 
 <!-- end config -->
 <script type="module" src="config/end-config.js"></script>

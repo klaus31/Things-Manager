@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const HomeDataService = require('./HomeDataService');
 const UuidUtil = require('./UuidUtil');
+const Handlebars = require('handlebars');
 
 class Server {
   constructor(port, ip) {
@@ -14,6 +15,25 @@ class Server {
 
   start(callback) {
     let me = this;
+
+    function resolveIndexHtmlTemplate(content) {
+      const vm = {};
+      vm['add-first-thing'] = fs.readFileSync('./main/renderer/add-first-thing/add-first-thing.html', 'UTF-8');
+      vm['manage-categories'] = fs.readFileSync('./main/renderer/manage-categories/manage-categories.html', 'UTF-8');
+      vm['manage-things'] = fs.readFileSync('./main/renderer/manage-things/manage-things.html', 'UTF-8');
+      vm['add-new-thing'] = fs.readFileSync('./main/renderer/add-new-thing/add-new-thing.html', 'UTF-8');
+      vm['analyze-things'] = fs.readFileSync('./main/renderer/analyze-things/analyze-things.html', 'UTF-8');
+      vm['credits'] = fs.readFileSync('./main/renderer/credits/credits.html', 'UTF-8');
+      vm['help'] = fs.readFileSync('./main/renderer/help/help.html', 'UTF-8');
+      vm['enlarged-photo'] = fs.readFileSync('./main/renderer/enlarged-photo/enlarged-photo.html', 'UTF-8');
+      vm['title'] = '{{title}}'; // handlebars must not replace this, it's a placeholder for vue (XXX :see_no_evil:)
+      return Handlebars.compile(content + '')(vm);
+    }
+
+    function isIndexHtml(request) {
+      return request.url === '/index.html';
+    }
+
     this._serverInstance = http.createServer(function (request, response) {
         function calcExtnameAndFile(request) {
 
@@ -82,6 +102,9 @@ class Server {
               headers['Content-Type'] = contentType;
             }
             response.writeHead(200, headers);
+            if (isIndexHtml(request)) {
+              content = resolveIndexHtmlTemplate(content);
+            }
             response.end(content, 'utf-8');
           }
         });

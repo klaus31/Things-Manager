@@ -1,5 +1,5 @@
 import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
-import {APP, ml, projectListener} from './../config/begin-config.js';
+import {APP, ml, projectListener} from '../config/begin-config.js';
 
 class ImageInWindowCalculator {
   constructor(image) {
