@@ -1,14 +1,14 @@
 {
   "name": "things-manager",
   "productName": "Things Manager",
-  "version": "0.4.0-SNAPSHOT",
+  "version": "0.5.0-SNAPSHOT",
   "private": true,
   "main": "main/main/main.js",
   "scripts": {
     "start": "electron .",
     "start-vue-devtools": "./node_modules/.bin/vue-devtools",
     "start-dev": "electron . --profile=dev",
-    "electron-packager": "electron-packager . things-manager --out=./../dist/release --all --overwrite --app-version=0.4.0-SNAPSHOT --executable-name=things-manager --icon=./main/main/icon.ico"
+    "electron-packager": "electron-packager . things-manager --out=./../dist/release --all --overwrite --app-version=0.5.0-SNAPSHOT --executable-name=things-manager --icon=./main/main/icon.ico"
   },
   "dependencies": {
     "vue": "2.5.17",
