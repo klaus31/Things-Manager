@@ -1,5 +1,5 @@
 import {DataTypeProvider} from "../shared/data/DataTypeProvider.js";
-import {projectListener} from "../shared/ProjectListener.js";
+import {projectListener} from "../config/begin-config";
 import {Thing} from "../shared/data/model/Thing.js";
 import {Property} from "../shared/data/model/Property.js";
 

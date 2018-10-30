@@ -1,2 +1,2 @@
-import {projectListener} from './../shared/ProjectListener.js';
+import {projectListener} from './begin-config.js';
 projectListener.fire('app-changed');

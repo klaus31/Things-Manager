@@ -27,6 +27,7 @@ class Server {
       vm['help'] = fs.readFileSync('./main/renderer/help/help.html', 'UTF-8');
       vm['enlarged-photo'] = fs.readFileSync('./main/renderer/enlarged-photo/enlarged-photo.html', 'UTF-8');
       vm['enlarged-thing-editable'] = fs.readFileSync('./main/renderer/enlarged-thing-editable/enlarged-thing-editable.html', 'UTF-8');
+      vm['title'] = '{{title}}'; // handlebars must not replace this, it's a placeholder for vue (XXX :see_no_evil:)
       return Handlebars.compile(content + '')(vm);
     }
 
