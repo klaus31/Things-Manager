@@ -10,8 +10,8 @@
   <link rel="stylesheet/less" type="text/css" href="add-new-thing/styles.less"/>
   <link rel="stylesheet/less" type="text/css" href="manage-categories/styles.less"/>
   <link rel="stylesheet/less" type="text/css" href="manage-things/styles.less"/>
+  <link rel="stylesheet/less" type="text/css" href="enlarged-photo/styles.less"/>
   <!-- Run npm run config-vue-devtools and uncomment -->
-  <!-- FIXME does not work when putting html to index.html via document.write -->
   <!--<script src="http://localhost:8098"></script>-->
 </head>
 <body id="body" :class="project.currentProjectAreaKey">
@@ -25,6 +25,7 @@
 {{{credits}}}
 {{{help}}}
 {{{enlarged-photo}}}
+{{{enlarged-thing-editable}}}
 
 <!-- pseudo element to watch changes in app globally -->
 <div id="watch-app"></div>
@@ -50,6 +51,7 @@
 <script type="module" src="manage-categories/manage-categories.js"></script>
 <script type="module" src="manage-things/manage-things.js"></script>
 <script type="module" src="enlarged-photo/enlarged-photo.js"></script>
+<script type="module" src="enlarged-thing-editable/enlarged-thing-editable.js"></script>
 
 <!-- end config -->
 <script type="module" src="config/end-config.js"></script>

@@ -66,8 +66,6 @@ const vueEnlargedPhoto = new Vue({
   }
 });
 
-// TODO close on ESC
-
 projectListener.on('enlarge-photo', function (photo) {
   vueEnlargedPhoto.photo = photo;
 });
