@@ -15,17 +15,24 @@
     left: 5px;
   }
 
-  table.card {
+  .text.headline input {
+    border-width: 1px;
+    border-style: solid;
+  }
 
+  table.card {
+    box-shadow: 0 0 10px black, 0 0 30px black;
+    width: 90%;
+    margin-left: 5%;
     tr {
       td:nth-child(1), td:nth-child(1) {
-        width: 34%;
+        width: 37%;
       }
       td:nth-child(2), td:nth-child(2) {
-        width: 34%;
+        width: 37%;
       }
       td:nth-child(3), td:nth-child(3) {
-        width: 15%;
+        width: 19%;
       }
       td:nth-child(4), td:nth-child(4) {
         width: 7%;
@@ -36,7 +43,6 @@
   .photo-gallery {
     .photo {
       border: 1px solid black;
-      margin-right: 10px;
       &.clickable {
         cursor: pointer;
         &:hover {

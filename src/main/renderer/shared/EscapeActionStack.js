@@ -17,5 +17,4 @@ class EscapeActionStack {
   }
 }
 
-
 export let escapeActionStack = new EscapeActionStack();

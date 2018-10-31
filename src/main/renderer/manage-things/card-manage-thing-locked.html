@@ -5,6 +5,8 @@
       {{thing.category}}:
       <tm-editable :content="thing.keyvalue" :callback="val => thing.keyvalue = val" :callbackeditablechanged="val => project.reuseLatestSortedResult(val)"></tm-editable>
       <p class="buttons">
+        <tm-button @click="project.clone(thing)" icon="duplicate" :title="ml_WxykMLwBTKWHuTIj"></tm-button>
+        <tm-button v-if="thing.canBeDeleted()" @click="project.deleteThing(thing)" icon="trash" :title="ml_CCXaoC1JKRXNcgXH"></tm-button>
         <tm-button @click="edit(thing)" class="btn-outset" icon="pencil" :title="ml_6aROasnal7tNQsPt"></tm-button>
       </p>
     </th>

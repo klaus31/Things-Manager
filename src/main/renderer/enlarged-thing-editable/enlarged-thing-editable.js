@@ -11,12 +11,6 @@ const vueEnlargedThingEditable = new Vue({
     ml: ml
   },
   computed: {
-    ml_WxykMLwBTKWHuTIj: function () {
-      return this.ml.get('WxykMLwBTKWHuTIj');
-    },
-    ml_CCXaoC1JKRXNcgXH: function () {
-      return this.ml.get('CCXaoC1JKRXNcgXH');
-    },
     ml_aSawO4UuPSIxZpQK: function () {
       return this.ml.get('aSawO4UuPSIxZpQK');
     },
@@ -34,6 +28,9 @@ const vueEnlargedThingEditable = new Vue({
     },
     closeOverEscape: function () {
       this.thing = null;
+    },
+    changeCategory: function (event) {
+      this.thing = this.project.changeCategory(this.thing, event.currentTarget.value);
     }
   }
 });

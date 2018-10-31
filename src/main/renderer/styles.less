@@ -53,106 +53,107 @@ div.projectarea {
     color: darkslategray !important;
   }
 
-  .card {
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 20px;
-    vertical-align: top;
-    border: 1px solid darkslategray;
-    &.editable {
-      td.input input[type=color] {
-        height: 30px !important;
-      }
-      tr, th {
-        td.input {
-          padding: 0;
-          margin: 0;
-          input {
-            width: 100%;
-            margin: 0;
-            border: 0;
-            &[type=date], &[type=time], &[type=datetime-local], &[type=week], &[type=month] {
-              padding: 5px;
-            }
-            &[type=checkbox] {
-              margin: 0 0 0 5px;
-              height: 20px;
-            }
-            &[type=number], &[type=url], &[type=text], &[type=geodata] {
-              padding: 5px;
-            }
-          }
-        }
-      }
-    }
+}
 
-    td, th {
-      border: 1px solid darkslategray;
-      padding: 5px;
-      &.input {
-        padding: 5px;
-        &.activeInput {
-          padding: 0;
-        }
-        .editable-text, .editable-text p {
+table.card {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  vertical-align: top;
+  border: 1px solid darkslategray;
+  &.editable {
+    td.input input[type=color] {
+      height: 30px !important;
+    }
+    tr, th {
+      td.input {
+        padding: 0;
+        margin: 0;
+        input {
           width: 100%;
-          padding: 0;
           margin: 0;
-          display: inline-block;
-        }
-        select {
-          padding: 6px;
           border: 0;
-          margin: 0;
-          width: 100%;
-        }
-        input:not([type=checkbox]) {
-          width: 100%;
-          margin-left: -5px;
-          margin-top: -5px;
-          margin-bottom: -2px;
-          border: 0;
-          &[type=color] {
-            padding: 0;
-            margin: 0;
-            border: 0;
+          &[type=date], &[type=time], &[type=datetime-local], &[type=week], &[type=month] {
+            padding: 5px;
+          }
+          &[type=checkbox] {
+            margin: 0 0 0 5px;
             height: 20px;
-            width: 100%;
-            cursor: pointer;
           }
-        }
-        .input-geodata {
-          input {
-            // XXX !important ... :(
-            width: 40px !important;
-            margin: 0;
-            display: inline-block !important;
-            text-align: center;
-            padding: 0 !important;;
+          &[type=number], &[type=url], &[type=text], &[type=geodata] {
+            padding: 5px;
           }
         }
       }
     }
-    .editable-text {
-      display: inline-block;
-    }
-    p.buttons {
-      float: right;
-    }
-    p.buttonlink {
-      position: absolute;
-      margin-left: -25px !important;
-      display: none !important;
-    }
-
-    thead {
-      font-size: 1.5em;
-    }
-    &:hover p.buttonlink {
-      display: inline-block !important;;
-    }
-
   }
+
+  td, th {
+    border: 1px solid darkslategray;
+    padding: 5px;
+    &.input {
+      padding: 5px;
+      &.activeInput {
+        padding: 0;
+      }
+      .editable-text, .editable-text p {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        display: inline-block;
+      }
+      select {
+        padding: 6px;
+        border: 0;
+        margin: 0;
+        width: 100%;
+      }
+      input:not([type=checkbox]) {
+        width: 100%;
+        margin-left: -5px;
+        margin-top: -5px;
+        margin-bottom: -2px;
+        border: 0;
+        &[type=color] {
+          padding: 0;
+          margin: 0;
+          border: 0;
+          height: 20px;
+          width: 100%;
+          cursor: pointer;
+        }
+      }
+      .input-geodata {
+        input {
+          // XXX !important ... :(
+          width: 40px !important;
+          margin: 0;
+          display: inline-block !important;
+          text-align: center;
+          padding: 0 !important;;
+        }
+      }
+    }
+  }
+  .editable-text {
+    display: inline-block;
+  }
+  p.buttons {
+    float: right;
+  }
+  p.buttonlink {
+    position: absolute;
+    margin-left: -25px !important;
+    display: none !important;
+  }
+
+  thead {
+    font-size: 1.5em;
+  }
+  &:hover p.buttonlink {
+    display: inline-block !important;;
+  }
+
 }
 
 button.btn-default {
@@ -281,14 +282,6 @@ div.enlarged {
       width: 90%;
       text-align: center;
       border: 0;
-    }
-  }
-
-  .content {
-    text-align: center;
-    > * {
-      display: inline-block;
-      box-shadow: 0 0 10px black, 0 0 30px black;
     }
   }
 }

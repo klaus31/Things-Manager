@@ -14,7 +14,7 @@ Vue.component('tm-input-range', {
     }
   },
   template: '<span>' +
-    '<input type="range" v-autofocus v-autoselect :value="content" @input="onChange" @blur="onDone" @keydown.enter="onDone">' +
+    '<input type="range" :value="content" @input="onChange" @blur="onDone" @keydown.enter="onDone">' +
     '<span>{{content}} %</span>' +
     '</span>'
 

@@ -8,6 +8,12 @@ import {projectListener} from '../shared/ProjectListener.js';
 Vue.component('card-manage-thing', {
   props: ['thing', 'project', 'ml'],
   computed: {
+    ml_CCXaoC1JKRXNcgXH: function () {
+      return this.ml.get('CCXaoC1JKRXNcgXH');
+    },
+    ml_WxykMLwBTKWHuTIj: function () {
+      return this.ml.get('WxykMLwBTKWHuTIj');
+    },
     ml_6aROasnal7tNQsPt: function () {
       return this.ml.get('6aROasnal7tNQsPt');
     }
