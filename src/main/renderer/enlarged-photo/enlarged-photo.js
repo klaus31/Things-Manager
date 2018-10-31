@@ -1,6 +1,7 @@
 import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
 import {APP, ml} from '../config/begin-config.js';
 import {projectListener} from "../shared/ProjectListener.js";
+import {escapeActionStack} from "../shared/EscapeActionStack.js";
 
 class ImageInWindowCalculator {
   constructor(image) {
@@ -49,6 +50,7 @@ const vueEnlargedPhoto = new Vue({
   },
   methods: {
     close: function () {
+      escapeActionStack.pop();
       this.photo = null;
     },
     deletePhoto: function () {
@@ -61,14 +63,13 @@ const vueEnlargedPhoto = new Vue({
     finalizePhotoDescription: function (value) {
       this.photo.text = value;
     },
-    cancel: function () {
-      if (this.photo) this.close();
+    closeOverEscape: function () {
+      this.photo = null;
     }
   }
 });
 
 projectListener.on('enlarge-photo', function (photo) {
   vueEnlargedPhoto.photo = photo;
+  escapeActionStack.push(() => vueEnlargedPhoto.closeOverEscape());
 });
-
-projectListener.on('key-event-esc', () => vueEnlargedPhoto.cancel());

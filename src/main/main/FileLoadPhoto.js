@@ -22,7 +22,7 @@ class FileLoadPhoto {
             internFileName: this._homeDataService.copyImage(filePath[0]),
             uuid: this._uuid
           };
-          webContents.getAllWebContents().send('photo-added', result);
+          webContents.getAllWebContents().forEach(wc => wc.send('photo-added', result));
         }
       }
     );
