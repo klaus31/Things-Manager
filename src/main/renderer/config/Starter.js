@@ -1,5 +1,5 @@
 import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
-import {projectListener} from './../config/begin-config.js';
+import {projectListener} from "../shared/ProjectListener.js";
 import {appStorage} from './../shared/data/AppStorage.js';
 import {ResetChangesCtrl} from "./ResetChangesCtrl.js";
 import {NewProjectRequestedCtrl} from "./NewProjectRequestedCtrl.js";
