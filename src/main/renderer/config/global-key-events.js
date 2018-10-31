@@ -1,4 +1,4 @@
-import {projectListener} from "../config/begin-config.js";
+import {projectListener} from "../shared/ProjectListener.js";
 
 document.onkeydown = checkKey;
 

@@ -1,6 +1,6 @@
 import {ManagedCategory_CategoryViewModel} from "./CategoryViewModel.js";
 import {Category} from "../shared/data/model/Category";
-import {projectListener} from "../config/begin-config.js";
+import {projectListener} from "../shared/ProjectListener.js";
 
 export class ManagedCategory_ProjectViewModel {
 

@@ -1,5 +1,6 @@
 import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
-import {APP, ml, projectListener} from './../config/begin-config.js';
+import {APP, ml} from './../config/begin-config.js';
+import {projectListener} from "../shared/ProjectListener.js";
 import {AnalyzeThings_ProjectViewModel} from "./ProjectViewModel.js";
 import './card-analyze-things-checkbox.js';
 import './card-analyze-things-color.js';

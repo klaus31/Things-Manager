@@ -1,5 +1,5 @@
 import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
-import {projectListener} from './../config/begin-config.js';
+import {projectListener} from "../shared/ProjectListener.js";
 import {appStorage} from './../shared/data/AppStorage.js';
 import {ResetChangesCtrl} from "./ResetChangesCtrl.js";
 import {NewProjectRequestedCtrl} from "./NewProjectRequestedCtrl.js";
@@ -58,14 +58,7 @@ class Starter {
 
     ipcRenderer.on('change-language', (event, code) => app.languageCode = code);
 
-    console.info('starter aufgerufen');
-    ipcRenderer.on('photo-added', (e, photoAddedEvent) => {
-      console.info('------------------------------------');
-      console.info('photo-added');
-      console.log(e);
-      console.info('------------------------------------');
-      photoAddedEventHandler.addToProject(photoAddedEvent);
-    });
+    ipcRenderer.on('photo-added', (e, photoAddedEvent) => photoAddedEventHandler.addToProject(photoAddedEvent));
 
     this._originalHashCodeOfApp = localStorage.getItem('originalHashCodeOfApp') || JSON.stringify(app.toJSON()).hashCode();
     localStorage.setItem('originalHashCodeOfApp', this._originalHashCodeOfApp);

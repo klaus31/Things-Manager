@@ -3,7 +3,7 @@ import './../shared/html/tm-editable.js';
 import './../shared/html/tm-button.js';
 import './../shared/html/tm-input.js';
 import './photo-gallery.js';
-import {projectListener} from '../config/begin-config.js';
+import {projectListener} from '../shared/ProjectListener.js';
 
 Vue.component('card-manage-thing', {
   props: ['thing', 'project', 'ml'],
