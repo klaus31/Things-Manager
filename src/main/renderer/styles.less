@@ -255,3 +255,40 @@ div.enlarged {
   top: 0;
   left: 0;
 }
+
+.enlarged-container {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  .controls {
+    width: 100%;
+    text-align: right;
+  }
+
+  .text {
+    width: 100%;
+    text-align: center;
+    color: white;
+    text-shadow: 0 0 5px black,0 0 5px black,0 0 5px black,0 0 10px black;
+    &.headline {
+      font-size: 2em;
+    }
+    input {
+      background-color: transparent;
+      width: 90%;
+      text-align: center;
+      border: 0;
+    }
+  }
+
+  .content {
+    text-align: center;
+    > * {
+      display: inline-block;
+      box-shadow: 0 0 10px black, 0 0 30px black;
+    }
+  }
+}

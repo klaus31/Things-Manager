@@ -22,7 +22,9 @@ class FileLoadPhoto {
             internFileName: this._homeDataService.copyImage(filePath[0]),
             uuid: this._uuid
           };
-          webContents.getAllWebContents().forEach(wc => wc.send('photo-added', result));
+          console.info(webContents.getAllWebContents().length);
+          console.info('-----------------------------');
+          webContents.getAllWebContents()[0].send('photo-added', result); // XXX This was sent twice, so I only call send on the first content (and that is ?!!?)
         }
       }
     );

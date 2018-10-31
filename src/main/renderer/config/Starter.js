@@ -58,7 +58,14 @@ class Starter {
 
     ipcRenderer.on('change-language', (event, code) => app.languageCode = code);
 
-    ipcRenderer.on('photo-added', (e, photoAddedEvent) => photoAddedEventHandler.addToProject(photoAddedEvent));
+    console.info('starter aufgerufen');
+    ipcRenderer.on('photo-added', (e, photoAddedEvent) => {
+      console.info('------------------------------------');
+      console.info('photo-added');
+      console.log(e);
+      console.info('------------------------------------');
+      photoAddedEventHandler.addToProject(photoAddedEvent);
+    });
 
     this._originalHashCodeOfApp = localStorage.getItem('originalHashCodeOfApp') || JSON.stringify(app.toJSON()).hashCode();
     localStorage.setItem('originalHashCodeOfApp', this._originalHashCodeOfApp);

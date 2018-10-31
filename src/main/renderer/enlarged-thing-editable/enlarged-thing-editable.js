@@ -37,5 +37,6 @@ projectListener.on('enlarge-thing-editable', function (pAndT) {
   vueEnlargedThingEditable.thing = pAndT.thing; // XXX this is a manage-things/ThingCardViewModel.js, which defines things, only used here
 });
 
+// FIXME will close mandy enlarged areas (photo and thing)
 projectListener.on('key-event-esc', () => vueEnlargedThingEditable.close());
 
