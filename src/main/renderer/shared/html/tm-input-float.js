@@ -22,8 +22,6 @@ Vue.component('tm-input-float', {
       }
     }
   },
-  template: '<span>' +
-    '<input type="text" :value="content" @input="onChange" @blur="onDone" @keydown.enter="onDone" v-autoselect="autoselect" v-autofocus="autofocus">' +
-    '</span>'
+  template: '<input type="text" :value="content" @input="onChange" @blur="onDone" @keydown.enter="onDone" v-autoselect="autoselect" v-autofocus="autofocus">'
 
 });

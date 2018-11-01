@@ -66,9 +66,9 @@ Vue.component('tm-input', {
     '<input v-if="isDefaultInput" :type="computedType" :value="content" @input="onChange" @blur="finish" @keydown.enter="finish" v-autofocus="autofocus" v-autoselect="autoselect">' +
     '<input v-if="isYear" type="number" :value="content" @input="onChange" @blur="finish" @keydown.enter="finish" v-autofocus="autofocus" v-autoselect="autoselect">' +
     '<tm-input-checkbox v-if="isCheckbox" :content="content" :actions="actions"></tm-input-checkbox>' +
-    '<tm-input-geodata v-if="isGeodata" :content="content" :actions="actions" autofocus="autofocus" autoselect="autoselect"></tm-input-geodata>' +
-    '<tm-input-range v-if="isRange" :content="content" :actions="actions" autofocus="autofocus" autoselect="autoselect"></tm-input-range>' +
+    '<tm-input-geodata v-if="isGeodata" :content="content" :actions="actions" :autofocus="autofocus" :autoselect="autoselect"></tm-input-geodata>' +
+    '<tm-input-range v-if="isRange" :content="content" :actions="actions" :autofocus="autofocus" :autoselect="autoselect"></tm-input-range>' +
     '<tm-input-rating v-if="isRating" :content="content" :actions="actions"></tm-input-rating>' +
-    '<tm-input-float v-if="isFloat" :content="content" :actions="actions" :type="type" autofocus="autofocus" autoselect="autoselect"></tm-input-float>' +
+    '<tm-input-float v-if="isFloat" :content="content" :actions="actions" :type="type" v-autofocus="autofocus" v-autoselect="autoselect"></tm-input-float>' +
     '</span>'
 });
