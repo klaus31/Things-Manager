@@ -1,10 +1,11 @@
 import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
-import {projectListener} from './../config/begin-config.js';
+import {projectListener} from "../shared/ProjectListener.js";
 import {appStorage} from './../shared/data/AppStorage.js';
 import {ResetChangesCtrl} from "./ResetChangesCtrl.js";
 import {NewProjectRequestedCtrl} from "./NewProjectRequestedCtrl.js";
 import {App} from "../shared/data/model/App.js";
 import {photoAddedEventHandler} from "./PhotoAddedEventHandler.js";
+import {escapeActionStack} from "../shared/EscapeActionStack.js";
 
 class Starter {
 
@@ -62,6 +63,8 @@ class Starter {
 
     this._originalHashCodeOfApp = localStorage.getItem('originalHashCodeOfApp') || JSON.stringify(app.toJSON()).hashCode();
     localStorage.setItem('originalHashCodeOfApp', this._originalHashCodeOfApp);
+
+    projectListener.on('key-event-esc', () => escapeActionStack.executeUpper());
 
     return app;
   }

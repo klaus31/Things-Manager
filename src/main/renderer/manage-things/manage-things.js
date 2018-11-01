@@ -1,5 +1,6 @@
 import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
-import {APP, ml, projectListener} from './../config/begin-config.js';
+import {APP, ml} from './../config/begin-config.js';
+import {projectListener} from "../shared/ProjectListener.js";
 import {ManagedThings_ProjectViewModel} from "./ProjectViewModel.js";
 import './../shared/html/v-colors-hover.js';
 import './../shared/html/tm-editable.js';

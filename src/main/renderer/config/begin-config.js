@@ -1,5 +1,4 @@
 import {starter} from './Starter.js';
-import {projectListener} from "../shared/ProjectListener.js";
 import {ml} from "./MultiLanguage.js";
 import './PhotoAddedEventHandler.js'
 import './global-key-events.js'
@@ -10,4 +9,4 @@ if (!openExternalHttp) throw 'openExternalHttp required to open links external';
 if (!ipcRenderer) throw 'ipcRenderer required to inform main process';
 
 const APP = starter.start();
-export {APP, projectListener, ml};
+export {APP, ml};

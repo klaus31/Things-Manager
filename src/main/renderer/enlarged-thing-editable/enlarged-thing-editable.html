@@ -1,0 +1,40 @@
+<div class="enlarged-container enlarged" id="enlarged-thing-editable" v-if="thing">
+  <div class="controls">
+    <tm-button icon="plus" @click="thing.addNewEmptyProperty()">{{ml.get("qYv6GRxsa3Kns+Mu")}}</tm-button>
+    <tm-button icon="plus" @click="project.addMissingPropertiesFromOtherThings(thing)">{{ml.get("cwvs+xA9BSZNuL08", thing.categoryPlural)}}</tm-button>
+    <tm-button icon="plus" @click="thing.addPhoto()">{{ml.get("0aYq0NzDK5QDGRHU")}}</tm-button>
+    <select v-if="project.categoryOptions.length > 1" v-model="thing.changeCategory" @change="(event) => changeCategory(event)">
+      <option v-for="option in project.categoryOptions" :value="option.value">{{ml.get("LC5mU7k6ha4ktcLT", option.label)}}</option>
+    </select>
+    <tm-button @click="close()" class="btn-inset" icon="ok">{{ml.get("iZ4l8dJ2jBTbd7Ja")}}</tm-button>
+  </div>
+  <div class="text headline">
+    <p>{{thing.category}}</p>
+    <p><input type="text" v-model="thing.keyvalue" v-autofocus :style="{borderColor: thing.colors.colorBackground}"></p>
+  </div>
+  <div class="content">
+    <table class="card card-edit-thing editable" v-colors="thing.colors">
+      <tbody v-if="project.showdetails">
+      <tr v-for="property in thing.properties">
+        <td class="input"><input type="text" v-model="property.key"></td>
+        <td class="input">
+          <!--XXX so much code in ":actions" for a workaround for v-model :(-->
+          <tm-input :type="property.type" :content="property.value" :actions="{onChange: value => property.value = value}"></tm-input>
+        </td>
+        <td class="input"><select v-model="property.type">
+          <option v-for="option in property.datatypeOptions" :value="option.value">{{option.label}}</option>
+        </select></td>
+        <td class="input buttons">
+          <tm-button @click="thing.cloneProperty(property)" icon="duplicate" :title="ml_aSawO4UuPSIxZpQK"></tm-button>
+          <tm-button @click="thing.deleteProperty(property)" icon="trash" :title="ml_5IwOpns5w1FNb4xj"></tm-button>
+        </td>
+      </tr>
+      <tr v-if="thing.photos.length">
+        <td :colspan="4">
+          <photo-gallery class="clickable" :photos="thing.photos"></photo-gallery>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

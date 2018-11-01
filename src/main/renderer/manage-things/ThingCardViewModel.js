@@ -5,7 +5,6 @@ import {photoAddedEventHandler} from "../config/PhotoAddedEventHandler";
 
 export class ThingCardViewModel {
   constructor(category, thing) {
-    this.locked = true;
     this.uuid = UuidUtil.create();
 
     this._dataCategory = category;
@@ -22,10 +21,6 @@ export class ThingCardViewModel {
     }
 
     this._properties = properties();
-  }
-
-  countColumnsToShow() {
-    return this.locked ? 2 : 4;
   }
 
   get photos() {
@@ -101,10 +96,6 @@ export class ThingCardViewModel {
 
   withDataThing(callback) {
     callback(this._dataThing);
-  }
-
-  toggleLock() {
-    this.locked = !this.locked;
   }
 
   cloneKeyProperty() {

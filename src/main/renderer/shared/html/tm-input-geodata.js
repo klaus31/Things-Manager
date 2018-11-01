@@ -24,7 +24,7 @@ Vue.component('tm-input-geodata', {
   },
   template: '<span class="input-geodata">' +
     // 00°00'00,0"N+00°00'00,0"E°
-    'N:&nbsp;<input type="number" v-autofocus v-autoselect v-model="geodata.nDegrees" min="-89" max="89" @keydown.enter="onDone" @input="onChange">°&nbsp;&nbsp;&nbsp;' +
+    'N:&nbsp;<input type="number" v-model="geodata.nDegrees" min="-89" max="89" @keydown.enter="onDone" @input="onChange">°&nbsp;&nbsp;&nbsp;' +
     '<input type="number" v-model="geodata.nMinutes" min="0" max="59" @keydown.enter="onDone" @input="onChange">\'&nbsp;&nbsp;&nbsp;' +
     '<input type="number" v-model="geodata.nSeconds" min="0" max="59" @keydown.enter="onDone" @input="onChange">.0"' +
     '<br>' +

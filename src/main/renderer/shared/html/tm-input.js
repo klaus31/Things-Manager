@@ -49,7 +49,7 @@ Vue.component('tm-input', {
     }
   },
   template: '<span>' +
-    '<input v-if="isDefaultInput" :type="computedType" v-autofocus v-autoselect :value="content" @input="onChange" @blur="finish" @keydown.enter="finish">' +
+    '<input v-if="isDefaultInput" :type="computedType" :value="content" @input="onChange" @blur="finish" @keydown.enter="finish">' +
     '<tm-input-checkbox v-if="isCheckbox" :content="content" :actions="actions"></tm-input-checkbox>' +
     '<tm-input-geodata v-if="isGeodata" :content="content" :actions="actions"></tm-input-geodata>' +
     '<tm-input-range v-if="isRange" :content="content" :actions="actions"></tm-input-range>' +

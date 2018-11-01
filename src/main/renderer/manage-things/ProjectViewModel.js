@@ -72,18 +72,19 @@ export class ManagedThings_ProjectViewModel {
   changeCategory(managedThing, changeCategoryUuid) {
     const newCategory = this._app.project.getCategoryFromUuid(changeCategoryUuid);
     const shownThings = this._shownThings;
+    let newManagedThing;
     managedThing.withDataCategory(function (oldCategory) {
       if (newCategory.uuid !== oldCategory.uuid) {
         managedThing.withDataThing(dataThing => newCategory.things.push(dataThing));
         managedThing.withDataThing(dataThing => {
-          const newManagedThing = new ThingCardViewModel(newCategory, dataThing);
-          newManagedThing.toggleLock();
+          newManagedThing = new ThingCardViewModel(newCategory, dataThing);
           shownThings.push(newManagedThing);
         });
         shownThings.removeItem(managedThing);
         managedThing.delete();
       }
     });
+    return newManagedThing;
   }
 
   get searchPlaceholder() {

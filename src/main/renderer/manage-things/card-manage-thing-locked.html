@@ -1,0 +1,31 @@
+<table class="card card-edit-thing locked" v-colors="thing.colors">
+  <thead>
+  <tr>
+    <th colspan="2">
+      {{thing.category}}:
+      <tm-editable :content="thing.keyvalue" :callback="val => thing.keyvalue = val" :callbackeditablechanged="val => project.reuseLatestSortedResult(val)"></tm-editable>
+      <p class="buttons">
+        <tm-button @click="project.clone(thing)" icon="duplicate" :title="ml_WxykMLwBTKWHuTIj"></tm-button>
+        <tm-button v-if="thing.canBeDeleted()" @click="project.deleteThing(thing)" icon="trash" :title="ml_CCXaoC1JKRXNcgXH"></tm-button>
+        <tm-button @click="edit(thing)" class="btn-outset" icon="pencil" :title="ml_6aROasnal7tNQsPt"></tm-button>
+      </p>
+    </th>
+  </tr>
+  </thead>
+
+  <tbody v-if="project.showdetails">
+  <tr v-for="property in thing.properties">
+    <td class="input">
+      <tm-editable :content="property.key" :callback="val => property.key = val"></tm-editable>
+    </td>
+    <td class="input">
+      <tm-editable :type="property.type" :content="property.value" :callback="val => property.value = val" :colors="thing.colors"></tm-editable>
+    </td>
+  </tr>
+  <tr v-if="thing.photos.length">
+    <td colspan="2">
+      <photo-gallery :photos="thing.photos"></photo-gallery>
+    </td>
+  </tr>
+  </tbody>
+</table>
