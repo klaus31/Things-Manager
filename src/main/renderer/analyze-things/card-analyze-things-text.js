@@ -17,7 +17,7 @@ Vue.component('card-analyze-things-text', {
     '<td>' +
     '{{analyzeResult.thing}}' +
     '</td>' +
-    '<td>' +
+    '<td :class="analyzedcategory.type">' +
     '{{analyzeResult.resultFormatted}}' +
     '</td>' +
     '</tr>' +
@@ -29,7 +29,7 @@ Vue.component('card-analyze-things-text', {
     '<td>' +
     '{{additionalResult.key}}' +
     '</td>' +
-    '<td>' +
+    '<td :class="analyzedcategory.type">' +
     '{{additionalResult.value}}' +
     '</td>' +
     '</tr>' +

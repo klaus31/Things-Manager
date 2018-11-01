@@ -25,6 +25,7 @@ export class AnalyzeNumberStrategy extends AnalyzeStrategy {
   finalize() {
     let sorted = this._analyzedResults.sort((a, b) => a.result < b.result ? 1 : -1);
     let result = new AnalyzedCategoryResult(sorted);
+    result.type = 'number';
     result.addAdditionalResult(ml.get('9Zy2Lsp0e6999bwr'), AnalyzeUtil.sum(this._analyzedResults));
     result.addAdditionalResult(ml.get('fTcBoDLCXfYEcpTn'), AnalyzeUtil.average(this._analyzedResults));
     return result;

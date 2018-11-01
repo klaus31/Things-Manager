@@ -16,7 +16,6 @@ export class AnalyzeRangeStrategy extends AnalyzeNumberStrategy {
       .sort((a, b) => a.result < b.result ? 1 : -1);
     sorted.forEach(ar => ar.setUnit('%'));
     let result = new AnalyzedCategoryResult(sorted);
-    result.addAdditionalResult(ml.get('9Zy2Lsp0e6999bwr'), AnalyzeUtil.sum(this._analyzedResults));
     result.addAdditionalResult(ml.get('fTcBoDLCXfYEcpTn'), AnalyzeUtil.average(this._analyzedResults) + ' %');
     return result;
   }

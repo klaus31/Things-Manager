@@ -2,6 +2,15 @@ export class AnalyzedCategoryResult {
   constructor(analyzedThingsResults) {
     this._analyzedThingsResults = analyzedThingsResults;
     this._additionalResults = [];
+    this._type = 'default';
+  }
+
+  get type() {
+    return this._type;
+  }
+
+  set type(type) {
+    this._type = type;
   }
 
   get additionalResults() {
