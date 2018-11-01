@@ -4,6 +4,7 @@ const shell = require('electron').shell;
 window.ipcRenderer = require('electron').ipcRenderer;
 window.APP_VERSION = require(__dirname + '/../../package.json').version;
 const Handlebars = require('handlebars');
+const formatNumber = require('format-number');
 
 window.openExternalHttp = function (url) {
   if (url.match(/^https?:\/\/.+/)) {
@@ -36,4 +37,8 @@ window.nodeGetTemplate = function (name, vm) {
   }
   let content = require('fs').readFileSync(filePath, 'UTF-8');
   return Handlebars.compile(content)(vm);
+};
+
+window.formatNumber = function (number, options) {
+  return formatNumber(options)(number, options);
 };

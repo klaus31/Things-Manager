@@ -49,7 +49,7 @@ export const TEXTS_MANAGE_THINGS = {
     de: 'Bearbeite diese Sache'
   },
   'iZ4l8dJ2jBTbd7Ja': {
-    en: 'Stop modifying this thing',
+    en: 'Complete editing this thing',
     de: 'Bearbeitung fertig'
   },
   'aSawO4UuPSIxZpQK': {
