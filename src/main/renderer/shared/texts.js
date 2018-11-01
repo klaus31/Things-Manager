@@ -104,20 +104,20 @@ export const TEXTS_SHARED = {
     de: 'Bewertung'
   },
   'ON6Z9aSM5hC5C73g': {
-    en: '',
-    de: ''
+    en: 'Floating Decimal',
+    de: 'Kommazahl'
   },
   '1JBrVkqS4GLhjH8h': {
-    en: '',
-    de: ''
+    en: 'Euro',
+    de: 'Euro'
   },
   'ZH5jkYmGu8E8aQGw': {
-    en: '',
-    de: ''
+    en: 'Dollar',
+    de: 'Dollar'
   },
   'vcJIqKWqiG/UhtRf': {
-    en: '',
-    de: ''
+    en: 'Year',
+    de: 'Jahr'
   },
   'fz5x361KrtRjhR+R': {
     en: '',

@@ -15,11 +15,15 @@ export class DataTypeProvider {
       new DataType('week', ml.get('qJd+kVTuL0r16QCV'), () => moment().format()),
       new DataType('month', ml.get('wWEfQ9Vzyj4A1zn/'), () => moment().format()),
       new DataType('number', ml.get('Z5jr4k1ZQtrrMTVH'), () => 0),
+      new DataType('float', ml.get('ON6Z9aSM5hC5C73g'), () => 0),
+      new DataType('euro', ml.get('1JBrVkqS4GLhjH8h'), () => 0),
+      new DataType('dollar', ml.get('ZH5jkYmGu8E8aQGw'), () => 0),
       new DataType('range', ml.get('jtxttIOvXb4C24io'), () => 50),
       new DataType('color', ml.get('1VWmPdYLJNvxUFZZ'), () => '#dddddd'),
       new DataType('url', ml.get('OP9jnIGR7LnjuzZL'), () => 'http://???'),
       new DataType('geodata', ml.get('OP9jnIGR7LnjuzZM'), () => new Geodata()),
       new DataType('checkbox', ml.get('P9SHV5LhUFoTqLam'), () => ''),
+      new DataType('year', ml.get('vcJIqKWqiG/UhtRf'), () => ''),
       new DataType('rating', ml.get('9SLfymF38SsASuza'), () => '')
     ];
   }

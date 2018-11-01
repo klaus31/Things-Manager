@@ -16,9 +16,14 @@ export class DataTypeValueUtil {
       case 'month':
         return moment().format();
       case 'number':
+      case 'year':
+        return 0;
       case 'range':
       case 'rating':
-        return 0;
+      case 'float':
+      case 'euro':
+      case 'dollar':
+        return 0.00;
       case 'color':
         return '#dddddd';
       case 'url':
@@ -58,7 +63,11 @@ export class DataTypeValueUtil {
       case 'month':
         return !isNaN(new Date(value));
       case 'number':
+      case 'year':
       case 'range':
+      case 'float':
+      case 'euro':
+      case 'dollar':
         return !isNaN(value);
       case 'rating':
         return Rating.isValidValue(value);
@@ -104,6 +113,14 @@ export class DataTypeValueUtil {
         return content + ' %';
       case 'rating':
         return getStars(content);
+      case 'number':
+        return ml.countrySpecificNumberFormat(content, 0);
+      case 'float':
+        return ml.countrySpecificNumberFormat(content, 2);
+      case 'euro':
+        return ml.countrySpecificNumberFormat(content, 2) + ' €';
+      case 'dollar':
+        return ml.countrySpecificNumberFormat(content, 2) + ' $';
       case 'checkbox':
         if (format === 'html') {
           let vm = {fillColor: colors.colorBackground, strokeColor: colors.colorText};

@@ -34,11 +34,22 @@ class MultiLanguage {
     return result;
   }
 
-  countrySpecificNumberFormat(number) {
-    if (APP.languageCode === 'de') return (number + '').replace(/\./, ',');
-    else return number;
+  countrySpecificNumberFormat(number, decimalPlaces) {
+    const options = {};
+    options.decimalPlaces = decimalPlaces;
+    switch (APP.languageCode) {
+      case 'de':
+        options.integerSeparator = '.';
+        options.decimal = ',';
+        return formatNumber(number, options);
+      case 'en':
+        options.integerSeparator = ',';
+        options.decimal = '.';
+        return formatNumber(number, options);
+      default:
+        return number;
+    }
   }
 }
 
-const singleton = new MultiLanguage();
-export {singleton as ml};
+export let ml = new MultiLanguage();

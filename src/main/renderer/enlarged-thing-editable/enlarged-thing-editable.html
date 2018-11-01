@@ -6,7 +6,7 @@
     <select v-if="project.categoryOptions.length > 1" v-model="thing.changeCategory" @change="(event) => changeCategory(event)">
       <option v-for="option in project.categoryOptions" :value="option.value">{{ml.get("LC5mU7k6ha4ktcLT", option.label)}}</option>
     </select>
-    <tm-button @click="close()" class="btn-inset" icon="ok">{{ml.get("iZ4l8dJ2jBTbd7Ja")}}</tm-button>
+    <tm-button @click="close()" icon="ok">{{ml.get("iZ4l8dJ2jBTbd7Ja")}}</tm-button>
   </div>
   <div class="text headline">
     <p>{{thing.category}}</p>

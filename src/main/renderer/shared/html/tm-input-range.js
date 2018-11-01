@@ -1,6 +1,6 @@
 import Vue from "../../../../node_modules/vue/dist/vue.esm.browser.js";
 Vue.component('tm-input-range', {
-  props: ['content', 'actions'],
+  props: ['content', 'actions', 'autoselect', 'autofocus'],
   methods: {
     onChange: function (event) {
       if (this.actions && this.actions.onChange) {
@@ -14,7 +14,7 @@ Vue.component('tm-input-range', {
     }
   },
   template: '<span>' +
-    '<input type="range" :value="content" @input="onChange" @blur="onDone" @keydown.enter="onDone">' +
+    '<input type="range" :value="content" @input="onChange" @blur="onDone" @keydown.enter="onDone", v-autofocus="autofocus" v-autoselect="autoselect">' +
     '<span>{{content}} %</span>' +
     '</span>'
 
