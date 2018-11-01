@@ -1,5 +1,6 @@
 import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
-import {APP, ml} from './begin-config.js';
+import {APP} from './begin-config.js';
+import {ml} from './../config/MultiLanguage.js';
 import {projectListener} from "../shared/ProjectListener.js";
 
 const vueTitle_computeTitle = function () {

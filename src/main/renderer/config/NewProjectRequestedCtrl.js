@@ -1,4 +1,4 @@
-import {ml} from './../config/begin-config.js';
+import {ml} from './../config/MultiLanguage.js';
 export class NewProjectRequestedCtrl {
 
   constructor(app) {

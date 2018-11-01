@@ -1,4 +1,4 @@
-import {ml} from './../../../config/begin-config.js';
+import {ml} from './../../../config/MultiLanguage.js';
 import {PropertyKey} from "./PropertyKey.js";
 import {DataTypeValueUtil} from './../DataTypeValueUtil.js';
 

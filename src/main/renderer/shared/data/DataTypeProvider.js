@@ -1,4 +1,4 @@
-import {ml} from './../../config/begin-config.js';
+import {ml} from './../../config/MultiLanguage.js';
 import {DataType} from "./DataType.js";
 
 export class DataTypeProvider {

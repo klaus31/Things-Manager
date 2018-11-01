@@ -1,5 +1,5 @@
 import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
-import {ml} from '../config/begin-config.js';
+import {ml} from './../config/MultiLanguage.js';
 import {projectListener} from '../shared/ProjectListener.js';
 import {escapeActionStack} from "../shared/EscapeActionStack.js";
 

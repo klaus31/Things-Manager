@@ -1,4 +1,4 @@
-import {ml} from './../config/begin-config.js';
+import {ml} from './../config/MultiLanguage.js';
 import {Thing} from "../shared/data/model/Thing.js";
 import {Category} from "../shared/data/model/Category.js";
 import {Project} from "../shared/data/model/Project.js";

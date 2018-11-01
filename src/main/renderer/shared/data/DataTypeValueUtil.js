@@ -1,4 +1,4 @@
-import {ml} from './../../config/begin-config.js';
+import {ml} from './../../config/MultiLanguage.js';
 import {Geodata} from "./model/Geodata.js";
 import {Rating} from "./model/Rating";
 

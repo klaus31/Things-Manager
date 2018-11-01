@@ -1,5 +1,6 @@
 import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
-import {APP, ml} from './../config/begin-config.js';
+import {APP} from './../config/begin-config.js';
+import {ml} from './../config/MultiLanguage.js';
 import {ManagedCategory_ProjectViewModel} from "./ProjectViewModel.js";
 import './../shared/html/tm-editable.js';
 import './../shared/html/tm-sidebar.js';

@@ -1,4 +1,4 @@
-import {ml} from './../config/begin-config.js';
+import {ml} from './../config/MultiLanguage.js';
 import {ThingCardViewModel} from "./ThingCardViewModel.js";
 import {ManagedThings_CategoryViewModel} from "./CategoryViewModel.js";
 

@@ -1,4 +1,4 @@
-import {ml} from './../config/begin-config.js';
+import {ml} from './../config/MultiLanguage.js';
 import {AnalyzeThingResult} from "./AnalyzeThingResult.js";
 import {AnalyzeStrategy} from "./AnalyzeStrategy.js";
 import {AnalyzeUtil} from "./AnalyzeUtil.js";
