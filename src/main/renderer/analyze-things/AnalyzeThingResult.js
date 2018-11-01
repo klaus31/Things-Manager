@@ -19,8 +19,11 @@ export class AnalyzeThingResult {
   get resultFormatted() {
     if (this._dateTimeFormat) {
       return moment(this._result).format(this._dateTimeFormat);
+    } else if(this._formatMethod) {
+      return this._formatMethod(this._result);
+    } else {
+      return this._result + (this._unit ? ' ' + this._unit : '');
     }
-    return this._result + (this._unit ? ' ' + this._unit : '');
   }
 
   set result(result) {
@@ -33,5 +36,9 @@ export class AnalyzeThingResult {
 
   setDateTimeFormat(dateTimeFormat) {
     this._dateTimeFormat = dateTimeFormat;
+  }
+
+  setFormatMethod(method) {
+    this._formatMethod = method;
   }
 }

@@ -4,6 +4,9 @@ import {AnalyzeNumberStrategy} from './AnalyzeNumberStrategy.js';
 import {AnalyzeDateStrategy} from './AnalyzeDateStrategy.js';
 import {AnalyzeColorStrategy} from './AnalyzeColorStrategy.js';
 import {AnalyzeRangeStrategy} from './AnalyzeRangeStrategy.js';
+import {AnalyzeEuroStrategy} from './AnalyzeEuroStrategy.js';
+import {AnalyzeFloatStrategy} from './AnalyzeFloatStrategy.js';
+import {AnalyzeDollarStrategy} from './AnalyzeDollarStrategy.js';
 import {AnalyzeTextStrategy} from './AnalyzeTextStrategy.js';
 
 export class AnalyzeThings_ProjectViewModel {
@@ -74,6 +77,15 @@ export class AnalyzeThings_ProjectViewModel {
         break;
       case 'range':
         strategy = new AnalyzeRangeStrategy();
+        break;
+      case 'euro':
+        strategy = new AnalyzeEuroStrategy();
+        break;
+      case 'float':
+        strategy = new AnalyzeFloatStrategy();
+        break;
+      case 'dollar':
+        strategy = new AnalyzeDollarStrategy();
         break;
       default:
         strategy = new AnalyzeTextStrategy();

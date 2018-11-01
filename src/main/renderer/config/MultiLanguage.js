@@ -36,7 +36,7 @@ class MultiLanguage {
 
   countrySpecificNumberFormat(number, decimalPlaces) {
     const options = {};
-    options.decimalPlaces = decimalPlaces;
+    options.padRight = decimalPlaces || 0;
     switch (APP.languageCode) {
       case 'de':
         options.integerSeparator = '.';
