@@ -1,3 +1,6 @@
+import {AnalyzePossibility} from "./AnalyzePossibility";
+import {ml} from './../config/MultiLanguage.js';
+
 export class AnalyzeThings_CategoryViewModel {
   constructor(dataCategory) {
     this._dataCategory = dataCategory;
@@ -15,8 +18,13 @@ export class AnalyzeThings_CategoryViewModel {
     return this._dataCategory.uuid === dataCategory.uuid;
   }
 
-  get propertyKeys() {
-    return this._dataCategory.findPropertyKeysOfAllThings();
+  get analyzePossibilities() {
+    const propertyKeys = this._dataCategory.findPropertyKeysOfAllThings();
+    const result = [];
+    propertyKeys.forEach(pk => result.push(new AnalyzePossibility(pk.type, pk.name)));
+    result.push(new AnalyzePossibility('photo-main', ml.get('ash2kn9musZFfcbW')));
+    result.push(new AnalyzePossibility('photo-all', ml.get('zaJqslu6P2U95mDK')));
+    return result;
   }
 
   withDataCategory(callback) {

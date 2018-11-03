@@ -10,7 +10,7 @@ export class AnalyzeTextStrategy extends AnalyzeStrategy {
   }
 
   analyzeThing(thing, propertyKeyToAnalyze) {
-    const properties = thing.findPropertyValues(propertyKeyToAnalyze);
+    const properties = thing.findPropertyValues(propertyKeyToAnalyze.text, propertyKeyToAnalyze.id);
     if (properties.length) {
       this._analyzedResults.push(new AnalyzeThingResult(thing.keyvalue, properties.join(', ')));
     }

@@ -1,5 +1,5 @@
 export class AnalyzeStrategy {
-  analyzeThing(thing, propertyKeyToAnalyze) {
+  analyzeThing(thing, analyzePossibility) {
     throw 'analyzeThing must be overridden';
   }
 

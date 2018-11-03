@@ -1,9 +1,9 @@
 import {ml} from './../config/MultiLanguage.js';
-import {AnalyzeNumberStrategy} from "./AnalyzeNumberStrategy.js";
 import {AnalyzedCategoryResult} from "./AnalyzedCategoryResult.js";
 import {AnalyzeUtil} from "./AnalyzeUtil.js";
+import {AnalyzeFloatStrategy} from "./AnalyzeFloatStrategy";
 
-export class AnalyzeDollarStrategy extends AnalyzeNumberStrategy {
+export class AnalyzeDollarStrategy extends AnalyzeFloatStrategy {
 
   constructor() {
     super();

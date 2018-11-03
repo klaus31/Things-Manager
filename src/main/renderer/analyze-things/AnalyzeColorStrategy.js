@@ -9,8 +9,8 @@ export class AnalyzeColorStrategy extends AnalyzeStrategy {
     this._analyzedResults = [];
   }
 
-  analyzeThing(thing, propertyKeyToAnalyze) {
-    thing.findPropertyValues(propertyKeyToAnalyze).forEach(color => {
+  analyzeThing(thing, analyzePossibility) {
+    thing.findPropertyValues(analyzePossibility.text, analyzePossibility.id).forEach(color => {
       this._analyzedResults.push(new AnalyzeThingResult(thing.keyvalue, color));
     });
   }

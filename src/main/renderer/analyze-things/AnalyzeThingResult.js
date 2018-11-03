@@ -26,6 +26,10 @@ export class AnalyzeThingResult {
     }
   }
 
+  get photos() {
+    return this._thing.photos;
+  }
+
   set result(result) {
     this._result = result;
   }

@@ -2,7 +2,7 @@ import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
 import './../shared/html/tm-editable.js';
 import './../shared/html/tm-button.js';
 import './../shared/html/tm-input.js';
-import './photo-gallery.js';
+import '../shared/html/photo-gallery.js';
 import {projectListener} from '../shared/ProjectListener.js';
 
 Vue.component('card-manage-thing', {

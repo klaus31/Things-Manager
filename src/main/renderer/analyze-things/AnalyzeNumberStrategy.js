@@ -11,8 +11,8 @@ export class AnalyzeNumberStrategy extends AnalyzeStrategy {
     this._analyzedResults = [];
   }
 
-  analyzeThing(thing, propertyKeyToAnalyze) {
-    const properties = thing.findPropertyValues(propertyKeyToAnalyze);
+  analyzeThing(thing, analyzePossibility) {
+    const properties = thing.findPropertyValues(analyzePossibility.text, analyzePossibility.id);
     let i = properties.length;
     while (i--) {
       const cleanValue = Number.parseInt(properties[i]);

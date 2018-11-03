@@ -28,12 +28,12 @@ export const TEXTS_MANAGE_ANALYZE_THINGS = {
     de: '{1} von {2}'
   },
   'ash2kn9musZFfcbW': {
-    en: '',
-    de: ''
+    en: 'Photos (1 photo per thing)',
+    de: 'Fotos (1 Foto pro Sache)'
   },
   'zaJqslu6P2U95mDK': {
-    en: '',
-    de: ''
+    en: 'Photos (all)',
+    de: 'Fotos (alle)'
   },
   'EqdvTbPqo90/gDx5': {
     en: '',

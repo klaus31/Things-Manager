@@ -2,12 +2,25 @@ import {ml} from './../config/MultiLanguage.js';
 import {AnalyzeNumberStrategy} from "./AnalyzeNumberStrategy.js";
 import {AnalyzedCategoryResult} from "./AnalyzedCategoryResult.js";
 import {AnalyzeUtil} from "./AnalyzeUtil.js";
+import {AnalyzeStrategy} from "./AnalyzeStrategy";
+import {AnalyzeThingResult} from "./AnalyzeThingResult";
 
-export class AnalyzeFloatStrategy extends AnalyzeNumberStrategy {
+export class AnalyzeFloatStrategy extends AnalyzeStrategy {
 
   constructor() {
     super();
     this._analyzedResults = [];
+  }
+
+  analyzeThing(thing, analyzePossibility) {
+    const properties = thing.findPropertyValues(analyzePossibility.text, analyzePossibility.id);
+    let i = properties.length;
+    while (i--) {
+      const cleanValue = Number.parseFloat(properties[i]);
+      if (!isNaN(cleanValue)) {
+        this._analyzedResults.push(new AnalyzeThingResult(thing.keyvalue, cleanValue));
+      }
+    }
   }
 
   finalize() {

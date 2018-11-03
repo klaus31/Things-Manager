@@ -1,5 +1,4 @@
 import {Property} from './Property.js';
-import {PropertyKey} from "./PropertyKey.js";
 import {Photo} from "./Photo.js";
 import {UuidUtil} from "../../UuidUtil";
 
@@ -37,12 +36,11 @@ export class Thing {
     return Thing.fromJSON(this.toJSON());
   }
 
-  findPropertyValues(propertyKey) {
-    if (!(propertyKey instanceof PropertyKey)) throw 'propertyKey must be PropertyKey';
+  findPropertyValues(name, type) {
     let i = this._properties.length;
     let result = [];
     while (i--) {
-      if (this._properties[i].key.name === propertyKey.name && this._properties[i].key.type === propertyKey.type) {
+      if (this._properties[i].key.name === name && this._properties[i].key.type === type) {
         result.push(this._properties[i].value);
       }
     }

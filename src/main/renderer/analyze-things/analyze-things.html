@@ -12,9 +12,9 @@
       </ul>
     </div>
     <div class="block">
-      <ul v-if="viewModel.category.propertyKeys.length > 1" class="tm-buttons">
-        <li v-for="propertyKey in viewModel.category.propertyKeys" @click="viewModel.propertyKeyToAnalyze = propertyKey">
-          <input type="radio" :value="propertyKey" v-model="viewModel.propertyKeyToAnalyze"> {{propertyKey.name}}
+      <ul v-if="viewModel.category.analyzePossibilities.length > 1" class="tm-buttons">
+        <li v-for="analyzePossibility in viewModel.category.analyzePossibilities" @click="viewModel.possibilityToAnalyze = analyzePossibility">
+          <input type="radio" :value="analyzePossibility" v-model="viewModel.possibilityToAnalyze"> {{analyzePossibility.text}}
         </li>
       </ul>
     </div>
@@ -29,24 +29,27 @@
       <card-analyze-things-text :summary="viewModel.cardSummary"
                                 v-colors="viewModel.cardColors"
                                 :analyzedcategory="viewModel.analyzedCategoryResult"
-                                v-if="viewModel.analyzeCardToShow === 'text'">
+                                v-if="viewModel.analyzeIdToShow === 'text'">
       </card-analyze-things-text>
       <card-analyze-things-checkbox :summary="viewModel.cardSummary"
                                     v-colors="viewModel.cardColors"
                                     :analyzedcategory="viewModel.analyzedCategoryResult"
-                                    v-if="viewModel.analyzeCardToShow === 'checkbox'">
+                                    v-if="viewModel.analyzeIdToShow === 'checkbox'">
       </card-analyze-things-checkbox>
       <card-analyze-things-color :summary="viewModel.cardSummary"
                                  v-colors="viewModel.cardColors"
                                  :analyzedcategory="viewModel.analyzedCategoryResult"
-                                 v-if="viewModel.analyzeCardToShow === 'color'">
+                                 v-if="viewModel.analyzeIdToShow === 'color'">
       </card-analyze-things-color>
       <card-analyze-things-rating :summary="viewModel.cardSummary"
                                   v-colors="viewModel.cardColors"
                                   :colors="viewModel.cardColors"
                                   :analyzedcategory="viewModel.analyzedCategoryResult"
-                                  v-if="viewModel.analyzeCardToShow === 'rating'">
+                                  v-if="viewModel.analyzeIdToShow === 'rating'">
       </card-analyze-things-rating>
+      <photo-gallery :photos="viewModel.analyzedCategoryResult.analyzedThingsResults"
+                     v-if="viewModel.analyzeIdToShow === 'photo'">
+      </photo-gallery>
     </div>
   </tm-main-area>
 </div>

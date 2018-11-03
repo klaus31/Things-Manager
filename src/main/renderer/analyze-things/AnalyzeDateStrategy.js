@@ -10,20 +10,20 @@ export class AnalyzeDateStrategy extends AnalyzeStrategy {
     this._analyzedResults = [];
   }
 
-  analyzeThing(thing, propertyKeyToAnalyze) {
-    thing.findPropertyValues(propertyKeyToAnalyze).forEach(dateTime => {
-      let result = this.getResult(dateTime, propertyKeyToAnalyze);
+  analyzeThing(thing, analyzePossibility) {
+    thing.findPropertyValues(analyzePossibility.text, analyzePossibility.id).forEach(dateTime => {
+      let result = this.getResult(dateTime, analyzePossibility);
       let analyzeThingResult = new AnalyzeThingResult(thing.keyvalue, result);
-      const dateTimeFormat = DataTypeValueUtil.getDateTimeFormat(propertyKeyToAnalyze.type);
+      const dateTimeFormat = DataTypeValueUtil.getDateTimeFormat(analyzePossibility.id);
       analyzeThingResult.setDateTimeFormat(dateTimeFormat);
       this._analyzedResults.push(analyzeThingResult);
     });
   }
 
-  getResult(dateTime, propertyKeyToAnalyze) {
-    if (propertyKeyToAnalyze.type === 'time') {
+  getResult(dateTime, analyzePossibility) {
+    if (analyzePossibility.id === 'time') {
       return new Date('1970-01-01T' + dateTime);
-    } else if (propertyKeyToAnalyze.type === 'week') {
+    } else if (analyzePossibility.id === 'week') {
       return new Date(moment(dateTime));
     } else {
       return new Date(dateTime);

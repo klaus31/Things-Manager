@@ -1,5 +1,4 @@
 import {ml} from './../config/MultiLanguage.js';
-import {AnalyzeThingResult} from "./AnalyzeThingResult.js";
 import {AnalyzeNumberStrategy} from "./AnalyzeNumberStrategy.js";
 import {AnalyzedCategoryResult} from "./AnalyzedCategoryResult.js";
 import {AnalyzeUtil} from "./AnalyzeUtil.js";

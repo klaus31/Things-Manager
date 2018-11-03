@@ -13,7 +13,7 @@ export class AnalyzeCheckboxStrategy extends AnalyzeStrategy {
     this._total = 0;
   }
 
-  analyzeThing(thing, propertyKeyToAnalyze) {
+  analyzeThing(thing, analyzePossibility) {
     function allChecked(propertieValues) {
       if (!propertieValues.length) return false;
       let j = propertieValues.length;
@@ -23,7 +23,7 @@ export class AnalyzeCheckboxStrategy extends AnalyzeStrategy {
       return true;
     }
 
-    if (allChecked(thing.findPropertyValues(propertyKeyToAnalyze))) {
+    if (allChecked(thing.findPropertyValues(analyzePossibility.text, analyzePossibility.id))) {
       this._analyzedResults.push(new AnalyzeThingResult(thing.keyvalue, true));
     } else {
       this._notChecked++;

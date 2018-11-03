@@ -11,6 +11,7 @@ import './../shared/html/v-colors-hover.js';
 import './../shared/html/tm-editable.js';
 import './../shared/html/tm-sidebar.js';
 import './../shared/html/tm-main-area.js';
+import './../shared/html/photo-gallery.js';
 
 const vueAppAnalyzeThings = new Vue({
   el: '#app-analyze-things',

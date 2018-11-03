@@ -8,6 +8,8 @@ import {AnalyzeEuroStrategy} from './AnalyzeEuroStrategy.js';
 import {AnalyzeFloatStrategy} from './AnalyzeFloatStrategy.js';
 import {AnalyzeDollarStrategy} from './AnalyzeDollarStrategy.js';
 import {AnalyzeTextStrategy} from './AnalyzeTextStrategy.js';
+import {AnalyzePhotoAllStrategy} from "./AnalyzePhotoAllStrategy";
+import {AnalyzePhotoMainStrategy} from "./AnalyzePhotoMainStrategy";
 
 export class AnalyzeThings_ProjectViewModel {
 
@@ -16,30 +18,30 @@ export class AnalyzeThings_ProjectViewModel {
     this._categories = [];
     app.project.categories.forEach(category => this._categories.push(new AnalyzeThings_CategoryViewModel(category)));
     this._shownCategory = null;
-    this._propertyKeyToAnalyze = null;
+    this._possibilityToAnalyze = null;
   }
 
-  get propertyKeyToAnalyze() {
-    if (!this._propertyKeyToAnalyze) {
-      if (this._shownCategory.propertyKeys.length) {
-        this._propertyKeyToAnalyze = this._shownCategory.propertyKeys[0];
+  get possibilityToAnalyze() {
+    if (!this._possibilityToAnalyze) {
+      if (this._shownCategory.analyzePossibilities.length) {
+        this._possibilityToAnalyze = this._shownCategory.analyzePossibilities[0];
       }
     }
-    return this._propertyKeyToAnalyze;
+    return this._possibilityToAnalyze;
   }
 
   get cardSummary() {
     let plural = null;
     this._shownCategory.withDataCategory(c => plural = c.plural)
-    return plural + ': ' + this._propertyKeyToAnalyze.name;
+    return plural + ': ' + this._possibilityToAnalyze.text;
   }
 
   get cardColors() {
     return this._shownCategory.colors;
   }
 
-  set propertyKeyToAnalyze(propertyKeyToAnalyze) {
-    this._propertyKeyToAnalyze = propertyKeyToAnalyze;
+  set possibilityToAnalyze(possibilityToAnalyze) {
+    this._possibilityToAnalyze = possibilityToAnalyze;
   }
 
   get category() {
@@ -49,15 +51,15 @@ export class AnalyzeThings_ProjectViewModel {
 
   set category(category) {
     this._shownCategory = category;
-    if (category.propertyKeys.length) {
-      this._propertyKeyToAnalyze = category.propertyKeys[0];
+    if (category.analyzePossibilities.length) {
+      this._possibilityToAnalyze = category.analyzePossibilities[0];
     }
   }
 
   // XXX this is not an analysis yet but another representation of things
   get analyzedCategoryResult() {
     let strategy = null;
-    switch (this._propertyKeyToAnalyze.type) {
+    switch (this._possibilityToAnalyze.id) {
       case 'checkbox':
         strategy = new AnalyzeCheckboxStrategy();
         break;
@@ -87,24 +89,33 @@ export class AnalyzeThings_ProjectViewModel {
       case 'dollar':
         strategy = new AnalyzeDollarStrategy();
         break;
+      case 'photo-main':
+        strategy = new AnalyzePhotoMainStrategy();
+        break;
+      case 'photo-all':
+        strategy = new AnalyzePhotoAllStrategy();
+        break;
       default:
         strategy = new AnalyzeTextStrategy();
         break;
     }
     this._shownCategory.forEachThing(thing => {
-      let results = strategy.analyzeThing(thing, this._propertyKeyToAnalyze);
+      let results = strategy.analyzeThing(thing, this._possibilityToAnalyze);
     });
     return strategy.finalize();
   }
 
-  get analyzeCardToShow() {
-    switch (this._propertyKeyToAnalyze.type) {
+  get analyzeIdToShow() {
+    switch (this._possibilityToAnalyze.id) {
       case 'checkbox':
         return 'checkbox';
       case 'color':
         return 'color';
       case 'rating':
         return 'rating';
+      case 'photo-main':
+      case 'photo-all':
+        return 'photo';
       default:
         return 'text';
     }
