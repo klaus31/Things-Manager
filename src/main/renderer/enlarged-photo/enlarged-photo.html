@@ -6,7 +6,9 @@
   <p class="text">
     <tm-editable :content="description" :callback="val => finalizePhotoDescription(val)"></tm-editable>
   </p>
+  <p class="prev glyphicon glyphicon-arrow-left" v-if="getPrev()" @click="showPrev"></p>
   <p class="content">
     <img :src="photo.internFileName" :width="width" :height="height">
   </p>
+  <p class="next glyphicon glyphicon-arrow-right" v-if="getNext()" @click="showNext"></p>
 </div>

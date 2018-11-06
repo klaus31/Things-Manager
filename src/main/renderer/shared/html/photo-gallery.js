@@ -3,7 +3,7 @@ import '../../manage-things/photo.js';
 
 Vue.component('photo-gallery', {
   props: ['photos'],
-  computed: {
+  methods: {
   },
   template: '' + nodeGetFileContent('shared/html/photo-gallery.html')
 });

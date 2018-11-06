@@ -1,5 +1,5 @@
 #enlarged-photo {
-   z-index: 1000;
+  z-index: 1000;
   .content {
     text-align: center;
     > * {
@@ -7,7 +7,35 @@
       box-shadow: 0 0 10px black, 0 0 30px black;
     }
     table.card {
-      width:90%;
+      width: 90%;
     }
   }
- }
+  .prev {
+    color: white;
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    margin-top: -50px;
+    left: 5px;
+    cursor: pointer;
+    opacity: 0.5;
+    &:hover {
+      opacity: 1
+    }
+  }
+  .next {
+    color: white;
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    margin-top: -50px;
+    right: 5px;
+    cursor: pointer;
+    opacity: 0.5;
+    &:hover {
+      opacity: 1
+    }
+  }
+}

@@ -33,6 +33,7 @@ const vueEnlargedPhoto = new Vue({
   el: '#enlarged-photo',
   data: {
     photo: null,
+    photos: null,
     ml: ml
   },
   computed: {
@@ -66,11 +67,38 @@ const vueEnlargedPhoto = new Vue({
     },
     closeOverEscape: function () {
       this.photo = null;
+    },
+    showNext: function () {
+      const photoToShow = this.getNext();
+      this.close();
+      projectListener.fire('enlarge-photo', {photo: photoToShow, photos: this.photos});
+    },
+    showPrev: function () {
+      const photoToShow = this.getPrev();
+      this.close();
+      projectListener.fire('enlarge-photo', {photo: photoToShow, photos: this.photos});
+    },
+    getPrev: function () {
+      const index = this.photos.indexOf(this.photo);
+      if (index > 0) {
+        return this.photos[index - 1];
+      } else {
+        return null;
+      }
+    },
+    getNext: function () {
+      const index = this.photos.indexOf(this.photo);
+      if (index < this.photos.length + 1) {
+        return this.photos[index + 1];
+      } else {
+        return null;
+      }
     }
   }
 });
 
-projectListener.on('enlarge-photo', function (photo) {
-  vueEnlargedPhoto.photo = photo;
+projectListener.on('enlarge-photo', function (data) {
+  vueEnlargedPhoto.photo = data.photo;
+  vueEnlargedPhoto.photos = data.photos;
   escapeActionStack.push(() => vueEnlargedPhoto.closeOverEscape());
 });
