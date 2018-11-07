@@ -11,6 +11,8 @@ class Server {
     this._serverInstance = null;
     this._ip = ip || '0.0.0.0';
     this._homeDataService = new HomeDataService();
+    const isDist = fs.existsSync('resources/app');
+    this._APP_DIR = isDist ? 'resources/app/' : './';
   }
 
   start(callback) {
@@ -18,15 +20,15 @@ class Server {
 
     function resolveIndexHtmlTemplate(content) {
       const vm = {};
-      vm['add-first-thing'] = fs.readFileSync('./main/renderer/add-first-thing/add-first-thing.html', 'UTF-8');
-      vm['manage-categories'] = fs.readFileSync('./main/renderer/manage-categories/manage-categories.html', 'UTF-8');
-      vm['manage-things'] = fs.readFileSync('./main/renderer/manage-things/manage-things.html', 'UTF-8');
-      vm['add-new-thing'] = fs.readFileSync('./main/renderer/add-new-thing/add-new-thing.html', 'UTF-8');
-      vm['analyze-things'] = fs.readFileSync('./main/renderer/analyze-things/analyze-things.html', 'UTF-8');
-      vm['credits'] = fs.readFileSync('./main/renderer/credits/credits.html', 'UTF-8');
-      vm['help'] = fs.readFileSync('./main/renderer/help/help.html', 'UTF-8');
-      vm['enlarged-photo'] = fs.readFileSync('./main/renderer/enlarged-photo/enlarged-photo.html', 'UTF-8');
-      vm['enlarged-thing-editable'] = fs.readFileSync('./main/renderer/enlarged-thing-editable/enlarged-thing-editable.html', 'UTF-8');
+      vm['add-first-thing'] = fs.readFileSync(me._APP_DIR + 'main/renderer/add-first-thing/add-first-thing.html', 'UTF-8');
+      vm['manage-categories'] = fs.readFileSync(me._APP_DIR + 'main/renderer/manage-categories/manage-categories.html', 'UTF-8');
+      vm['manage-things'] = fs.readFileSync(me._APP_DIR + 'main/renderer/manage-things/manage-things.html', 'UTF-8');
+      vm['add-new-thing'] = fs.readFileSync(me._APP_DIR + 'main/renderer/add-new-thing/add-new-thing.html', 'UTF-8');
+      vm['analyze-things'] = fs.readFileSync(me._APP_DIR + 'main/renderer/analyze-things/analyze-things.html', 'UTF-8');
+      vm['credits'] = fs.readFileSync(me._APP_DIR + 'main/renderer/credits/credits.html', 'UTF-8');
+      vm['help'] = fs.readFileSync(me._APP_DIR + 'main/renderer/help/help.html', 'UTF-8');
+      vm['enlarged-photo'] = fs.readFileSync(me._APP_DIR + 'main/renderer/enlarged-photo/enlarged-photo.html', 'UTF-8');
+      vm['enlarged-thing-editable'] = fs.readFileSync(me._APP_DIR + 'main/renderer/enlarged-thing-editable/enlarged-thing-editable.html', 'UTF-8');
       vm['title'] = '{{title}}'; // handlebars must not replace this, it's a placeholder for vue (XXX :see_no_evil:)
       return Handlebars.compile(content + '')(vm);
     }
@@ -46,7 +48,7 @@ class Server {
               extname: extname
             };
           } else {
-            const basedir = request.url.match(/^\/node_modules/) ? './' : './main/renderer';
+            const basedir = request.url.match(/^\/node_modules/) ? me._APP_DIR : me._APP_DIR + 'main/renderer/';
             let filePath = basedir + request.url;
             let extname = path.extname(filePath);
             // correct things, when import stuff with es6
