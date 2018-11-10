@@ -1,4 +1,5 @@
 import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
+
 Vue.component('card-analyze-things-color', {
   props: ['analyzedcategory', 'summary'],
   computed: {},
@@ -17,7 +18,7 @@ Vue.component('card-analyze-things-color', {
     '<td>' +
     '{{analyzeResult.thing}}' +
     '</td>' +
-    '<td :style="{colorBackground: analyzeResult.result}">' +
+    '<td :style="{backgroundColor: analyzeResult.result}">' +
     '</td>' +
     '</tr>' +
 

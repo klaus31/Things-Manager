@@ -12,8 +12,8 @@ export const TEXTS_MANAGE_THINGS_ADD_NEW_THING = {
     de: 'Füge neue Eigenschaft hinzu'
   },
   '8TXIUyZoY4iw3IlR': {
-    en: 'Add missing Properties from all other {1}',
-    de: 'Füge alle hier nicht aufgeführten Eigenschaften aller anderen {1} hinzu'
+    en: 'Add missing properties from other {1}',
+    de: 'Eigenschaften aller {1} hinzufügen'
   },
   'iI5mxfYtwu5yJ3zU': {
     en: 'Add {1}',
