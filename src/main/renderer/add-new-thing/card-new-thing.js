@@ -1,6 +1,8 @@
 import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
 import './../shared/html/v-colors.js';
 import './../shared/html/tm-button.js';
+import './../shared/html/v-autofocus.js';
+import './../shared/html/v-autoselect.js';
 
 Vue.component('card-new-thing', {
   props: ['value', 'ml'],
@@ -26,7 +28,7 @@ Vue.component('card-new-thing', {
 
     '<tr>' +
     '<td>{{value.category.propertyKey.name}}</td>' +
-    '<td colspan="3" class="input"><input type="text" v-model="value.thing.keyvalue"></td>' +
+    '<td colspan="3" class="input"><input type="text" v-model="value.thing.keyvalue" autofocus="true" autoselect="true"></td>' +
     '</tr>' +
 
     '<tr v-for="property in value.thing.properties">' +
