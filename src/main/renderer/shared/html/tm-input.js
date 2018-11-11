@@ -33,7 +33,7 @@ Vue.component('tm-input', {
       return this.type === 'year';
     },
     isPreselection: function () {
-      return this.type.startsWith('preselection');
+      return this.type && this.type.startsWith('preselection');
     },
     getPreselectionUuid: function () {
       if (!this.type.startsWith('preselection')) throw 'this is not a preselection';
@@ -41,7 +41,8 @@ Vue.component('tm-input', {
     },
     isDefaultInput: function () {
       // XXX does not work. don't know why. return !['rating', 'range', 'geodata'].contains(this._type);
-      return this.type !== 'geodata' &&
+      return !this.type ||
+        this.type !== 'geodata' &&
         this.type !== 'range' &&
         this.type !== 'checkbox' &&
         this.type !== 'float' &&
