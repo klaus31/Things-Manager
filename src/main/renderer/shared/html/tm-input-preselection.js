@@ -17,9 +17,13 @@ function computePreselection(uuid) {
 
 function computeUuidSelectedOption(uuid, content, vueComponent) {
   let preselection = computePreselection(uuid);
-  preselection.options.forEach(option => {
-    if (option.uuid === content) return option.uuid;
-  });
+  let i = preselection.options.length;
+  while (i--) {
+    let option = preselection.options[i];
+    if (option.uuid === content) {
+      return option.uuid
+    }
+  }
   vueComponent.onChange(preselection.options[0].uuid);
   return preselection.options[0].uuid;
 }
