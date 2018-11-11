@@ -87,11 +87,11 @@ export class ManagedCategory_CategoryViewModel {
 
   addPreselection() {
     let preselection = new Preselection();
-    preselection.addOption('New'); // TODO ml
+    preselection.addOption('');
     this._dataCategory.preselections.push(preselection);
   }
 
   addOption(preselection) {
-    preselection.addOption('New'); // TODO ml
+    preselection.addOption('');
   }
 }

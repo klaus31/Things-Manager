@@ -103,17 +103,18 @@ Vue.component('card-manage-category-editable', {
 
     '<tr>' +
     '<td colspan="2">' +
-    '<strong>Eigenschaften mit Vorauswahl</strong>' +  // TODO ml
+    '<strong>{{ml.get("fz5x361KrtRjhR+R")}}</strong>' +
     '<p class="buttons"><tm-button icon="plus" @click="() => category.addPreselection()"></tm-button></p>' +
+    '<br><span>{{ml.get("V0hkvLhWwDa5Aw21", category.plural)}}</span>' +
     '</td>' +
     '</tr>' +
     '<tr v-for="preselection in category.preselections">' +
     '<td class="input">' +
-    '<strong>Name</strong>' +  // TODO ml
+    '<strong>{{ml.get("WEEuIfOm2fnxEPOH")}}</strong>' +
     '<input v-model="preselection.kind" type="text">' +
     '</td>' +
     '<td class="input">' +
-    '<strong>Optionen</strong>' +  // TODO ml
+    '<strong>{{ml.get("F5Flp6gS0Y86f3xY", preselection.kind)}}</strong>' +
     '<p class="buttons"><tm-button icon="plus" @click="category.addOption(preselection)"></tm-button></p>' +
     '<input v-for="option in preselection.options" v-model="option.value" type="text">' +
     '</td>' +
