@@ -36,8 +36,8 @@ export const TEXTS_MANAGE_ANALYZE_THINGS = {
     de: 'Fotos (alle)'
   },
   'EqdvTbPqo90/gDx5': {
-    en: '',
-    de: ''
+    en: 'Count',
+    de: 'Anzahl'
   },
   '1Rs7BZVhPw7AVviO': {
     en: '',

@@ -27,6 +27,10 @@ export class ThingCardViewModel {
     return this._dataThing.photos; // TODO do not return data directly here
   }
 
+  get preselections() {
+    return this._dataCategory.preselections;
+  }
+
   addPhoto() {
     photoAddedEventHandler.thing = this._dataThing;
     ipcRenderer.send('add-photo-requested', this._dataThing.uuid);

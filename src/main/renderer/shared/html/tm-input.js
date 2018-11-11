@@ -4,6 +4,7 @@ import './tm-input-range.js';
 import './tm-input-rating.js';
 import './tm-input-checkbox.js';
 import './tm-input-float.js';
+import './tm-input-preselection.js';
 import './v-autofocus.js';
 import './v-autoselect.js';
 
@@ -31,6 +32,13 @@ Vue.component('tm-input', {
     isYear: function () {
       return this.type === 'year';
     },
+    isPreselection: function () {
+      return this.type.startsWith('preselection');
+    },
+    getPreselectionUuid: function () {
+      if (!this.type.startsWith('preselection')) throw 'this is not a preselection';
+      return this.type.substr('preselection-'.length);
+    },
     isDefaultInput: function () {
       // XXX does not work. don't know why. return !['rating', 'range', 'geodata'].contains(this._type);
       return this.type !== 'geodata' &&
@@ -40,6 +48,7 @@ Vue.component('tm-input', {
         this.type !== 'dollar' &&
         this.type !== 'euro' &&
         this.type !== 'year' &&
+        !this.type.startsWith('preselection') &&
         this.type !== 'rating';
     }
   },
@@ -70,5 +79,6 @@ Vue.component('tm-input', {
     '<tm-input-range v-if="isRange" :content="content" :actions="actions" :autofocus="autofocus" :autoselect="autoselect"></tm-input-range>' +
     '<tm-input-rating v-if="isRating" :content="content" :actions="actions"></tm-input-rating>' +
     '<tm-input-float v-if="isFloat" :content="content" :actions="actions" :type="type" v-autofocus="autofocus" v-autoselect="autoselect"></tm-input-float>' +
+    '<tm-input-preselection :content="content" :actions="actions" :uuid="getPreselectionUuid" v-if="isPreselection"></tm-input-preselection>' +
     '</span>'
 });

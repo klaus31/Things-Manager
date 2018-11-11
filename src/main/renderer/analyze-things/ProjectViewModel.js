@@ -10,6 +10,7 @@ import {AnalyzeDollarStrategy} from './AnalyzeDollarStrategy.js';
 import {AnalyzeTextStrategy} from './AnalyzeTextStrategy.js';
 import {AnalyzePhotoAllStrategy} from "./AnalyzePhotoAllStrategy";
 import {AnalyzePhotoMainStrategy} from "./AnalyzePhotoMainStrategy";
+import {AnalyzePreselectionStrategy} from "./AnalyzePreselectionStrategy";
 
 export class AnalyzeThings_ProjectViewModel {
 
@@ -59,45 +60,49 @@ export class AnalyzeThings_ProjectViewModel {
   // XXX this is not an analysis yet but another representation of things
   get analyzedCategoryResult() {
     let strategy = null;
-    switch (this._possibilityToAnalyze.id) {
-      case 'checkbox':
-        strategy = new AnalyzeCheckboxStrategy();
-        break;
-      case 'number':
-      case 'rating':
-        strategy = new AnalyzeNumberStrategy();
-        break;
-      case 'date':
-      case 'time':
-      case 'datetime-local':
-      case 'week':
-      case 'month':
-        strategy = new AnalyzeDateStrategy();
-        break;
-      case 'color':
-        strategy = new AnalyzeColorStrategy();
-        break;
-      case 'range':
-        strategy = new AnalyzeRangeStrategy();
-        break;
-      case 'euro':
-        strategy = new AnalyzeEuroStrategy();
-        break;
-      case 'float':
-        strategy = new AnalyzeFloatStrategy();
-        break;
-      case 'dollar':
-        strategy = new AnalyzeDollarStrategy();
-        break;
-      case 'photo-main':
-        strategy = new AnalyzePhotoMainStrategy();
-        break;
-      case 'photo-all':
-        strategy = new AnalyzePhotoAllStrategy();
-        break;
-      default:
-        strategy = new AnalyzeTextStrategy();
-        break;
+    if (this._possibilityToAnalyze.id.startsWith('preselection')) {
+      strategy = new AnalyzePreselectionStrategy();
+    } else {
+      switch (this._possibilityToAnalyze.id) {
+        case 'checkbox':
+          strategy = new AnalyzeCheckboxStrategy();
+          break;
+        case 'number':
+        case 'rating':
+          strategy = new AnalyzeNumberStrategy();
+          break;
+        case 'date':
+        case 'time':
+        case 'datetime-local':
+        case 'week':
+        case 'month':
+          strategy = new AnalyzeDateStrategy();
+          break;
+        case 'color':
+          strategy = new AnalyzeColorStrategy();
+          break;
+        case 'range':
+          strategy = new AnalyzeRangeStrategy();
+          break;
+        case 'euro':
+          strategy = new AnalyzeEuroStrategy();
+          break;
+        case 'float':
+          strategy = new AnalyzeFloatStrategy();
+          break;
+        case 'dollar':
+          strategy = new AnalyzeDollarStrategy();
+          break;
+        case 'photo-main':
+          strategy = new AnalyzePhotoMainStrategy();
+          break;
+        case 'photo-all':
+          strategy = new AnalyzePhotoAllStrategy();
+          break;
+        default:
+          strategy = new AnalyzeTextStrategy();
+          break;
+      }
     }
     this._shownCategory.forEachThing(thing => {
       let results = strategy.analyzeThing(thing, this._possibilityToAnalyze);

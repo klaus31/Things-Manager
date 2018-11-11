@@ -1,4 +1,5 @@
 import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
+import {Preselection} from "../shared/data/model/Preselection";
 // XXX extract thing.locked to the outside and make 2 components of it: one for locked state, the other for unlocked state
 Vue.component('card-manage-category-editable', {
   props: ['project', 'category', 'ml'],
@@ -96,6 +97,25 @@ Vue.component('card-manage-category-editable', {
     '<tr v-for="property in category.findPropertyKeysOfAllThings()">' +
     '<td colspan="2" class="input">' +
     '<input v-model="property.key" type="text">' +
+    '</td>' +
+    '</tr>' +
+
+
+    '<tr>' +
+    '<td colspan="2">' +
+    '<strong>Eigenschaften mit Vorauswahl</strong>' +  // TODO ml
+    '<p class="buttons"><tm-button icon="plus" @click="() => category.addPreselection()"></tm-button></p>' +
+    '</td>' +
+    '</tr>' +
+    '<tr v-for="preselection in category.preselections">' +
+    '<td class="input">' +
+    '<strong>Name</strong>' +  // TODO ml
+    '<input v-model="preselection.kind" type="text">' +
+    '</td>' +
+    '<td class="input">' +
+    '<strong>Optionen</strong>' +  // TODO ml
+    '<p class="buttons"><tm-button icon="plus" @click="category.addOption(preselection)"></tm-button></p>' +
+    '<input v-for="option in preselection.options" v-model="option.value" type="text">' +
     '</td>' +
     '</tr>' +
 

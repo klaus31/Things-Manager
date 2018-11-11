@@ -19,6 +19,9 @@ const vueEnlargedThingEditable = new Vue({
     },
     ml_iZ4l8dJ2jBTbd7Ja: function () {
       return this.ml.get('iZ4l8dJ2jBTbd7Ja');
+    },
+    preselections: function() {
+      return this.thing.preselections;
     }
   },
   methods: {

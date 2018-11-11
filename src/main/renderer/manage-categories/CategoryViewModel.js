@@ -1,4 +1,5 @@
 import {ManagedCategory_PropertyKeyViewModel} from "./PropertyKeyViewModel.js";
+import {Preselection} from "../shared/data/model/Preselection";
 
 export class ManagedCategory_CategoryViewModel {
 
@@ -78,5 +79,19 @@ export class ManagedCategory_CategoryViewModel {
 
   set textColor(textColor) {
     this._dataCategory.colorText = textColor;
+  }
+
+  get preselections() {
+    return this._dataCategory.preselections;
+  }
+
+  addPreselection() {
+    let preselection = new Preselection();
+    preselection.addOption('New'); // TODO ml
+    this._dataCategory.preselections.push(preselection);
+  }
+
+  addOption(preselection) {
+    preselection.addOption('New'); // TODO ml
   }
 }

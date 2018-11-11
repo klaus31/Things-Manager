@@ -1,6 +1,7 @@
 import {ml} from './../../config/MultiLanguage.js';
 import {Geodata} from "./model/Geodata.js";
 import {Rating} from "./model/Rating";
+import {preselectionValueService} from "./PreselectionValueService";
 
 export class DataTypeValueUtil {
 
@@ -8,6 +9,7 @@ export class DataTypeValueUtil {
   }
 
   static getInitValueOfType(type) {
+    if (type.startsWith('preselection')) return preselectionValueService.findFirstOf(type);
     switch (type) {
       case 'date':
       case 'time':
@@ -55,6 +57,7 @@ export class DataTypeValueUtil {
   }
 
   static valueCompatible(type, value) {
+    if (type.startsWith('preselection')) return false;
     switch (type) {
       case 'date':
       case 'time':
@@ -89,6 +92,7 @@ export class DataTypeValueUtil {
     colors.colorText = colors.colorText || 'black';
     colors.colorBackground = colors.colorBackground || 'white';
     let geoURL;
+
     function getStars(count) {
       let i = 0;
       let result = '';
@@ -100,6 +104,8 @@ export class DataTypeValueUtil {
       }
       return result;
     }
+
+    if(type && type.startsWith('preselection')) return preselectionValueService.valueOf(content);
 
     switch (type) {
       case 'time':

@@ -1,6 +1,7 @@
 import {PropertyKey} from './PropertyKey.js';
 import {Thing} from './Thing.js';
 import {UuidUtil} from "../../UuidUtil.js";
+import {Preselection} from "./Preselection";
 
 export class Category {
 
@@ -10,6 +11,7 @@ export class Category {
     this._plural = null;
     this._propertyKey = new PropertyKey();
     this._things = [];
+    this._preselections = [];
     this._colorBackground = '#faebd7';
     this._colorText = '#000000';
   }
@@ -70,6 +72,14 @@ export class Category {
     this._propertyKey = propertyKey;
   }
 
+  get preselections() {
+    return this._preselections;
+  }
+
+  set preselections(preselections) {
+    this._preselections = preselections;
+  }
+
   findPropertyKeysOfAllThings() {
     const result = [];
     const namesOnly = [];
@@ -90,9 +100,12 @@ export class Category {
   toJSON() {
     const things = [];
     this._things.forEach(thing => things.push(thing.toJSON()));
+    const preselections = [];
+    this._preselections.forEach(preselection => preselections.push(preselection.toJSON()));
     return {
       propertyKey: this._propertyKey ? this._propertyKey.toJSON() : null,
       things: things,
+      preselections: preselections,
       singular: this._singular,
       plural: this._plural,
       colorBackground: this._colorBackground,
@@ -103,6 +116,7 @@ export class Category {
   static fromJSON(json) {
     const result = new Category();
     json.things.forEach(thing => result._things.push(Thing.fromJSON(thing)));
+    json.preselections.forEach(preselection => result._preselections.push(Preselection.fromJSON(preselection)));
     result.propertyKey = PropertyKey.fromJSON(json.propertyKey);
     result.singular = json.singular;
     result.plural = json.plural;
