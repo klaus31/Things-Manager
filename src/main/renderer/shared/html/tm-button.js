@@ -1,4 +1,3 @@
-import Vue from "../../../../node_modules/vue/dist/vue.esm.browser.js";
 Vue.component('tm-button', {
   // https://getbootstrap.com/docs/3.3/css/#buttons-options
   props: ['icon', 'size', 'buttonstyle'],

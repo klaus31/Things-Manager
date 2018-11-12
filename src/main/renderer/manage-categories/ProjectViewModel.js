@@ -1,6 +1,7 @@
 import {ManagedCategory_CategoryViewModel} from "./CategoryViewModel.js";
 import {Category} from "../shared/data/model/Category";
 import {projectListener} from "../shared/ProjectListener.js";
+import {APP} from "../config/begin-config";
 
 export class ManagedCategory_ProjectViewModel {
 
@@ -13,7 +14,7 @@ export class ManagedCategory_ProjectViewModel {
   addNewCategory() {
     const dataCategory = new Category();
     this._app.project.categories.push(dataCategory);
-    const categoryViewModel = new ManagedCategory_CategoryViewModel(dataCategory);
+    const categoryViewModel = new ManagedCategory_CategoryViewModel(dataCategory, this._app.project.categories.length > 1);
     categoryViewModel.toggleLock();
     this._shownCategories.push(categoryViewModel);
     projectListener.fire('new-category', dataCategory);

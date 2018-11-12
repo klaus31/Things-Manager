@@ -3,10 +3,20 @@ import {Preselection} from "../shared/data/model/Preselection";
 
 export class ManagedCategory_CategoryViewModel {
 
-  constructor(dataCategory) {
+  constructor(dataCategory, locked) {
     this.uuid = dataCategory.uuid;
     this._dataCategory = dataCategory;
-    this.locked = true;
+    this.locked = locked;
+    const me = this;
+
+    function findPropertyKeysOfAllThings() {
+      let dataKeyProperties = me._dataCategory.findPropertyKeysOfAllThings();
+      let propertyKeyViewModels = [];
+      dataKeyProperties.forEach(dataKeyProperty => propertyKeyViewModels.push(new ManagedCategory_PropertyKeyViewModel(dataKeyProperty.name, me._dataCategory)));
+      return propertyKeyViewModels;
+    }
+
+    this._sortableOptions = findPropertyKeysOfAllThings();
   }
 
   get summary() {
@@ -26,11 +36,18 @@ export class ManagedCategory_CategoryViewModel {
     callback(this._dataCategory);
   }
 
-  findPropertyKeysOfAllThings() {
-    let dataKeyProperties = this._dataCategory.findPropertyKeysOfAllThings();
-    let propertyKeyViewModels = [];
-    dataKeyProperties.forEach(dataKeyProperty => propertyKeyViewModels.push(new ManagedCategory_PropertyKeyViewModel(dataKeyProperty.name, this._dataCategory)));
-    return propertyKeyViewModels;
+  get sortableOptions() {
+    return this._sortableOptions;
+  }
+
+  set sortableOptions(sortableOptions) {
+    this._sortableOptions = sortableOptions;
+    let names = [];
+    let i = 0;
+    while (i < sortableOptions.length) {
+      names.push(sortableOptions[i++].key);
+    }
+    this._dataCategory.things.forEach(thing => thing.properties.sort((a, b) => names.indexOf(a.key.name) < names.indexOf(b.key.name)));
   }
 
   isDeletable() {

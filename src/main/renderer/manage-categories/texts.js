@@ -44,12 +44,12 @@ export const TEXTS_MANAGE_CATEGORIES = {
     de: 'Für {1} wurden bereits Sachen mit folgenden Eigenschaften erfasst, die hier alle auf einen Schlag umbenannt werden können.'
   },
   'ejn+M0lTqXFh5Zgy': {
-    en: '',
-    de: ''
+    en: 'Sort properties of {1}',
+    de: 'Sortiere Eigenschaften von {1}'
   },
   '7klcINA55ODeG3iz': {
-    en: '',
-    de: ''
+    en: 'Sort properties of things',
+    de: 'Sortiere alle Eigenschaften der Dinge'
   },
   'OJX9zGhAZ/QyCtHp': {
     en: '',

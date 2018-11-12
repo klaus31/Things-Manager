@@ -32,6 +32,10 @@ export class Thing {
     return this._properties;
   }
 
+  set properties(properties) {
+    this._properties = properties;
+  }
+
   clone() {
     return Thing.fromJSON(this.toJSON());
   }

@@ -1,4 +1,4 @@
-import Vue from "../../../../node_modules/vue/dist/vue.esm.browser.js";
+
 import {APP} from './../../config/begin-config.js'; // XXX access to most global object in most tiny component :(
 
 function computePreselection(uuid) {

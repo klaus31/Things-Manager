@@ -1,4 +1,3 @@
-import Vue from "../../../../node_modules/vue/dist/vue.esm.browser.js";
 import {Rating} from "../data/model/Rating";
 
 Vue.component('star-rating', VueStarRating.default);

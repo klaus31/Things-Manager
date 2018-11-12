@@ -1,4 +1,3 @@
-import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
 import {ml} from './../config/MultiLanguage.js';
 import {APP} from './../config/begin-config.js';
 import {projectListener} from "../shared/ProjectListener.js";

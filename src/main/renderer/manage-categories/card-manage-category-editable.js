@@ -1,11 +1,12 @@
-import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
-import {Preselection} from "../shared/data/model/Preselection";
 // XXX extract thing.locked to the outside and make 2 components of it: one for locked state, the other for unlocked state
 Vue.component('card-manage-category-editable', {
   props: ['project', 'category', 'ml'],
   computed: {
     ml_sHYY8EbLsT9BJMhP: function () {
       return this.ml.get('sHYY8EbLsT9BJMhP', this.category.plural);
+    },
+    ml_7klcINA55ODeG3iz: function () {
+      return this.ml.get('7klcINA55ODeG3iz', this.category.plural);
     },
     ml_xSKHgV8x_8BNA0Q5: function () {
       return this.ml.get('xSKHgV8x_8BNA0Q5', this.category.plural);
@@ -19,6 +20,8 @@ Vue.component('card-manage-category-editable', {
     ml_37B1orLeGG53soUH: function () {
       return this.ml.get('37B1orLeGG53soUH');
     }
+  },
+  methods: {
   },
   template: '<table class="card editable" v-colors="category.colors">' +
     '<thead>' +
@@ -88,13 +91,27 @@ Vue.component('card-manage-category-editable', {
     '</td>' +
     '</tr>' +
 
-    '<tr v-if="category.findPropertyKeysOfAllThings().length">' +
+    // sortables
+    '<tr v-if="category.sortableOptions.length">' +
+    '<td colspan="2">' +
+    '<strong>{{ml.get("ejn+M0lTqXFh5Zgy", category.plural)}}</strong>' +
+    '</td>' +
+    '</tr>' +
+    '<tr>' +
+    '<td colspan="2" class="input">' +
+    '<draggable class="sortables" v-model="category.sortableOptions">' +
+    '<p v-for="sortableOption in category.sortableOptions">{{sortableOption.key}}</p>' +
+    '</draggable>' +
+    '</td>' +
+    '</tr>' +
+
+    '<tr v-if="category.sortableOptions.length">' +
     '<td colspan="2">' +
     '<strong>{{ml.get("sEzqYfSNsSPFwosV", category.plural)}}</strong><br>' +
     '<span>{{ml.get("QLvPeYYGmyNOAaTS", category.plural)}}</span>' +
     '</td>' +
     '</tr>' +
-    '<tr v-for="property in category.findPropertyKeysOfAllThings()">' +
+    '<tr v-for="property in category.sortableOptions">' +
     '<td colspan="2" class="input">' +
     '<input v-model="property.key" type="text">' +
     '</td>' +

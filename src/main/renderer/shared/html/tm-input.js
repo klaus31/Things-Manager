@@ -1,4 +1,3 @@
-import Vue from "../../../../node_modules/vue/dist/vue.esm.browser.js";
 import './tm-input-geodata.js';
 import './tm-input-range.js';
 import './tm-input-rating.js';

@@ -1,4 +1,3 @@
-import Vue from "../../../../node_modules/vue/dist/vue.esm.browser.js";
 import {DataTypeValueUtil} from "../data/DataTypeValueUtil";
 
 Vue.component('tm-input-checkbox', {
