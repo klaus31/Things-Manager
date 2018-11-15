@@ -136,32 +136,32 @@ export const TEXTS_SHARED = {
     de: 'Für {1} lassen sich Eigenschaften definieren mit festen Werten. Vorsicht: Lässt sich nicht rückgängig machen.'
   },
   'EPgaMSgGzMNqZwuJ': {
-    en: '',
-    de: ''
+    en: 'Time Period',
+    de: 'Zeitraum'
   },
-  'yAhSlELknu4PEP/Q': {
-    en: '',
-    de: ''
+  'yAhSlELknu4PEP_Q': {
+    en: 'Seconds',
+    de: 'Sekunden'
   },
   '8BysBIgprws5j0mj': {
-    en: '',
-    de: ''
+    en: 'Minutes',
+    de: 'Minuten'
   },
   'es3dHoiqqsVAU1UU': {
-    en: '',
-    de: ''
+    en: 'Hours',
+    de: 'Stunden'
   },
-  'cNq/WbZk41W1v5bh': {
-    en: '',
-    de: ''
+  'cNq_WbZk41W1v5bh': {
+    en: 'Days',
+    de: 'Tage'
   },
   '3mJsJKJcNbTubmxp': {
-    en: '',
-    de: ''
+    en: 'Weeks',
+    de: 'Wochen'
   },
   '3kFRBjbRgOP2coGI': {
-    en: '',
-    de: ''
+    en: 'Years',
+    de: 'Jahre'
   },
   'WnepJHQ1WOWzvmdp': {
     en: '',

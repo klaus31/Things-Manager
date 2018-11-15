@@ -19,6 +19,7 @@ export class DataTypeValueUtil {
         return moment().format();
       case 'number':
       case 'year':
+      case 'timeperiod':
         return 0;
       case 'range':
       case 'rating':
@@ -71,6 +72,7 @@ export class DataTypeValueUtil {
       case 'float':
       case 'euro':
       case 'dollar':
+      case 'timeperiod':
         return !isNaN(value);
       case 'rating':
         return Rating.isValidValue(value);
@@ -127,6 +129,8 @@ export class DataTypeValueUtil {
         return ml.countrySpecificNumberFormat(content, 2) + ' €';
       case 'dollar':
         return ml.countrySpecificNumberFormat(content, 2) + ' $';
+      case 'timeperiod':
+        return content + ' seconds'; // TODO ml and more complex logic
       case 'checkbox':
         if (format === 'html') {
           let vm = {fillColor: colors.colorBackground, strokeColor: colors.colorText};

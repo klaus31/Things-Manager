@@ -24,7 +24,8 @@ export class DataTypeProvider {
       new DataType('geodata', ml.get('OP9jnIGR7LnjuzZM'), () => new Geodata()),
       new DataType('checkbox', ml.get('P9SHV5LhUFoTqLam'), () => ''),
       new DataType('year', ml.get('vcJIqKWqiG/UhtRf'), () => ''),
-      new DataType('rating', ml.get('9SLfymF38SsASuza'), () => '')
+      new DataType('rating', ml.get('9SLfymF38SsASuza'), () => ''),
+      new DataType('timeperiod', ml.get('EPgaMSgGzMNqZwuJ'), () => '')
     ];
   }
 }
