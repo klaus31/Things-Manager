@@ -85,6 +85,6 @@ Vue.component('tm-input', {
     '<tm-input-rating v-if="isRating" :content="content" :actions="actions"></tm-input-rating>' +
     '<tm-input-float v-if="isFloat" :content="content" :actions="actions" :type="type" v-autofocus="autofocus" v-autoselect="autoselect"></tm-input-float>' +
     '<tm-input-preselection :content="content" :actions="actions" :uuid="getPreselectionUuid" v-if="isPreselection"></tm-input-preselection>' +
-    '<tm-input-timeperiod :seconds="content" :actions="actions" v-if="isTimePeriod"></tm-input-timeperiod>' +
+    '<tm-input-timeperiod :content="content" :actions="actions" v-if="isTimePeriod"></tm-input-timeperiod>' +
     '</span>'
 });

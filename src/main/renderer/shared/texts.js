@@ -139,30 +139,6 @@ export const TEXTS_SHARED = {
     en: 'Time Period',
     de: 'Zeitraum'
   },
-  'yAhSlELknu4PEP_Q': {
-    en: 'Seconds',
-    de: 'Sekunden'
-  },
-  '8BysBIgprws5j0mj': {
-    en: 'Minutes',
-    de: 'Minuten'
-  },
-  'es3dHoiqqsVAU1UU': {
-    en: 'Hours',
-    de: 'Stunden'
-  },
-  'cNq_WbZk41W1v5bh': {
-    en: 'Days',
-    de: 'Tage'
-  },
-  '3mJsJKJcNbTubmxp': {
-    en: 'Weeks',
-    de: 'Wochen'
-  },
-  '3kFRBjbRgOP2coGI': {
-    en: 'Years',
-    de: 'Jahre'
-  },
   'WnepJHQ1WOWzvmdp': {
     en: '',
     de: ''

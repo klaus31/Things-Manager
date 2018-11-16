@@ -1,70 +1,44 @@
 import "./v-autofocus.js";
 import "./v-autoselect.js";
 import {ml} from './../../config/MultiLanguage.js';
-import {TimePeriod} from "../TimePeriod";
 
 Vue.component('tm-input-timeperiod', {
-  props: ['seconds', 'actions', 'autoselect', 'autofocus'],
-  data: function () {
-    const timePeriod = new TimePeriod(this.seconds);
-    let unit = this.seconds === 0 ? 'minute' : timePeriod.biggestUnit();
-    return {
-      timeperiod: timePeriod,
-      timeperiodInput: timePeriod.calc(unit),
-      unit: unit
-    }
-  },
+  props: ['content', 'actions', 'autoselect', 'autofocus'],
   computed: {
-    ml_yAhSlELknu4PEP_Q: function () {
-      return ml.get('yAhSlELknu4PEP_Q');
+    mlSeconds: function () {
+      return ml.getTimePeriod('seconds');
     },
-    ml_8BysBIgprws5j0mj: function () {
-      return ml.get('8BysBIgprws5j0mj');
+    mlMinutes: function () {
+      return ml.getTimePeriod('minutes');
     },
-    ml_es3dHoiqqsVAU1UU: function () {
-      return ml.get('es3dHoiqqsVAU1UU');
+    mlHours: function () {
+      return ml.getTimePeriod('hours');
     },
-    ml_cNq_WbZk41W1v5bh: function () {
-      return ml.get('cNq_WbZk41W1v5bh');
+    mlDays: function () {
+      return ml.getTimePeriod('days');
     },
-    ml_3mJsJKJcNbTubmxp: function () {
-      return ml.get('3mJsJKJcNbTubmxp');
-    },
-    ml_3kFRBjbRgOP2coGI: function () {
-      return ml.get('3kFRBjbRgOP2coGI');
+    mlYears: function () {
+      return ml.getTimePeriod('years');
     }
   },
   methods: {
     onChange: function () {
       if (this.actions && this.actions.onChange) {
-        this.actions.onChange(this.timeperiod.seconds);
+        this.actions.onChange(this.content);
       }
     },
     onDone: function () {
       if (this.actions && this.actions.onDone) {
-        this.actions.onDone(this.timeperiod.seconds);
+        this.actions.onDone(this.content);
       }
     }
   },
-  watch: {
-    unit: function (newUnit) {
-      this.timeperiodInput = this.timeperiod.calc(newUnit);
-    },
-    timeperiodInput: function (newTimeperiodInput) {
-      this.timeperiod.setPeriod(newTimeperiodInput, this.unit);
-    }
-  },
   template: '<span class="input-timeperiod">' +
-    '<input type="number" v-model="timeperiodInput" min="0" @keydown.enter="onDone" @input="onChange">' +
-    '<select v-model="unit">' +
-    '<option value="second">{{ml_yAhSlELknu4PEP_Q}}</option>' +
-    '<option value="minute">{{ml_8BysBIgprws5j0mj}}</option>' +
-    '<option value="hour">{{ml_es3dHoiqqsVAU1UU}}</option>' +
-    '<option value="day">{{ml_cNq_WbZk41W1v5bh}}</option>' +
-    '<option value="week">{{ml_3mJsJKJcNbTubmxp}}</option>' +
-    '<option value="year">{{ml_3kFRBjbRgOP2coGI}}</option>' +
-    '</select>' +
-    '<br>' +
+    '<input type="number" min="0" v-model="content.years" @input="onChange"> {{mlYears}}<br>' +
+    '<input type="number" min="0" max="363" v-model="content.days" @input="onChange"> {{mlDays}}<br>' +
+    '<input type="number" min="0" max="23" v-model="content.hours" @input="onChange"> {{mlHours}}<br>' +
+    '<input type="number" min="0" max="59" v-model="content.minutes" @input="onChange"> {{mlMinutes}}<br>' +
+    '<input type="number" min="0" max="59" v-model="content.seconds" @input="onChange"> {{mlSeconds}}<br>' +
     '<tm-button icon="ok" @click="onDone" v-if="actions.onDone"></tm-button>' +
     '</span>'
 });

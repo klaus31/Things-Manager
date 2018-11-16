@@ -20,7 +20,7 @@ export class DataTypeValueUtil {
       case 'number':
       case 'year':
       case 'timeperiod':
-        return 0;
+        return {years: 0, days: 0, hours: 0, minutes: 0, seconds: 0};
       case 'range':
       case 'rating':
       case 'float':
@@ -72,8 +72,9 @@ export class DataTypeValueUtil {
       case 'float':
       case 'euro':
       case 'dollar':
-      case 'timeperiod':
         return !isNaN(value);
+      case 'timeperiod':
+        return typeof value === 'object' && value.years;
       case 'rating':
         return Rating.isValidValue(value);
       case 'color':
@@ -107,7 +108,7 @@ export class DataTypeValueUtil {
       return result;
     }
 
-    if(type && type.startsWith('preselection')) return preselectionValueService.valueOf(content);
+    if (type && type.startsWith('preselection')) return preselectionValueService.valueOf(content);
 
     switch (type) {
       case 'time':
@@ -130,7 +131,7 @@ export class DataTypeValueUtil {
       case 'dollar':
         return ml.countrySpecificNumberFormat(content, 2) + ' $';
       case 'timeperiod':
-        return content + ' seconds'; // TODO ml and more complex logic
+        return ml.getTimePeriod(content);
       case 'checkbox':
         if (format === 'html') {
           let vm = {fillColor: colors.colorBackground, strokeColor: colors.colorText};
