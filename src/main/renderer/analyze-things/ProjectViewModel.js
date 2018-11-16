@@ -1,6 +1,7 @@
 import {AnalyzeThings_CategoryViewModel} from './CategoryViewModel.js';
 import {AnalyzeCheckboxStrategy} from './AnalyzeCheckboxStrategy.js';
 import {AnalyzeNumberStrategy} from './AnalyzeNumberStrategy.js';
+import {AnalyzeTimeperiodStrategy} from './AnalyzeTimeperiodStrategy.js';
 import {AnalyzeDateStrategy} from './AnalyzeDateStrategy.js';
 import {AnalyzeColorStrategy} from './AnalyzeColorStrategy.js';
 import {AnalyzeRangeStrategy} from './AnalyzeRangeStrategy.js';
@@ -70,6 +71,9 @@ export class AnalyzeThings_ProjectViewModel {
         case 'number':
         case 'rating':
           strategy = new AnalyzeNumberStrategy();
+          break;
+        case 'timeperiod':
+          strategy = new AnalyzeTimeperiodStrategy();
           break;
         case 'date':
         case 'time':
