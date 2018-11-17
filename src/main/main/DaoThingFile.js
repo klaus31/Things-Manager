@@ -1,3 +1,5 @@
+const FileWriterTmf = require("./FileWriterTmf");
+const FileWriterXlsx = require("./FileWriterXlsx");
 const fs = require('fs');
 const {webContents, ipcMain} = require('electron');
 const ml = require('./MultiLanguage');
@@ -30,11 +32,15 @@ class DaoThingFile {
   persist(filename) {
     if (!APP.rendererData) throw 'ensure appData is set before persist';
     if (filename) {
-      APP.rendererData.currentFile = filename;
-      fs.writeFile(filename, JSON.stringify(APP.rendererData), 'utf8', function (err) {
-        if (err) throw err;
-        webContents.getAllWebContents().forEach(wc => wc.send('data-persisted', APP.rendererData));
-      });
+      const extname = require('path').extname(filename);
+      switch (extname) {
+        case '.xlsx':
+          new FileWriterXlsx(filename).write(APP.rendererData);
+          break;
+        default: // assume tmf / json
+          APP.rendererData.currentFile = filename;
+          new FileWriterTmf(filename).write(APP.rendererData);
+      }
     }
   }
 

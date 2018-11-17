@@ -71,5 +71,33 @@ const TEXTS = {
     en: 'Analyze',
     de: 'Daten-Analyse'
   },
+  'menu-file-export-excel': {
+    en: 'Export Excel',
+    de: 'Exporieren Excel'
+  },
+  'open-things': {
+    en: 'Open things ...',
+    de: 'Öffne Sachen ...'
+  },
+  'save-things-as': {
+    en: 'Save things as ...',
+    de: 'Speichern unter ...'
+  },
+  'export-things-as-excel': {
+    en: 'Export things as Excel-File ...',
+    de: 'Exportiere Sachen als Excel-Datei ...'
+  },
+  'excel-files': {
+    en: 'Excel-Files',
+    de: 'Excel-Dateien'
+  },
+  'things-manager-files': {
+    en: 'Things-Manager-Files',
+    de: 'Things-Manager-Dateien'
+  },
+  'all-files': {
+    en: 'All Files',
+    de: 'Alle Dateien'
+  },
 };
 module.exports = TEXTS;

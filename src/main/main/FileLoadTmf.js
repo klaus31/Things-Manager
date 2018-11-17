@@ -1,14 +1,15 @@
 const {dialog, win} = require('electron');
 const daoThingFile = require('./DaoThingFile');
+const ml = require('./MultiLanguage');
 
 class FileLoadTmf {
   load() {
     const options = {
-      title: 'Open things ...', // TODO Multi-Language
+      title: ml.get('open-things'),
       properties: ['openFile'],
       filters: [
-        {name: 'Things-Manager-Files', extensions: ['tmf']},
-        {name: 'All Files', extensions: ['*']}
+        {name: ml.get('things-manager-files'), extensions: ['tmf']},
+        {name: ml.get('all-files'), extensions: ['*']}
       ],
     };
     dialog.showOpenDialog(win, options, (f) => !f || daoThingFile.load(f[0]));

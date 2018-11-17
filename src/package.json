@@ -20,7 +20,8 @@
     "sortablejs": "1.7.0",
     "vuedraggable": "2.16.0",
     "handlebars": "4.0.12",
-    "format-number": "3.0.0"
+    "format-number": "3.0.0",
+    "node-excel-export": "1.4.4"
   },
   "devDependencies": {
     "electron": "3.0.2",

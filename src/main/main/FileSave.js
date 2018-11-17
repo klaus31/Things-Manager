@@ -1,14 +1,25 @@
 const {dialog, win} = require('electron');
 const daoThingFile = require('./DaoThingFile');
+const ml = require('./MultiLanguage');
 
 class FileSave {
 
   saveAs() {
     const options = {
-      title: 'Save things as ...', // TODO Multi-Language
+      title: ml.get('save-things-as'),
       filters: [
-        {name: 'Things-Manager-Files', extensions: ['tmf']},
-        {name: 'All Files', extensions: ['*']}
+        {name: ml.get('things-manager-files'), extensions: ['tmf']},
+        {name: ml.get('all-files'), extensions: ['*']}
+      ],
+    };
+    dialog.showSaveDialog(win, options, daoThingFile.persist);
+  }
+
+  exportAsExcel() {
+    const options = {
+      title: ml.get('export-things-as-excel'),
+      filters: [
+        {name: ml.get('excel-files'), extensions: ['xlsx']}
       ],
     };
     dialog.showSaveDialog(win, options, daoThingFile.persist);
