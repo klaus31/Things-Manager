@@ -1,4 +1,3 @@
-import Vue from "../../../../node_modules/vue/dist/vue.esm.browser.js";
 Vue.component('tm-input-float', {
   props: ['content', 'actions', 'type', 'autoselect', 'autofocus'],
   methods: {

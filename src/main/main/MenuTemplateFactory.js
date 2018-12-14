@@ -56,6 +56,15 @@ module.exports =
               type: 'separator'
             },
             {
+              label: ml.get('menu-file-export-excel'),
+              click() {
+                ctrlFileSave.exportAsExcel();
+              }
+            },
+            {
+              type: 'separator'
+            },
+            {
               role: 'quit',
               label: ml.get('menu-file-quit'),
               accelerator: 'CmdOrCtrl+Q',

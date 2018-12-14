@@ -1,4 +1,4 @@
-import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
+
 import {ml} from './../config/MultiLanguage.js';
 import {projectListener} from '../shared/ProjectListener.js';
 import {escapeActionStack} from "../shared/EscapeActionStack.js";
@@ -19,6 +19,9 @@ const vueEnlargedThingEditable = new Vue({
     },
     ml_iZ4l8dJ2jBTbd7Ja: function () {
       return this.ml.get('iZ4l8dJ2jBTbd7Ja');
+    },
+    preselections: function() {
+      return this.thing.preselections;
     }
   },
   methods: {

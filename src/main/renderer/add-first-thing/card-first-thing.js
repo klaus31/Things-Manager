@@ -1,4 +1,4 @@
-import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
+
 import './../shared/html/v-colors.js';
 import './../shared/html/v-autofocus.js';
 import './../shared/html/tm-button.js';

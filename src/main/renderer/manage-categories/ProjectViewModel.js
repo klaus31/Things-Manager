@@ -1,20 +1,20 @@
 import {ManagedCategory_CategoryViewModel} from "./CategoryViewModel.js";
 import {Category} from "../shared/data/model/Category";
 import {projectListener} from "../shared/ProjectListener.js";
+import {APP} from "../config/begin-config";
 
 export class ManagedCategory_ProjectViewModel {
 
   constructor(app) {
     this._shownCategories = [];
-    app.project.categories.forEach(category => this._shownCategories.push(new ManagedCategory_CategoryViewModel(category)));
+    app.project.categories.forEach(category => this._shownCategories.push(new ManagedCategory_CategoryViewModel(category, app.project.categories.length > 1)));
     this._app = app;
   }
 
   addNewCategory() {
     const dataCategory = new Category();
     this._app.project.categories.push(dataCategory);
-    const categoryViewModel = new ManagedCategory_CategoryViewModel(dataCategory);
-    categoryViewModel.toggleLock();
+    const categoryViewModel = new ManagedCategory_CategoryViewModel(dataCategory, false);
     this._shownCategories.push(categoryViewModel);
     projectListener.fire('new-category', dataCategory);
   }

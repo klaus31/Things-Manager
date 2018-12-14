@@ -1,5 +1,5 @@
 export const TEXTS_CONFIG = {
-  '0+Jhdv38B5t0u8zb': {
+  '0+Jhdv38B5t0u8zb': { // FIXME confirm for this message pops up 2 times
     en: 'Changes made gets lost!',
     de: 'Vorgenommene Änderungen gehen verloren!'
   },
@@ -23,29 +23,53 @@ export const TEXTS_CONFIG = {
     en: 'Click to descripe photo',
     de: 'Klicken, um Foto zu beschreiben'
   },
+  'yAhSlELknu4PEP_Q': {
+    en: 'Seconds',
+    de: 'Sekunden'
+  },
+  '8BysBIgprws5j0mj': {
+    en: 'Minutes',
+    de: 'Minuten'
+  },
+  'es3dHoiqqsVAU1UU': {
+    en: 'Hours',
+    de: 'Stunden'
+  },
+  'cNq_WbZk41W1v5bh': {
+    en: 'Days',
+    de: 'Tage'
+  },
+  '3mJsJKJcNbTubmxp': {
+    en: 'Weeks',
+    de: 'Wochen'
+  },
+  '3kFRBjbRgOP2coGI': {
+    en: 'Years',
+    de: 'Jahre'
+  },
   'iFUxPvHD6ndSyQfg': {
-    en: '',
-    de: ''
+    en: 'Second',
+    de: 'Sekunde'
   },
   'kSfN8mynH2cOyP6x': {
-    en: '',
-    de: ''
+    en: 'Minute',
+    de: 'Minute'
   },
   'aonvBsOdm6dxHNlh': {
-    en: '',
-    de: ''
+    en: 'Hour',
+    de: 'Stunde'
   },
   'MTHYzuF/s67fvTbA': {
-    en: '',
-    de: ''
+    en: 'Day',
+    de: 'Tag'
   },
   'omBj5s5av93OqWHd': {
-    en: '',
-    de: ''
+    en: 'Week',
+    de: 'Woche'
   },
   '670jEjTWiwqx10HN': {
-    en: '',
-    de: ''
+    en: 'Year',
+    de: 'Jahr'
   },
   'GnsROll3aV7v1wk4': {
     en: '',

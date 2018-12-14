@@ -120,48 +120,24 @@ export const TEXTS_SHARED = {
     de: 'Jahr'
   },
   'fz5x361KrtRjhR+R': {
-    en: '',
-    de: ''
+    en: 'Properties with Preselection',
+    de: 'Eigenschaften mit Vorauswahl'
   },
   'WEEuIfOm2fnxEPOH': {
-    en: '',
-    de: ''
+    en: 'Name of Property',
+    de: 'Name der Eigenschaft'
   },
   'F5Flp6gS0Y86f3xY': {
-    en: '',
-    de: ''
+    en: 'Options of {1}',
+    de: 'Mögliche Werte für {1}'
   },
   'V0hkvLhWwDa5Aw21': {
-    en: '',
-    de: ''
+    en: 'Define properties with specific options for {1}. But be careful: No possibility yet to revert it.',
+    de: 'Für {1} lassen sich Eigenschaften definieren mit festen Werten. Vorsicht: Lässt sich nicht rückgängig machen.'
   },
   'EPgaMSgGzMNqZwuJ': {
-    en: '',
-    de: ''
-  },
-  'yAhSlELknu4PEP/Q': {
-    en: '',
-    de: ''
-  },
-  '8BysBIgprws5j0mj': {
-    en: '',
-    de: ''
-  },
-  'es3dHoiqqsVAU1UU': {
-    en: '',
-    de: ''
-  },
-  'cNq/WbZk41W1v5bh': {
-    en: '',
-    de: ''
-  },
-  '3mJsJKJcNbTubmxp': {
-    en: '',
-    de: ''
-  },
-  '3kFRBjbRgOP2coGI': {
-    en: '',
-    de: ''
+    en: 'Time Period',
+    de: 'Zeitraum'
   },
   'WnepJHQ1WOWzvmdp': {
     en: '',

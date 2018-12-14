@@ -1,4 +1,4 @@
-import Vue from "../../../node_modules/vue/dist/vue.esm.browser.js";
+
 import {DataTypeValueUtil} from "../shared/data/DataTypeValueUtil";
 
 Vue.component('card-analyze-things-rating', {

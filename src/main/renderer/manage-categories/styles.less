@@ -2,6 +2,7 @@
   .card {
     td {
       width: 50%;
+      vertical-align: top;
     }
     &.readonly {
       .buttons {
@@ -9,6 +10,16 @@
       }
       &:hover .buttons {
         visibility: visible;
+      }
+    }
+  }
+  .sortables {
+    -webkit-user-select: none;
+    cursor: all-scroll;
+    p {
+      margin: 2px 5px;
+      &:before {
+        content: "- "
       }
     }
   }

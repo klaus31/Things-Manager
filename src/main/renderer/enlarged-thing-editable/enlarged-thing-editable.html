@@ -21,9 +21,12 @@
           <!--XXX so much code in ":actions" for a workaround for v-model :(-->
           <tm-input :type="property.type" :content="property.value" :actions="{onChange: value => property.value = value}"></tm-input>
         </td>
-        <td class="input"><select v-model="property.type">
-          <option v-for="option in property.datatypeOptions" :value="option.value">{{option.label}}</option>
-        </select></td>
+        <td class="input">
+          <select v-model="property.type">
+            <option v-for="option in property.datatypeOptions" :value="option.value">{{option.label}}</option>
+            <option v-for="preselection in preselections" :value="preselection.type">{{preselection.kind}}</option>
+          </select>
+        </td>
         <td class="input buttons">
           <tm-button @click="thing.cloneProperty(property)" icon="duplicate" :title="ml_aSawO4UuPSIxZpQK"></tm-button>
           <tm-button @click="thing.deleteProperty(property)" icon="trash" :title="ml_5IwOpns5w1FNb4xj"></tm-button>

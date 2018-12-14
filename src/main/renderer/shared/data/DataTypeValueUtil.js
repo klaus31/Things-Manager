@@ -1,6 +1,7 @@
 import {ml} from './../../config/MultiLanguage.js';
 import {Geodata} from "./model/Geodata.js";
 import {Rating} from "./model/Rating";
+import {preselectionValueService} from "./PreselectionValueService";
 
 export class DataTypeValueUtil {
 
@@ -8,6 +9,7 @@ export class DataTypeValueUtil {
   }
 
   static getInitValueOfType(type) {
+    if (type.startsWith('preselection')) return preselectionValueService.findFirstOf(type);
     switch (type) {
       case 'date':
       case 'time':
@@ -17,7 +19,8 @@ export class DataTypeValueUtil {
         return moment().format();
       case 'number':
       case 'year':
-        return 0;
+      case 'timeperiod':
+        return {years: 0, days: 0, hours: 0, minutes: 0, seconds: 0};
       case 'range':
       case 'rating':
       case 'float':
@@ -55,6 +58,7 @@ export class DataTypeValueUtil {
   }
 
   static valueCompatible(type, value) {
+    if (type.startsWith('preselection')) return false;
     switch (type) {
       case 'date':
       case 'time':
@@ -69,6 +73,8 @@ export class DataTypeValueUtil {
       case 'euro':
       case 'dollar':
         return !isNaN(value);
+      case 'timeperiod':
+        return typeof value === 'object' && value.years;
       case 'rating':
         return Rating.isValidValue(value);
       case 'color':
@@ -89,6 +95,7 @@ export class DataTypeValueUtil {
     colors.colorText = colors.colorText || 'black';
     colors.colorBackground = colors.colorBackground || 'white';
     let geoURL;
+
     function getStars(count) {
       let i = 0;
       let result = '';
@@ -100,6 +107,8 @@ export class DataTypeValueUtil {
       }
       return result;
     }
+
+    if (type && type.startsWith('preselection')) return preselectionValueService.valueOf(content);
 
     switch (type) {
       case 'time':
@@ -121,6 +130,8 @@ export class DataTypeValueUtil {
         return ml.countrySpecificNumberFormat(content, 2) + ' €';
       case 'dollar':
         return ml.countrySpecificNumberFormat(content, 2) + ' $';
+      case 'timeperiod':
+        return ml.getTimePeriod(content);
       case 'checkbox':
         if (format === 'html') {
           let vm = {fillColor: colors.colorBackground, strokeColor: colors.colorText};

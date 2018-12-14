@@ -1,4 +1,3 @@
-import Vue from "../../../../node_modules/vue/dist/vue.esm.browser.js";
 import {Geodata} from "../data/model/Geodata.js";
 import "./v-autofocus.js";
 import "./v-autoselect.js";

@@ -69,12 +69,12 @@ export const TEXTS_MANAGE_THINGS = {
     de: 'Optionen'
   },
   'Xt7O6buuEhoCNUE1': {
-    en: 'Sort by Key-Attribute (A-Z)',
-    de: 'Sortierung: Schlüssel Eigenschaft (A-Z)'
+    en: 'Sort A-Z',
+    de: 'Sortierung A-Z'
   },
   '6RSrfDDH2dz5iOEf': {
-    en: 'Sort by Key-Attribute (Z-A)',
-    de: 'Sortierung: Schlüssel Eigenschaft (Z-A)'
+    en: 'Sort Z-A',
+    de: 'Sortierung Z-A'
   },
   'KbunXNar7QTA1nZb': {
     en: 'Manage Categories',
